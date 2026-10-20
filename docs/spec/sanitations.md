@@ -53,6 +53,8 @@ These changes are done in order to improve the overall usability, and to address
 
 10. Changed the `messages` property of `ConversationsRepliesResponse`, the `items` property of `ReactionsListResponse` and `StarsListResponse`, and the `ids` and `excluded_ids` properties of `ResourcesObj` from arrays of arrays to arrays. The original specification uses `items` with a list of schemas inside an array, which resulted in a nested array, while the Slack API returns a flat array.
 
+11. Made the `thread_ts`, `reply_count` and `subscribed` properties optional in the first (parent message) variant of the `messages` items of `ConversationsRepliesResponse`. When the requested message has no replies, the Slack API returns it as an ordinary message without these properties, which could not be bound to either variant.
+
 ## OpenAPI cli command
 
 The following command was used to generate the Ballerina client from the OpenAPI specification. The command should be executed from the repository root directory.

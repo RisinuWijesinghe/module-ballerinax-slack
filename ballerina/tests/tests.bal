@@ -93,3 +93,14 @@ function testGetUserProfiles() returns error? {
     UsersProfileGetResponse response = check slack->/users\.profile\.get();
     test:assertTrue(response.ok, "The ok attribute should be true");
 }
+
+@test:Config {
+    groups: ["mock_tests"]
+}
+function testGetRepliesOfMessageWithoutThread() returns error? {
+    ConversationsRepliesResponse response = check slack->/conversations\.replies(channel = "D0C3BBBA890", ts = 1792462400.691309d);
+    test:assertTrue(response.ok, "The ok attribute should be true");
+    test:assertEquals(response.messages.length(), 1, "Only the requested message should be returned");
+    test:assertEquals(response.messages[0].text, "A message without replies", "The message text is not equal to the expected value");
+    test:assertEquals(response.messages[0]?.thread_ts, (), "A message without replies should not have a thread_ts");
+}

@@ -223,6 +223,26 @@ http:Service mockAPI = service object {
             email: "adib@wso2.com"
         }
     };
+
+    # Get Conversation Replies
+    #
+    # + return - A message that has no replies, which Slack returns without thread fields
+    resource isolated function get conversations\.replies() returns json => {
+        "ok": true,
+        "messages": [
+            {
+                "user": "U0C3F40S9EG",
+                "type": "message",
+                "ts": "1792462400.691309",
+                "bot_id": "B0C6NHTEXFY",
+                "app_id": "A0C7HPSETU0",
+                "text": "A message without replies",
+                "team": "T0C39FE0MFG",
+                "blocks": []
+            }
+        ],
+        "has_more": false
+    };
 };
 
 function init() returns error? {

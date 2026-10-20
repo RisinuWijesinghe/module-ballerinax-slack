@@ -23400,7 +23400,7 @@
             "type" : "array",
             "items" : {
               "anyOf" : [ {
-                "required" : [ "reply_count", "subscribed", "text", "thread_ts", "ts", "type", "user" ],
+                "required" : [ "text", "ts", "type", "user" ],
                 "type" : "object",
                 "properties" : {
                   "last_read" : {

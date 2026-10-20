@@ -3647,7 +3647,7 @@ public type AdminTeamsSettingsSetIconBody record {
 
 # Schema for successful response from conversations.replies method
 public type ConversationsRepliesResponse record {|
-    (record {|TsDef last_read?; TsDef latest_reply?; int reply_count; UserIdDef[] reply_users?; int reply_users_count?; TeamDef source_team?; boolean subscribed; TeamDef team?; string text; TsDef thread_ts; TsDef ts; string 'type; int unread_count?; UserIdDef user; UserProfileShortObj user_profile?; TeamDef user_team?;|}|record {|boolean is_starred?; UserIdDef parent_user_id; TeamDef source_team?; TeamDef team?; string text; TsDef thread_ts; TsDef ts; string 'type; UserIdDef user; UserProfileShortObj user_profile?; TeamDef user_team?;|})[] messages;
+    (record {|TsDef last_read?; TsDef latest_reply?; int reply_count?; UserIdDef[] reply_users?; int reply_users_count?; TeamDef source_team?; boolean subscribed?; TeamDef team?; string text; TsDef thread_ts?; TsDef ts; string 'type; int unread_count?; UserIdDef user; UserProfileShortObj user_profile?; TeamDef user_team?;|}|record {|boolean is_starred?; UserIdDef parent_user_id; TeamDef source_team?; TeamDef team?; string text; TsDef thread_ts; TsDef ts; string 'type; UserIdDef user; UserProfileShortObj user_profile?; TeamDef user_team?;|})[] messages;
     @jsondata:Name {value: "has_more"}
     boolean hasMore?;
     OkTrueDef ok;
