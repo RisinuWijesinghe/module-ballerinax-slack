@@ -38,7 +38,9 @@ public type NilBotIdSetWhenDisplayAsBotIsFalse anydata?;
 
 # Schema for successful response from usergroups.users.list method
 public type UsergroupsUsersListResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # IDs of the members of the user group
     UserIdDef[] users;
 |};
 
@@ -72,10 +74,14 @@ public type DeprecationWarningAndPagingStyleTogether record {|
 
 # Schema for successful response from users.profile.set method
 public type UsersProfileSetResponse record {|
+    # Profile of the user
     UserProfileObj profile;
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # New email address of the user that is awaiting confirmation
     @jsondata:Name {value: "email_pending"}
     string emailPending?;
+    # Username of the user
     string username;
 |};
 
@@ -99,7 +105,9 @@ public type FilesListQueries record {
     decimal tsTo?;
     # Filter files appearing in a specific channel, indicated by its ID
     string channel?;
+    # Number of items to return per page
     string count?;
+    # Page number of the results to return
     string page?;
     # Filter files created by a single user
     string user?;
@@ -122,18 +130,25 @@ public type '200200AnyOf112 record {|
 
 # Schema for successful response from dnd.info method
 public type DndInfoResponse record {|
+    # Unix timestamp when the next scheduled Do Not Disturb period ends
     @jsondata:Name {value: "next_dnd_end_ts"}
     int nextDndEndTs;
+    # Unix timestamp when the current snooze ends
     @jsondata:Name {value: "snooze_endtime"}
     int snoozeEndtime?;
+    # Whether the user has a Do Not Disturb schedule
     @jsondata:Name {value: "dnd_enabled"}
     boolean dndEnabled;
+    # Unix timestamp when the next scheduled Do Not Disturb period starts
     @jsondata:Name {value: "next_dnd_start_ts"}
     int nextDndStartTs;
+    # Whether the user has snoozed notifications
     @jsondata:Name {value: "snooze_enabled"}
     boolean snoozeEnabled?;
+    # Number of seconds until the current snooze ends
     @jsondata:Name {value: "snooze_remaining"}
     int snoozeRemaining?;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -156,6 +171,7 @@ public type UsersDeletePhotoBody record {
 
 # Schema for successful response of admin.conversations.unarchive
 public type AdminConversationsUnarchiveResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -197,13 +213,17 @@ public type RtmConnectResponseTeam record {|
 
 # Schema for successful response of chat.delete method
 public type ChatDeleteResponse record {|
+    # ID of the conversation
     ChannelDef channel;
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # Timestamp of the message
     TsDef ts;
 |};
 
 # Schema for successful response of admin.conversations.archive
 public type AdminConversationsArchiveResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -219,14 +239,18 @@ public type AdminTeamsSettingsSetDiscoverabilityBody record {
 
 # Schema for successful response from chat.postEphemeral method
 public type ChatPostEphemeralResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # Timestamp of the ephemeral message
     @jsondata:Name {value: "message_ts"}
     TsDef messageTs;
 |};
 
 # Schema for successful response from usergroups.enable method
 public type UsergroupsEnableResponse record {|
+    # The user group
     SubteamObj usergroup;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -320,7 +344,9 @@ public type TeamProfileFieldObj record {|
 
 # Schema for successful response from auth.revoke method
 public type AuthRevokeResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # Whether the token was revoked
     boolean revoked;
 |};
 
@@ -384,6 +410,7 @@ public type TeamBillableInfoQueries record {
 
 # Schema for successful response from apps.uninstall method
 public type AppsUninstallResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -439,18 +466,23 @@ public type TeamObj record {|
 
 # Schema for successful response from usergroups.create method
 public type UsergroupsCreateResponse record {|
+    # The user group
     SubteamObj usergroup;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
 # Schema for successful response from pins.remove method
 public type PinsRemoveResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
 # Schema for successful response of admin.conversations.create
 public type AdminConversationsCreateResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # ID of the created conversation
     @jsondata:Name {value: "channel_id"}
     ChannelIdDef channelId?;
 |};
@@ -612,8 +644,11 @@ public type ConversationObject record {|
 
 # Schema for successful response from team.integrationLogs method
 public type TeamIntegrationLogsResponse record {|
+    # Pagination details of the results
     PagingObj paging;
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # Integration activity log entries
     @constraint:Array {minLength: 1}
     TeamIntegrationLogsResponseLogs[] logs;
 |};
@@ -627,6 +662,7 @@ public type AdminConversationsGetConversationPrefsResponsePrefs record {
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse1 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -639,6 +675,7 @@ public type ChannelObjTopic record {|
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse2 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -687,61 +724,77 @@ public type ConversationsSetPurposeBody record {
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse9 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # Schema for successful response files.delete method
 public type FilesDeleteResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
 # Schema for successful response from chat.scheduledMessages.list method
 public type ChatScheduledMessagesListResponse record {|
+    # The scheduled messages
     @jsondata:Name {value: "scheduled_messages"}
     ChatScheduledMessagesListResponseScheduledMessages[] scheduledMessages;
+    # Metadata about the response, including the cursor for the next page of results
     @jsondata:Name {value: "response_metadata"}
     ChatScheduledMessagesListResponseResponseMetadata responseMetadata;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse7 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # Schema for successful response of chat.scheduleMessage method
 public type ChatScheduleMessageResponse record {|
+    # ID of the scheduled message
     @jsondata:Name {value: "scheduled_message_id"}
     string scheduledMessageId;
+    # ID of the conversation
     ChannelDef channel;
+    # The message
     ChatScheduleMessageResponseMessage message;
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # Unix timestamp when the message is scheduled to be sent
     @jsondata:Name {value: "post_at"}
     int postAt;
 |};
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse8 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse5 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse6 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse3 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse4 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -756,6 +809,7 @@ public type '200AnyOf1 record {|
 
 # Schema for successful response of admin.conversations.setConversationPrefs
 public type AdminConversationsSetConversationPrefsResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -777,13 +831,20 @@ public type AdminTeamsSettingsSetNameBody record {
 
 # Schema for successful response from files.info method
 public type FilesInfoResponse record {|
+    # ID of the user who last edited the file
     UserIdDef editor?;
+    # Comments on the file
     CommentsObj comments;
+    # The file
     FileObj file;
+    # Pagination details of the results
     PagingObj paging?;
+    # Metadata about the response, including the cursor for the next page of results
     @jsondata:Name {value: "response_metadata"}
     ResponseMetadataObj responseMetadata?;
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # HTML content of the file
     @jsondata:Name {value: "content_html"}
     anydata? contentHtml?;
 |};
@@ -825,64 +886,95 @@ public type AdminEmojiRenameBody record {
 
 # Schema for successful response from users.deletePhoto method
 public type UsersDeletePhotoResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
 # Schema for successful response from users.setPresence method
 public type UsersSetPresenceResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
 # user object for non enterprise type
 public type UserObjAnyOf1 record {|
+    # Color used to display the name of the user
     @constraint:String {pattern: re `^[a-fA-F0-9]{6}$`}
     string color?;
+    # Whether the user has been invited but has not joined yet
     @jsondata:Name {value: "is_invited_user"}
     boolean isInvitedUser?;
+    # Whether the user has two-factor authentication enabled
     @jsondata:Name {value: "has_2fa"}
     boolean has2fa?;
+    # Whether the user is a multi-channel guest
     @jsondata:Name {value: "is_restricted"}
     boolean isRestricted?;
+    # Time zone of the user, such as `America/Los_Angeles`
     UserObjTz[] tz?;
+    # Display name of the time zone of the user
     @jsondata:Name {value: "tz_label"}
     string tzLabel?;
+    # Whether the user is the primary owner of the workspace
     @jsondata:Name {value: "is_primary_owner"}
     boolean isPrimaryOwner?;
+    # Custom profile fields of the user in the workspace
     @jsondata:Name {value: "team_profile"}
     UserObjTeamProfile teamProfile?;
+    # Full name of the user
     @jsondata:Name {value: "real_name"}
     string realName?;
+    # ID of the workspace
     @jsondata:Name {value: "team_id"}
     WorkspaceIdDef teamId?;
+    # Locale of the user, such as `en-US`
     string locale?;
+    # Whether the user is an admin of the workspace
     @jsondata:Name {value: "is_admin"}
     boolean isAdmin?;
+    # Whether the user is an authorized user of the calling app
     @jsondata:Name {value: "is_app_user"}
     boolean isAppUser;
+    # Offset of the time zone of the user from UTC, in seconds
     @jsondata:Name {value: "tz_offset"}
     decimal tzOffset?;
+    # Whether the user belongs to another workspace and shares no conversation visible to the caller
     @jsondata:Name {value: "is_stranger"}
     boolean isStranger?;
+    # Whether the user was deleted and their personal data erased
     @jsondata:Name {value: "is_forgotten"}
     boolean isForgotten?;
+    # ID of the user
     UserIdDef id;
+    # Whether the user is a bot
     @jsondata:Name {value: "is_bot"}
     boolean isBot;
+    # Presence of the user, either `active` or `away`
     string presence?;
+    # Whether the user is a single-channel guest
     @jsondata:Name {value: "is_ultra_restricted"}
     boolean isUltraRestricted?;
+    # Whether the user is an owner of the workspace
     @jsondata:Name {value: "is_owner"}
     boolean isOwner?;
+    # Profile of the user
     UserProfileObj profile;
+    # Whether the user belongs to an external organization
     @jsondata:Name {value: "is_external"}
     boolean isExternal?;
+    # ID of the workspace the user belongs to
     WorkspaceIdDef team?;
+    # Enterprise organization details of the user
     @jsondata:Name {value: "enterprise_user"}
     EnterpriseUserObj enterpriseUser?;
+    # Whether the user has been deactivated
     boolean deleted?;
+    # Type of two-factor authentication the user uses, such as `app` or `sms`
     @jsondata:Name {value: "two_factor_type"}
     string twoFactorType?;
+    # Username of the user
     string name;
+    # Unix timestamp of the last update to the user
     decimal updated;
 |};
 
@@ -902,29 +994,38 @@ public type OAuth2RefreshTokenGrantConfig record {|
 
 # Schema for successful response from reactions.remove method
 public type ReactionsRemoveResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
 # Schema for successful response from chat.deleteScheduledMessage method
 public type ChatDeleteScheduledMessageResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
 # Schema for successful response from conversations.join method
 public type ConversationsJoinResponse record {|
+    # The conversation
     ConversationObj channel;
+    # Warning returned by Slack, such as `already_in_channel`
     string warning?;
+    # Metadata about the response, including the cursor for the next page of results
     @jsondata:Name {value: "response_metadata"}
     ResponseMetadata responseMetadata?;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
 # Schema for successful response conversations.members method
 public type ConversationsMembersResponse record {|
+    # IDs of the members of the conversation
     @constraint:Array {minLength: 1}
     UserIdDef[] members;
+    # Metadata about the response, including the cursor for the next page of results
     @jsondata:Name {value: "response_metadata"}
     ConversationsMembersResponseResponseMetadata responseMetadata;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -981,8 +1082,11 @@ public type MessageObject record {
 
 # Schema for successful response from team.accessLogs method
 public type TeamAccessLogsResponse record {|
+    # Pagination details of the results
     PagingObj paging;
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # Access log entries
     @constraint:Array {minLength: 1}
     TeamAccessLogsResponseLogins[] logins;
 |};
@@ -1064,8 +1168,10 @@ public type AdminAppsRestrictedListQueries record {
     string cursor?;
     # The maximum number of items to return. Must be between 1 - 1000 both inclusive
     int 'limit?;
+    # ID of the workspace
     @http:Query {name: "team_id"}
     string teamId?;
+    # ID of the Enterprise organization
     @http:Query {name: "enterprise_id"}
     string enterpriseId?;
 };
@@ -1085,6 +1191,7 @@ public type EnterpriseUserObj record {|
 
 # Schema for successful response of admin.conversations.convertToPrivate
 public type AdminConversationsConvertToPrivateResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -1104,6 +1211,7 @@ public type AdminConversationsRestrictAccessAddGroupBody record {
 
 # Schema for successful response from chat.unfurl method
 public type ChatUnfurlResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -1137,6 +1245,7 @@ public type SearchMessagesQueries record {
     string query;
     # Pass the number of results you want per "page". Maximum of `100`
     int count?;
+    # Page number of the results to return
     int page?;
     # Return matches sorted by either `score` or `timestamp`
     string sort?;
@@ -1165,6 +1274,7 @@ public type AdminUsersAssignBody record {
 
 # Schema for successful response of admin.conversations.delete
 public type AdminConversationsDeleteResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -1205,6 +1315,7 @@ public type OauthV2AccessQueries record {
 
 # Schema for successful response from pins.add method
 public type PinsAddResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -1219,12 +1330,16 @@ public type ConversationsSetTopicBody record {
 
 # Schema for successful response from users.list method
 public type UsersListResponse record {|
+    # Unix timestamp at which the list was generated
     @jsondata:Name {value: "cache_ts"}
     int cacheTs;
+    # Users of the workspace
     @constraint:Array {minLength: 1}
     UserObj[] members;
+    # Metadata about the response, including the cursor for the next page of results
     @jsondata:Name {value: "response_metadata"}
     ResponseMetadataObj responseMetadata?;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -1261,13 +1376,17 @@ public type BotProfileObjIcons record {|
 public type TeamAccessLogsQueries record {
     # End of time range of logs to include in results (inclusive)
     string before?;
+    # Number of items to return per page
     string count?;
+    # Page number of the results to return
     string page?;
 };
 
 # Schema for successful response conversations.create method
 public type ConversationsCreateResponse record {|
+    # The conversation
     ConversationObj channel;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -1321,24 +1440,32 @@ public type AdminInviteRequestsApprovedListQueries record {
 
 # Schema for successful response conversations.info
 public type ConversationsInfoResponse record {|
+    # The conversation
     ConversationObj channel;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
 # Schema for successful response from bots.info method
 public type BotsInfoResponse record {|
+    # The bot
     BotsInfoResponseBot bot;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
 # Schema for successful response from dnd.setSnooze method
 public type DndSetSnoozeResponse record {|
+    # Unix timestamp when the current snooze ends
     @jsondata:Name {value: "snooze_endtime"}
     int snoozeEndtime;
+    # Whether the user has snoozed notifications
     @jsondata:Name {value: "snooze_enabled"}
     boolean snoozeEnabled;
+    # Number of seconds until the current snooze ends
     @jsondata:Name {value: "snooze_remaining"}
     int snoozeRemaining;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -1393,9 +1520,12 @@ public type RtmConnectQueries record {
 
 # Schema for successful response conversations.close method
 public type ConversationsCloseResponse record {|
+    # Whether the conversation was already closed
     @jsondata:Name {value: "already_closed"}
     boolean alreadyClosed?;
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # `true` if the conversation was already in the requested state and nothing changed
     @jsondata:Name {value: "no_op"}
     boolean noOp?;
 |};
@@ -1416,10 +1546,14 @@ public type AdminUsersSessionInvalidateBody record {
 
 # Schema for successful response from reactions.list method
 public type ReactionsListResponse record {|
+    # Pagination details of the results
     PagingObj paging?;
+    # Metadata about the response, including the cursor for the next page of results
     @jsondata:Name {value: "response_metadata"}
     ResponseMetadataObj responseMetadata?;
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # Items the user reacted to
     (record {|ChannelDef channel; MessageObj message; "message" 'type;|}|record {|FileObj file; "file" 'type;|}|record {|CommentObj comment; FileObj file; "file_comment" 'type;|})[][] items;
 |};
 
@@ -1462,14 +1596,19 @@ public type IconObj record {
 
 # Schema for successful response from dnd.endSnooze method
 public type DndEndSnoozeResponse record {|
+    # Unix timestamp when the next scheduled Do Not Disturb period ends
     @jsondata:Name {value: "next_dnd_end_ts"}
     int nextDndEndTs;
+    # Whether the user has a Do Not Disturb schedule
     @jsondata:Name {value: "dnd_enabled"}
     boolean dndEnabled;
+    # Unix timestamp when the next scheduled Do Not Disturb period starts
     @jsondata:Name {value: "next_dnd_start_ts"}
     int nextDndStartTs;
+    # Whether the user has snoozed notifications
     @jsondata:Name {value: "snooze_enabled"}
     boolean snoozeEnabled;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -1481,9 +1620,13 @@ public type MessageObjIcons record {|
 
 # Schema for successful response of chat.postMessage method
 public type ChatPostMessageResponse record {|
+    # ID of the conversation
     ChannelDef channel;
+    # The message
     MessageObj message;
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # Timestamp of the message
     TsDef ts;
 |};
 
@@ -1522,24 +1665,33 @@ public type AdminConversationsCreateBody record {
 
 # Schema for successful response from users.conversations method. Returned conversation objects do not include `num_members` or `is_member`
 public type UsersConversationsResponse record {
+    # The conversations
     ConversationObj[] channels;
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # Metadata about the response, including the cursor for the next page of results
     UsersConversationsResponseResponseMetadata response_metadata?;
 };
 
 # Schema for successful response from conversations.open method when opening channels, ims, mpims
 public type ConversationsOpenResponse record {|
+    # Whether the conversation was already open
     @jsondata:Name {value: "already_open"}
     boolean alreadyOpen?;
+    # The conversation
     ConversationsOpenResponseChannel[] channel;
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # `true` if the conversation was already in the requested state and nothing changed
     @jsondata:Name {value: "no_op"}
     boolean noOp?;
 |};
 
 # Schema for successful response from conversations.invite method
 public type ConversationsInviteErrorResponse record {|
+    # The conversation
     ConversationObj channel;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -1551,12 +1703,19 @@ public type ApiTestQueries record {
 
 # Generated from users.getPresence with shasum e7251aec575d8863f9e0eb38663ae9dc26655f65
 public type APIMethodUsersGetPresence record {
+    # Whether Slack set the user to away automatically
     boolean auto_away?;
+    # Number of clients the user is connected to Slack with
     int connection_count?;
+    # Unix timestamp of the last activity of the user
     int last_activity?;
+    # Whether the user set themselves to away
     boolean manual_away?;
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # Whether the user is connected to Slack
     boolean online?;
+    # Presence of the user, either `active` or `away`
     string presence;
 };
 
@@ -1648,7 +1807,9 @@ public type ConversationObjTopic record {|
 
 # Schema for successful response from users.info method
 public type UsersInfoResponse record {
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # The user
     UserObj user;
 };
 
@@ -1666,12 +1827,15 @@ public type BotsInfoResponseBot record {|
 
 # Schema for successful response of admin.conversations.rename
 public type AdminConversationsRenameResponse1 record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
 # Schema for successful response from usergroups.disable method
 public type UsergroupsDisableResponse record {|
+    # The user group
     SubteamObj usergroup;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -1719,13 +1883,17 @@ public type ConversationsMembersResponseResponseMetadata record {|
 
 # Schema for successful response from files.list method
 public type FilesListResponse record {|
+    # The files
     FileObj[] files;
+    # Pagination details of the results
     PagingObj paging;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -1810,6 +1978,7 @@ public type AdminAppsApproveBody record {
 
 # Schema for successful response of files.getUploadURLExternal method
 public type FilesGetUploadURLExternalResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
     # URL to send the file contents to with an HTTP POST
     @jsondata:Name {value: "upload_url"}
@@ -1850,9 +2019,11 @@ public type FilesInfoQueries record {
     string cursor?;
     # Specify a file by providing its ID
     string file?;
+    # Number of items to return per page
     string count?;
     # The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached
     int 'limit?;
+    # Page number of the results to return
     string page?;
 };
 
@@ -1872,14 +2043,17 @@ public type AdminAppsApprovedListQueries record {
     string cursor?;
     # The maximum number of items to return. Must be between 1 - 1000 both inclusive
     int 'limit?;
+    # ID of the workspace
     @http:Query {name: "team_id"}
     string teamId?;
+    # ID of the Enterprise organization
     @http:Query {name: "enterprise_id"}
     string enterpriseId?;
 };
 
 # Represents the Queries record for the operation: adminTeamsSettingsInfo
 public type AdminTeamsSettingsInfoQueries record {
+    # ID of the workspace
     @http:Query {name: "team_id"}
     string teamId;
 };
@@ -1891,6 +2065,7 @@ public type SubteamIdDef string;
 
 # Schema for successful response conversations.mark method
 public type ConversationsMarkResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -2045,23 +2220,33 @@ public type FileObj record {|
 
 # Schema for successful response auth.test method
 public type AuthTestResponse record {|
+    # ID of the user
     @jsondata:Name {value: "user_id"}
     UserIdDef userId;
+    # Whether the app is installed on an Enterprise organization
     @jsondata:Name {value: "is_enterprise_install"}
     boolean isEnterpriseInstall?;
+    # Name of the workspace
     string team;
+    # ID of the workspace
     @jsondata:Name {value: "team_id"}
     TeamDef teamId;
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # Name of the user
     string user;
+    # ID of the bot, when the token belongs to a bot
     @jsondata:Name {value: "bot_id"}
     BotIdDef botId?;
+    # URL of the workspace
     string url;
 |};
 
 # Schema for successful response from conversations.setTopic method
 public type ConversationsSetTopicResponse record {|
+    # The conversation
     ConversationObj channel;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -2261,7 +2446,9 @@ public type MessageObjAttachments record {|
 
 # Schema for successful response from users.lookupByEmail method
 public type UsersLookupByEmailResponse record {
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # The user
     UserObj user;
 };
 
@@ -2270,6 +2457,7 @@ public type CommentIdDef string;
 
 # Schema for successful response conversations.archive method
 public type ConversationsArchiveResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -2382,6 +2570,7 @@ public type AdminAppsRequestsListQueries record {
     string cursor?;
     # The maximum number of items to return. Must be between 1 - 1000 both inclusive
     int 'limit?;
+    # ID of the workspace
     @http:Query {name: "team_id"}
     string teamId?;
 };
@@ -2407,7 +2596,9 @@ public type AuthRevokeQueries record {
 
 # Schema for successful response from usergroups.update method
 public type UsergroupsUpdateResponse record {|
+    # The user group
     SubteamObj usergroup;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -2514,9 +2705,11 @@ public type FilesRemoteListQueries record {
 public type ReactionsListQueries record {
     # Parameter for pagination. Set `cursor` equal to the `next_cursor` attribute returned by the previous request's `response_metadata`. This parameter is optional, but pagination is mandatory: the default value simply fetches the first "page" of the collection. See [pagination](/docs/pagination) for more details
     string cursor?;
+    # Number of items to return per page
     int count?;
     # The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached
     int 'limit?;
+    # Page number of the results to return
     int page?;
     # Show reactions made by this user. Defaults to the authed user
     string user?;
@@ -2545,7 +2738,9 @@ public type CommentObj record {|
 
 # Schema for successful response from conversations.setPurpose method
 public type ConversationsSetPurposeResponse record {|
+    # The conversation
     ConversationObj channel;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -2577,7 +2772,9 @@ public type ViewsOpenQueries record {
 
 # Schema for successful response from files.revokePublicURL method
 public type FilesRevokePublicURLResponse record {|
+    # The file
     FileObj file;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -2621,6 +2818,7 @@ public type SubteamObjDeletedBy DeletedByAnyOf1|UserIdDef?;
 
 # Schema for successful response of admin.conversations.invite
 public type AdminConversationsInviteResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -2628,7 +2826,9 @@ public type UserObjTz TzAnyOf1|TzTzAnyOf12?;
 
 # Schema for successful response from users.setPhoto method
 public type UsersSetPhotoResponse record {|
+    # Profile of the user
     UsersSetPhotoResponseProfile profile;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -2637,19 +2837,24 @@ public type AdminConversationsRestrictAccessListGroupsQueries record {
     # The workspace where the channel exists. This argument is required for channels only tied to one workspace, and optional for channels that are shared across an organization
     @http:Query {name: "team_id"}
     string teamId?;
+    # ID of the conversation
     @http:Query {name: "channel_id"}
     string channelId;
 };
 
 # Schema for successful response from conversations.rename method
 public type ConversationsRenameResponse record {|
+    # The conversation
     ConversationObj channel;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
 # Schema for successful response from team.info method
 public type TeamInfoResponse record {|
+    # Details of the workspace
     TeamObj team;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -2676,8 +2881,11 @@ public type FilesRemoteAddBody record {
 
 # Represents the Queries record for the operation: appsEventAuthorizationsList
 public type AppsEventAuthorizationsListQueries record {
+    # Cursor for the next page of results, taken from `next_cursor` of the previous response
     string cursor?;
+    # Maximum number of items to return
     int 'limit?;
+    # Event context received with an event, identifying the authorizations to list
     @http:Query {name: "event_context"}
     string eventContext;
 };
@@ -2689,8 +2897,11 @@ public type AdminConversationsGetConversationPrefsResponsePrefsWhoCanPost record
 
 # Schema for successful response chat.getPermalink
 public type ChatGetPermalinkResponse record {|
+    # ID of the conversation
     ChannelDef channel;
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # Permanent URL of the message
     string permalink;
 |};
 
@@ -2837,6 +3048,7 @@ public type UsersConversationsQueries record {
 
 # Schema for successful response of admin.conversations.disconnectShared
 public type AdminConversationsRenameResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -2844,6 +3056,7 @@ public type ConversationObj InlineArrayItemsConversationObj[];
 
 # Schema for successful response from dialog.open method
 public type DialogOpenResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -2899,6 +3112,7 @@ public type UsersProfileGetQueries record {
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse69 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -2911,31 +3125,37 @@ public type ConversationObjPurpose record {|
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse68 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse67 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse66 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse65 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse64 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse63 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -3027,7 +3247,9 @@ public type AdminTeamsCreateBody record {
 
 # Schema for successful response from users.profile.get method
 public type UsersProfileGetResponse record {|
+    # Profile of the user
     UserProfileObj profile;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -3044,9 +3266,12 @@ public type InlineResponseItems2002 '200AnyOf12|'200200AnyOf122|'200200200AnyOf1
 
 # Schema for successful response from conversations.list method
 public type ConversationsListResponse record {|
+    # The conversations
     ConversationObj[] channels;
+    # Metadata about the response, including the cursor for the next page of results
     @jsondata:Name {value: "response_metadata"}
     ConversationsListResponseResponseMetadata responseMetadata?;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -3093,11 +3318,13 @@ public type AdminConversationsRenameBody record {
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse51 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse50 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -3128,6 +3355,7 @@ public type CallsParticipantsRemoveBody record {
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse48 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -3136,21 +3364,25 @@ public type FileIdDef string;
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse47 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse44 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse43 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse42 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -3244,11 +3476,13 @@ public type ConversationMPIMObject record {|
 
 # Schema for successful response from conversations.unarchive method
 public type ConversationsUnarchiveResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse41 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -3265,15 +3499,20 @@ public type AdminConversationsGetTeamsQueries record {
 
 # Schema for successful response of admin.conversations.search
 public type AdminConversationsSearchResponse record {|
+    # Cursor for the next page of results; empty when there are no more results
     @jsondata:Name {value: "next_cursor"}
     string nextCursor;
+    # Conversations that match the search
     ChannelObj[] channels;
 |};
 
 # Schema for successful response from chat.meMessage method
 public type ChatMeMessageResponse record {|
+    # ID of the conversation
     ChannelDef channel?;
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # Timestamp of the message
     TsDef ts?;
 |};
 
@@ -3291,6 +3530,7 @@ public type BotProfileObj record {|
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse49 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -3309,16 +3549,19 @@ public type AdminConversationsDeleteBody record {
 
 # Schema for successful response from reactions.add method
 public type ReactionsAddResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse61 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse60 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -3355,11 +3598,13 @@ public type ConversationsMarkBody record {
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse59 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse58 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -3367,6 +3612,7 @@ public type LatestAnyOf23 anydata?;
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse57 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -3374,6 +3620,7 @@ public type LatestAnyOf22 anydata?;
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse56 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -3381,11 +3628,13 @@ public type LatestAnyOf21 anydata?;
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse55 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse54 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -3396,11 +3645,13 @@ public type RtmConnectResponseSelf record {|
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse53 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse52 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -3435,15 +3686,20 @@ public type AdminTeamsSettingsSetIconBody record {
 
 # Schema for successful response from conversations.replies method
 public type ConversationsRepliesResponse record {|
+    # The parent message followed by its replies
     (record {|TsDef last_read?; TsDef latest_reply?; int reply_count; UserIdDef[] reply_users?; int reply_users_count?; TeamDef source_team?; boolean subscribed; TeamDef team?; string text; TsDef thread_ts; TsDef ts; string 'type; int unread_count?; UserIdDef user; UserProfileShortObj user_profile?; TeamDef user_team?;|}|record {|boolean is_starred?; UserIdDef parent_user_id; TeamDef source_team?; TeamDef team?; string text; TsDef thread_ts; TsDef ts; string 'type; UserIdDef user; UserProfileShortObj user_profile?; TeamDef user_team?;|})[][] messages;
+    # Whether more results are available
     @jsondata:Name {value: "has_more"}
     boolean hasMore?;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
 # Schema for successful response of files.completeUploadExternal method
 public type FilesCompleteUploadExternalResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # The files
     FileObj[] files;
 |};
 
@@ -3503,6 +3759,7 @@ public type ChatPostMessageBody record {
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse26 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -3511,11 +3768,13 @@ public type AppIdDef string;
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse25 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse24 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -3532,21 +3791,25 @@ public type ChatDeleteScheduledMessageBody record {
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse23 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse22 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse21 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse20 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -3571,17 +3834,21 @@ public type UsergroupsCreateBody record {
 
 # Schema for successful response from usergroups.users.update method
 public type UsergroupsUsersUpdateResponse record {|
+    # The user group
     SubteamObj usergroup;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse29 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse28 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -3594,6 +3861,7 @@ public type ConversationObjPurpose1 record {|
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse27 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -3702,6 +3970,7 @@ public type EnterpriseUserIdDef string;
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse40 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -3728,16 +3997,19 @@ public type '200200200AnyOf1223 record {|
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse37 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse36 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse35 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -3746,10 +4018,12 @@ public type TeamIntegrationLogsQueries record {
     # Filter logs to this service. Defaults to all logs
     @http:Query {name: "service_id"}
     string serviceId?;
+    # Number of items to return per page
     string count?;
     # Filter logs with this change type. Defaults to all logs
     @http:Query {name: "change_type"}
     string changeType?;
+    # Page number of the results to return
     string page?;
     # Filter logs to this Slack app. Defaults to all logs
     @http:Query {name: "app_id"}
@@ -3760,6 +4034,7 @@ public type TeamIntegrationLogsQueries record {
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse34 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -3769,22 +4044,26 @@ public type AdminTeamsOwnersListQueries record {
     string cursor?;
     # The maximum number of items to return. Must be between 1 - 1000 both inclusive
     int 'limit?;
+    # ID of the workspace
     @http:Query {name: "team_id"}
     string teamId;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse33 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse32 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse31 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -3792,12 +4071,15 @@ public type AutoTypeAutoTypeAnyOf12 "owner"|"admin";
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse30 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # Schema for successful response of admin.conversations.getConversationPrefs
 public type AdminConversationsGetConversationPrefsResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # Preferences of the conversation
     AdminConversationsGetConversationPrefsResponsePrefs prefs?;
 |};
 
@@ -3814,6 +4096,7 @@ public type AdminTeamsAdminsListQueries record {
     string cursor?;
     # The maximum number of items to return
     int 'limit?;
+    # ID of the workspace
     @http:Query {name: "team_id"}
     string teamId;
 };
@@ -3822,6 +4105,7 @@ public type InlineResponseItems200 '200AnyOf1|'200200AnyOf12;
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse39 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -3829,15 +4113,21 @@ public type SubteamObjAutoType AutoTypeAnyOf1|AutoTypeAutoTypeAnyOf12?;
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse38 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # Schema for successful response of chat.update method
 public type ChatUpdateResponse record {|
+    # ID of the conversation
     string channel;
+    # Text of the updated message
     string text;
+    # The message
     MessageObject message;
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # Timestamp of the message
     string ts;
 |};
 
@@ -3881,16 +4171,22 @@ public type AdminConversationsGetConversationPrefsQueries record {
 
 # Schema for successful response api.test method
 public type ApiTestResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
     record {}...;
 |};
 
 # Schema for successful response from migration.exchange method
 public type MigrationExchangeResponse record {
+    # ID of the Enterprise organization
     string enterprise_id;
+    # User IDs that could not be mapped
     string[] invalid_user_ids?;
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # ID of the workspace
     TeamDef team_id;
+    # Map of the given user IDs to their corresponding IDs
     record {} user_id_map?;
 };
 
@@ -3902,7 +4198,9 @@ public type TeamInfoQueries record {
 
 # Schema for successful response from usergroups.list method
 public type UsergroupsListResponse record {|
+    # User groups of the workspace
     SubteamObj[] usergroups;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -3918,16 +4216,22 @@ public type ChatDeleteBody record {
 
 # Schema for successful response from conversations.history method
 public type ConversationsHistoryResponse record {|
+    # Number of channel actions in the conversation
     @jsondata:Name {value: "channel_actions_count"}
     int channelActionsCount;
+    # Number of pinned items in the conversation
     @jsondata:Name {value: "pin_count"}
     int pinCount;
+    # Messages of the conversation
     @constraint:Array {minLength: 1}
     MessageObj[] messages;
+    # Timestamp of the last channel action in the conversation
     @jsondata:Name {value: "channel_actions_ts"}
     ConversationsHistoryResponseChannelActionsTs[] channelActionsTs;
+    # Whether more results are available
     @jsondata:Name {value: "has_more"}
     boolean hasMore;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -3949,43 +4253,52 @@ public type UsersSetPhotoBody record {
 
 # Schema for successful response from dnd.endDnd method
 public type DndEndDndResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse15 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse14 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse13 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # Schema for successful response from conversations.leave method
 public type ConversationsLeaveResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # `true` if the user was not a member of the conversation
     @jsondata:Name {value: "not_in_channel"}
     true notInChannel?;
 |};
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse12 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse11 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse10 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -4021,29 +4334,37 @@ public type ChatScheduledMessagesListQueries record {
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse19 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # Schema for successful response from rtm.connect method
 public type RtmConnectResponse record {|
+    # Details of the authenticated user
     RtmConnectResponseSelf self;
+    # Details of the workspace
     RtmConnectResponseTeam team;
+    # `true` if the request succeeded
     OkTrueDef ok;
+    # WebSocket URL to connect to
     string url;
 |};
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse18 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse17 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse16 record {
+    # `true` if the request succeeded
     OkTrueDef ok;
 };
 
@@ -4070,10 +4391,13 @@ public type TeamObjDiscoverable DiscoverableAnyOf1|DiscoverableDiscoverableAnyOf
 
 # Schema for successful response of admin.conversations.getTeams
 public type AdminConversationsGetTeamsResponse record {|
+    # IDs of the workspaces the conversation is connected to
     @jsondata:Name {value: "team_ids"}
     TeamDef[] teamIds;
+    # Metadata about the response, including the cursor for the next page of results
     @jsondata:Name {value: "response_metadata"}
     AdminConversationsGetTeamsResponseResponseMetadata responseMetadata?;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -4105,57 +4429,86 @@ public type UserObjUserObjAnyOf12 record {|
     # refercing to bug: https://jira.tinyspeck.com/browse/EVALUE-1559
     @constraint:String {pattern: re `^([a-fA-F0-9]{6})?$`}
     string color?;
+    # Whether the user has two-factor authentication enabled
     @jsondata:Name {value: "has_2fa"}
     boolean has2fa?;
+    # Whether the user is a multi-channel guest
     @jsondata:Name {value: "is_restricted"}
     boolean isRestricted?;
+    # Time zone of the user, such as `America/Los_Angeles`
     UserObjTz1[] tz?;
+    # Display name of the time zone of the user
     @jsondata:Name {value: "tz_label"}
     string tzLabel?;
+    # Whether the user is the primary owner of the workspace
     @jsondata:Name {value: "is_primary_owner"}
     boolean isPrimaryOwner?;
+    # Custom profile fields of the user in the workspace
     @jsondata:Name {value: "team_profile"}
     UserObjTeamProfile1 teamProfile?;
+    # Full name of the user
     @jsondata:Name {value: "real_name"}
     string realName?;
+    # ID of the workspace
     @jsondata:Name {value: "team_id"}
     WorkspaceIdDef teamId?;
+    # Locale of the user, such as `en-US`
     string locale?;
+    # Whether the user is an admin of the workspace
     @jsondata:Name {value: "is_admin"}
     boolean isAdmin?;
+    # Whether the user is an authorized user of the calling app
     @jsondata:Name {value: "is_app_user"}
     boolean isAppUser;
+    # Offset of the time zone of the user from UTC, in seconds
     @jsondata:Name {value: "tz_offset"}
     decimal tzOffset?;
+    # Whether the user belongs to another workspace and shares no conversation visible to the caller
     @jsondata:Name {value: "is_stranger"}
     boolean isStranger?;
+    # Whether the user was deleted and their personal data erased
     @jsondata:Name {value: "is_forgotten"}
     boolean isForgotten?;
+    # ID of the user
     UserIdDef id;
+    # Whether the user is a bot
     @jsondata:Name {value: "is_bot"}
     boolean isBot;
+    # Presence of the user, either `active` or `away`
     string presence?;
+    # Whether the user is a single-channel guest
     @jsondata:Name {value: "is_ultra_restricted"}
     boolean isUltraRestricted?;
+    # IDs of the workspaces the user belongs to
     @constraint:Array {minLength: 1}
     WorkspaceIdDef[] teams?;
+    # Whether the user is an owner of the workspace
     @jsondata:Name {value: "is_owner"}
     boolean isOwner?;
+    # Profile of the user
     UserProfileObj profile;
+    # Whether the user belongs to an external organization
     @jsondata:Name {value: "is_external"}
     boolean isExternal?;
+    # Enterprise organization details of the user
     @jsondata:Name {value: "enterprise_user"}
     EnterpriseUserObj enterpriseUser?;
+    # Whether the user has been deactivated
     boolean deleted?;
+    # Type of two-factor authentication the user uses, such as `app` or `sms`
     @jsondata:Name {value: "two_factor_type"}
     string twoFactorType?;
+    # Username of the user
     string name;
+    # Unix timestamp of the last update to the user
     decimal updated;
 |};
 
 # Schema for successful response from team.profile.get method
 public type TeamProfileGetResponse record {|
+    # Custom profile fields of the workspace
     TeamProfileGetResponseProfile profile;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -4165,6 +4518,7 @@ public type InlineArrayItemsResponseMetadataObj NewPagingStyle|DeprecationWarnin
 
 # Schema for successful response conversations.kick method
 public type ConversationsKickResponse record {|
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};
 
@@ -4191,6 +4545,8 @@ public type ViewsPublishQueries record {
 
 # Schema for successful response from files.sharedPublicURL method
 public type FilesSharedPublicURLResponse record {|
+    # The file
     FileObj file;
+    # `true` if the request succeeded
     OkTrueDef ok;
 |};

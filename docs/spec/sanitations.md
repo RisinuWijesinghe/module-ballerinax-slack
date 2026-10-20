@@ -54,6 +54,8 @@ These changes are done in order to improve the overall usability, and to address
 
 5. Added a `description` to the request body of each operation that has one (on the shared `admin_inviteRequests_approve` request body for `admin.inviteRequests.approve` and `admin.inviteRequests.deny`). The original specification has none, so the generated remote methods had no documentation for their `payload` parameter.
 
+6. Added a `description` to the response properties and query parameters that had none but are part of a documented type, so that every field of the generated records is documented. Properties that only had a `$ref` are wrapped in a single-item `allOf` with the `description` next to it, because a `description` beside a `$ref` is ignored. This changes only the generated documentation, not the generated types.
+
 ## OpenAPI cli command
 
 The following command was used to generate the Ballerina client from the OpenAPI specification. The command should be executed from the repository root directory.

@@ -126,7 +126,8 @@
           "schema" : {
             "type" : "string"
           },
-          "x-ballerina-name" : "teamId"
+          "x-ballerina-name" : "teamId",
+          "description" : "ID of the workspace"
         }, {
           "name" : "enterprise_id",
           "in" : "query",
@@ -136,7 +137,8 @@
           "schema" : {
             "type" : "string"
           },
-          "x-ballerina-name" : "enterpriseId"
+          "x-ballerina-name" : "enterpriseId",
+          "description" : "ID of the Enterprise organization"
         } ],
         "responses" : {
           "200" : {
@@ -259,7 +261,8 @@
           "schema" : {
             "type" : "string"
           },
-          "x-ballerina-name" : "teamId"
+          "x-ballerina-name" : "teamId",
+          "description" : "ID of the workspace"
         } ],
         "responses" : {
           "200" : {
@@ -453,7 +456,8 @@
           "schema" : {
             "type" : "string"
           },
-          "x-ballerina-name" : "teamId"
+          "x-ballerina-name" : "teamId",
+          "description" : "ID of the workspace"
         }, {
           "name" : "enterprise_id",
           "in" : "query",
@@ -463,7 +467,8 @@
           "schema" : {
             "type" : "string"
           },
-          "x-ballerina-name" : "enterpriseId"
+          "x-ballerina-name" : "enterpriseId",
+          "description" : "ID of the Enterprise organization"
         } ],
         "responses" : {
           "200" : {
@@ -1310,7 +1315,8 @@
           "schema" : {
             "type" : "string"
           },
-          "x-ballerina-name" : "channelId"
+          "x-ballerina-name" : "channelId",
+          "description" : "ID of the conversation"
         }, {
           "name" : "team_id",
           "in" : "query",
@@ -2515,7 +2521,8 @@
           "schema" : {
             "type" : "string"
           },
-          "x-ballerina-name" : "teamId"
+          "x-ballerina-name" : "teamId",
+          "description" : "ID of the workspace"
         } ],
         "responses" : {
           "200" : {
@@ -2723,7 +2730,8 @@
           "schema" : {
             "type" : "string"
           },
-          "x-ballerina-name" : "teamId"
+          "x-ballerina-name" : "teamId",
+          "description" : "ID of the workspace"
         }, {
           "name" : "limit",
           "in" : "query",
@@ -2806,7 +2814,8 @@
           "schema" : {
             "type" : "string"
           },
-          "x-ballerina-name" : "teamId"
+          "x-ballerina-name" : "teamId",
+          "description" : "ID of the workspace"
         } ],
         "responses" : {
           "200" : {
@@ -4206,7 +4215,8 @@
           "schema" : {
             "type" : "string"
           },
-          "x-ballerina-name" : "eventContext"
+          "x-ballerina-name" : "eventContext",
+          "description" : "Event context received with an event, identifying the authorizations to list"
         }, {
           "name" : "cursor",
           "in" : "query",
@@ -4215,7 +4225,8 @@
           "explode" : true,
           "schema" : {
             "type" : "string"
-          }
+          },
+          "description" : "Cursor for the next page of results, taken from `next_cursor` of the previous response"
         }, {
           "name" : "limit",
           "in" : "query",
@@ -4224,7 +4235,8 @@
           "explode" : true,
           "schema" : {
             "type" : "integer"
-          }
+          },
+          "description" : "Maximum number of items to return"
         } ],
         "responses" : {
           "200" : {
@@ -7868,7 +7880,8 @@
           "explode" : true,
           "schema" : {
             "type" : "string"
-          }
+          },
+          "description" : "Number of items to return per page"
         }, {
           "name" : "page",
           "in" : "query",
@@ -7877,7 +7890,8 @@
           "explode" : true,
           "schema" : {
             "type" : "string"
-          }
+          },
+          "description" : "Page number of the results to return"
         }, {
           "name" : "limit",
           "in" : "query",
@@ -8070,7 +8084,8 @@
           "explode" : true,
           "schema" : {
             "type" : "string"
-          }
+          },
+          "description" : "Number of items to return per page"
         }, {
           "name" : "page",
           "in" : "query",
@@ -8079,7 +8094,8 @@
           "explode" : true,
           "schema" : {
             "type" : "string"
-          }
+          },
+          "description" : "Page number of the results to return"
         }, {
           "name" : "show_files_hidden_by_limit",
           "in" : "query",
@@ -9545,7 +9561,8 @@
           "explode" : true,
           "schema" : {
             "type" : "integer"
-          }
+          },
+          "description" : "Number of items to return per page"
         }, {
           "name" : "page",
           "in" : "query",
@@ -9554,7 +9571,8 @@
           "explode" : true,
           "schema" : {
             "type" : "integer"
-          }
+          },
+          "description" : "Page number of the results to return"
         }, {
           "name" : "cursor",
           "in" : "query",
@@ -9865,7 +9883,8 @@
           "explode" : true,
           "schema" : {
             "type" : "integer"
-          }
+          },
+          "description" : "Page number of the results to return"
         }, {
           "name" : "query",
           "in" : "query",
@@ -10026,7 +10045,8 @@
           "explode" : true,
           "schema" : {
             "type" : "string"
-          }
+          },
+          "description" : "Number of items to return per page"
         }, {
           "name" : "page",
           "in" : "query",
@@ -10035,7 +10055,8 @@
           "explode" : true,
           "schema" : {
             "type" : "string"
-          }
+          },
+          "description" : "Page number of the results to return"
         } ],
         "responses" : {
           "200" : {
@@ -10299,7 +10320,8 @@
           "explode" : true,
           "schema" : {
             "type" : "string"
-          }
+          },
+          "description" : "Number of items to return per page"
         }, {
           "name" : "page",
           "in" : "query",
@@ -10308,7 +10330,8 @@
           "explode" : true,
           "schema" : {
             "type" : "string"
-          }
+          },
+          "description" : "Page number of the results to return"
         }, {
           "name" : "service_id",
           "in" : "query",
@@ -12703,13 +12726,17 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "users" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/UserIdDef"
-            }
+            },
+            "description" : "IDs of the members of the user group"
           }
         },
         "additionalProperties" : false,
@@ -12721,18 +12748,26 @@
         "type" : "object",
         "properties" : {
           "profile" : {
-            "$ref" : "#/components/schemas/UserProfileObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/UserProfileObj"
+            } ],
+            "description" : "Profile of the user"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "email_pending" : {
             "type" : "string",
             "format" : "email",
-            "x-ballerina-name" : "emailPending"
+            "x-ballerina-name" : "emailPending",
+            "description" : "New email address of the user that is awaiting confirmation"
           },
           "username" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "Username of the user"
           }
         },
         "additionalProperties" : false,
@@ -12807,30 +12842,39 @@
         "properties" : {
           "next_dnd_end_ts" : {
             "type" : "integer",
-            "x-ballerina-name" : "nextDndEndTs"
+            "x-ballerina-name" : "nextDndEndTs",
+            "description" : "Unix timestamp when the next scheduled Do Not Disturb period ends"
           },
           "snooze_endtime" : {
             "type" : "integer",
-            "x-ballerina-name" : "snoozeEndtime"
+            "x-ballerina-name" : "snoozeEndtime",
+            "description" : "Unix timestamp when the current snooze ends"
           },
           "dnd_enabled" : {
             "type" : "boolean",
-            "x-ballerina-name" : "dndEnabled"
+            "x-ballerina-name" : "dndEnabled",
+            "description" : "Whether the user has a Do Not Disturb schedule"
           },
           "next_dnd_start_ts" : {
             "type" : "integer",
-            "x-ballerina-name" : "nextDndStartTs"
+            "x-ballerina-name" : "nextDndStartTs",
+            "description" : "Unix timestamp when the next scheduled Do Not Disturb period starts"
           },
           "snooze_enabled" : {
             "type" : "boolean",
-            "x-ballerina-name" : "snoozeEnabled"
+            "x-ballerina-name" : "snoozeEnabled",
+            "description" : "Whether the user has snoozed notifications"
           },
           "snooze_remaining" : {
             "type" : "integer",
-            "x-ballerina-name" : "snoozeRemaining"
+            "x-ballerina-name" : "snoozeRemaining",
+            "description" : "Number of seconds until the current snooze ends"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -12938,7 +12982,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -13044,13 +13091,22 @@
         "type" : "object",
         "properties" : {
           "channel" : {
-            "$ref" : "#/components/schemas/ChannelDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/ChannelDef"
+            } ],
+            "description" : "ID of the conversation"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "ts" : {
-            "$ref" : "#/components/schemas/TsDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/TsDef"
+            } ],
+            "description" : "Timestamp of the message"
           }
         },
         "additionalProperties" : false,
@@ -13062,7 +13118,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -13101,13 +13160,17 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "message_ts" : {
             "allOf" : [ {
               "$ref" : "#/components/schemas/TsDef"
             } ],
-            "x-ballerina-name" : "messageTs"
+            "x-ballerina-name" : "messageTs",
+            "description" : "Timestamp of the ephemeral message"
           }
         },
         "additionalProperties" : false,
@@ -13138,10 +13201,16 @@
         "type" : "object",
         "properties" : {
           "usergroup" : {
-            "$ref" : "#/components/schemas/SubteamObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/SubteamObj"
+            } ],
+            "description" : "The user group"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -13355,10 +13424,14 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "revoked" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "description" : "Whether the token was revoked"
           }
         },
         "additionalProperties" : false,
@@ -13661,7 +13734,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -13693,10 +13769,16 @@
         "type" : "object",
         "properties" : {
           "usergroup" : {
-            "$ref" : "#/components/schemas/SubteamObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/SubteamObj"
+            } ],
+            "description" : "The user group"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -13708,7 +13790,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -13720,13 +13805,17 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "channel_id" : {
             "allOf" : [ {
               "$ref" : "#/components/schemas/ChannelIdDef"
             } ],
-            "x-ballerina-name" : "channelId"
+            "x-ballerina-name" : "channelId",
+            "description" : "ID of the created conversation"
           }
         },
         "additionalProperties" : false,
@@ -14459,10 +14548,16 @@
         "type" : "object",
         "properties" : {
           "paging" : {
-            "$ref" : "#/components/schemas/PagingObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/PagingObj"
+            } ],
+            "description" : "Pagination details of the results"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "logs" : {
             "minItems" : 1,
@@ -14470,7 +14565,8 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/TeamIntegrationLogsResponseLogs"
-            }
+            },
+            "description" : "Integration activity log entries"
           }
         },
         "additionalProperties" : false,
@@ -14531,7 +14627,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -14560,7 +14659,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -14650,7 +14752,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -14662,7 +14767,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -14678,16 +14786,21 @@
             "items" : {
               "$ref" : "#/components/schemas/ChatScheduledMessagesListResponseScheduledMessages"
             },
-            "x-ballerina-name" : "scheduledMessages"
+            "x-ballerina-name" : "scheduledMessages",
+            "description" : "The scheduled messages"
           },
           "response_metadata" : {
             "allOf" : [ {
               "$ref" : "#/components/schemas/ChatScheduledMessagesListResponseResponseMetadata"
             } ],
-            "x-ballerina-name" : "responseMetadata"
+            "x-ballerina-name" : "responseMetadata",
+            "description" : "Metadata about the response, including the cursor for the next page of results"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -14699,7 +14812,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -14714,21 +14830,32 @@
             "title" : "Scheduled Message ID",
             "pattern" : "^[Q][A-Z0-9]{8,}$",
             "type" : "string",
-            "x-ballerina-name" : "scheduledMessageId"
+            "x-ballerina-name" : "scheduledMessageId",
+            "description" : "ID of the scheduled message"
           },
           "channel" : {
-            "$ref" : "#/components/schemas/ChannelDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/ChannelDef"
+            } ],
+            "description" : "ID of the conversation"
           },
           "message" : {
-            "$ref" : "#/components/schemas/ChatScheduleMessageResponseMessage"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/ChatScheduleMessageResponseMessage"
+            } ],
+            "description" : "The message"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "post_at" : {
             "pattern" : "^\\d{10}$",
             "type" : "integer",
-            "x-ballerina-name" : "postAt"
+            "x-ballerina-name" : "postAt",
+            "description" : "Unix timestamp when the message is scheduled to be sent"
           }
         },
         "additionalProperties" : false,
@@ -14740,7 +14867,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -14752,7 +14882,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -14784,7 +14917,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -14796,7 +14932,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -14808,7 +14947,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -14889,7 +15031,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -14931,29 +15076,46 @@
         "type" : "object",
         "properties" : {
           "editor" : {
-            "$ref" : "#/components/schemas/UserIdDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/UserIdDef"
+            } ],
+            "description" : "ID of the user who last edited the file"
           },
           "comments" : {
-            "$ref" : "#/components/schemas/CommentsObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/CommentsObj"
+            } ],
+            "description" : "Comments on the file"
           },
           "file" : {
-            "$ref" : "#/components/schemas/FileObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/FileObj"
+            } ],
+            "description" : "The file"
           },
           "paging" : {
-            "$ref" : "#/components/schemas/PagingObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/PagingObj"
+            } ],
+            "description" : "Pagination details of the results"
           },
           "response_metadata" : {
             "allOf" : [ {
               "$ref" : "#/components/schemas/ResponseMetadataObj"
             } ],
-            "x-ballerina-name" : "responseMetadata"
+            "x-ballerina-name" : "responseMetadata",
+            "description" : "Metadata about the response, including the cursor for the next page of results"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "content_html" : {
             "nullable" : true,
-            "x-ballerina-name" : "contentHtml"
+            "x-ballerina-name" : "contentHtml",
+            "description" : "HTML content of the file"
           }
         },
         "additionalProperties" : false,
@@ -15044,7 +15206,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -15129,7 +15294,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -15161,119 +15329,154 @@
         "properties" : {
           "color" : {
             "pattern" : "^[a-fA-F0-9]{6}$",
-            "type" : "string"
+            "type" : "string",
+            "description" : "Color used to display the name of the user"
           },
           "is_invited_user" : {
             "type" : "boolean",
-            "x-ballerina-name" : "isInvitedUser"
+            "x-ballerina-name" : "isInvitedUser",
+            "description" : "Whether the user has been invited but has not joined yet"
           },
           "has_2fa" : {
             "type" : "boolean",
-            "x-ballerina-name" : "has2fa"
+            "x-ballerina-name" : "has2fa",
+            "description" : "Whether the user has two-factor authentication enabled"
           },
           "is_restricted" : {
             "type" : "boolean",
-            "x-ballerina-name" : "isRestricted"
+            "x-ballerina-name" : "isRestricted",
+            "description" : "Whether the user is a multi-channel guest"
           },
           "tz" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/UserObjTz"
-            }
+            },
+            "description" : "Time zone of the user, such as `America/Los_Angeles`"
           },
           "tz_label" : {
             "type" : "string",
-            "x-ballerina-name" : "tzLabel"
+            "x-ballerina-name" : "tzLabel",
+            "description" : "Display name of the time zone of the user"
           },
           "is_primary_owner" : {
             "type" : "boolean",
-            "x-ballerina-name" : "isPrimaryOwner"
+            "x-ballerina-name" : "isPrimaryOwner",
+            "description" : "Whether the user is the primary owner of the workspace"
           },
           "team_profile" : {
             "allOf" : [ {
               "$ref" : "#/components/schemas/UserObjTeamProfile"
             } ],
-            "x-ballerina-name" : "teamProfile"
+            "x-ballerina-name" : "teamProfile",
+            "description" : "Custom profile fields of the user in the workspace"
           },
           "real_name" : {
             "type" : "string",
-            "x-ballerina-name" : "realName"
+            "x-ballerina-name" : "realName",
+            "description" : "Full name of the user"
           },
           "team_id" : {
             "allOf" : [ {
               "$ref" : "#/components/schemas/WorkspaceIdDef"
             } ],
-            "x-ballerina-name" : "teamId"
+            "x-ballerina-name" : "teamId",
+            "description" : "ID of the workspace"
           },
           "locale" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "Locale of the user, such as `en-US`"
           },
           "is_admin" : {
             "type" : "boolean",
-            "x-ballerina-name" : "isAdmin"
+            "x-ballerina-name" : "isAdmin",
+            "description" : "Whether the user is an admin of the workspace"
           },
           "is_app_user" : {
             "type" : "boolean",
-            "x-ballerina-name" : "isAppUser"
+            "x-ballerina-name" : "isAppUser",
+            "description" : "Whether the user is an authorized user of the calling app"
           },
           "tz_offset" : {
             "type" : "number",
-            "x-ballerina-name" : "tzOffset"
+            "x-ballerina-name" : "tzOffset",
+            "description" : "Offset of the time zone of the user from UTC, in seconds"
           },
           "is_stranger" : {
             "type" : "boolean",
-            "x-ballerina-name" : "isStranger"
+            "x-ballerina-name" : "isStranger",
+            "description" : "Whether the user belongs to another workspace and shares no conversation visible to the caller"
           },
           "is_forgotten" : {
             "type" : "boolean",
-            "x-ballerina-name" : "isForgotten"
+            "x-ballerina-name" : "isForgotten",
+            "description" : "Whether the user was deleted and their personal data erased"
           },
           "id" : {
-            "$ref" : "#/components/schemas/UserIdDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/UserIdDef"
+            } ],
+            "description" : "ID of the user"
           },
           "is_bot" : {
             "type" : "boolean",
-            "x-ballerina-name" : "isBot"
+            "x-ballerina-name" : "isBot",
+            "description" : "Whether the user is a bot"
           },
           "presence" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "Presence of the user, either `active` or `away`"
           },
           "is_ultra_restricted" : {
             "type" : "boolean",
-            "x-ballerina-name" : "isUltraRestricted"
+            "x-ballerina-name" : "isUltraRestricted",
+            "description" : "Whether the user is a single-channel guest"
           },
           "is_owner" : {
             "type" : "boolean",
-            "x-ballerina-name" : "isOwner"
+            "x-ballerina-name" : "isOwner",
+            "description" : "Whether the user is an owner of the workspace"
           },
           "profile" : {
-            "$ref" : "#/components/schemas/UserProfileObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/UserProfileObj"
+            } ],
+            "description" : "Profile of the user"
           },
           "is_external" : {
             "type" : "boolean",
-            "x-ballerina-name" : "isExternal"
+            "x-ballerina-name" : "isExternal",
+            "description" : "Whether the user belongs to an external organization"
           },
           "team" : {
-            "$ref" : "#/components/schemas/WorkspaceIdDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/WorkspaceIdDef"
+            } ],
+            "description" : "ID of the workspace the user belongs to"
           },
           "enterprise_user" : {
             "allOf" : [ {
               "$ref" : "#/components/schemas/EnterpriseUserObj"
             } ],
-            "x-ballerina-name" : "enterpriseUser"
+            "x-ballerina-name" : "enterpriseUser",
+            "description" : "Enterprise organization details of the user"
           },
           "deleted" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "description" : "Whether the user has been deactivated"
           },
           "two_factor_type" : {
             "type" : "string",
-            "x-ballerina-name" : "twoFactorType"
+            "x-ballerina-name" : "twoFactorType",
+            "description" : "Type of two-factor authentication the user uses, such as `app` or `sms`"
           },
           "name" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "Username of the user"
           },
           "updated" : {
-            "type" : "number"
+            "type" : "number",
+            "description" : "Unix timestamp of the last update to the user"
           }
         },
         "additionalProperties" : false,
@@ -15354,7 +15557,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -15383,7 +15589,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -15395,19 +15604,27 @@
         "type" : "object",
         "properties" : {
           "channel" : {
-            "$ref" : "#/components/schemas/ConversationObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/ConversationObj"
+            } ],
+            "description" : "The conversation"
           },
           "warning" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "Warning returned by Slack, such as `already_in_channel`"
           },
           "response_metadata" : {
             "allOf" : [ {
               "$ref" : "#/components/schemas/ResponseMetadata"
             } ],
-            "x-ballerina-name" : "responseMetadata"
+            "x-ballerina-name" : "responseMetadata",
+            "description" : "Metadata about the response, including the cursor for the next page of results"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -15424,16 +15641,21 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/UserIdDef"
-            }
+            },
+            "description" : "IDs of the members of the conversation"
           },
           "response_metadata" : {
             "allOf" : [ {
               "$ref" : "#/components/schemas/ConversationsMembersResponseResponseMetadata"
             } ],
-            "x-ballerina-name" : "responseMetadata"
+            "x-ballerina-name" : "responseMetadata",
+            "description" : "Metadata about the response, including the cursor for the next page of results"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -15503,10 +15725,16 @@
         "type" : "object",
         "properties" : {
           "paging" : {
-            "$ref" : "#/components/schemas/PagingObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/PagingObj"
+            } ],
+            "description" : "Pagination details of the results"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "logins" : {
             "minItems" : 1,
@@ -15514,7 +15742,8 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/TeamAccessLogsResponseLogins"
-            }
+            },
+            "description" : "Access log entries"
           }
         },
         "additionalProperties" : false,
@@ -15741,7 +15970,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -15783,7 +16015,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -15895,7 +16130,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -15954,7 +16192,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -16064,7 +16305,8 @@
         "properties" : {
           "cache_ts" : {
             "type" : "integer",
-            "x-ballerina-name" : "cacheTs"
+            "x-ballerina-name" : "cacheTs",
+            "description" : "Unix timestamp at which the list was generated"
           },
           "members" : {
             "minItems" : 1,
@@ -16072,16 +16314,21 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/UserObj"
-            }
+            },
+            "description" : "Users of the workspace"
           },
           "response_metadata" : {
             "allOf" : [ {
               "$ref" : "#/components/schemas/ResponseMetadataObj"
             } ],
-            "x-ballerina-name" : "responseMetadata"
+            "x-ballerina-name" : "responseMetadata",
+            "description" : "Metadata about the response, including the cursor for the next page of results"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -16147,10 +16394,16 @@
         "type" : "object",
         "properties" : {
           "channel" : {
-            "$ref" : "#/components/schemas/ConversationObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/ConversationObj"
+            } ],
+            "description" : "The conversation"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -16208,10 +16461,16 @@
         "type" : "object",
         "properties" : {
           "channel" : {
-            "$ref" : "#/components/schemas/ConversationObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/ConversationObj"
+            } ],
+            "description" : "The conversation"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -16223,10 +16482,16 @@
         "type" : "object",
         "properties" : {
           "bot" : {
-            "$ref" : "#/components/schemas/BotsInfoResponseBot"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/BotsInfoResponseBot"
+            } ],
+            "description" : "The bot"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -16239,18 +16504,24 @@
         "properties" : {
           "snooze_endtime" : {
             "type" : "integer",
-            "x-ballerina-name" : "snoozeEndtime"
+            "x-ballerina-name" : "snoozeEndtime",
+            "description" : "Unix timestamp when the current snooze ends"
           },
           "snooze_enabled" : {
             "type" : "boolean",
-            "x-ballerina-name" : "snoozeEnabled"
+            "x-ballerina-name" : "snoozeEnabled",
+            "description" : "Whether the user has snoozed notifications"
           },
           "snooze_remaining" : {
             "type" : "integer",
-            "x-ballerina-name" : "snoozeRemaining"
+            "x-ballerina-name" : "snoozeRemaining",
+            "description" : "Number of seconds until the current snooze ends"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -16362,14 +16633,19 @@
         "properties" : {
           "already_closed" : {
             "type" : "boolean",
-            "x-ballerina-name" : "alreadyClosed"
+            "x-ballerina-name" : "alreadyClosed",
+            "description" : "Whether the conversation was already closed"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "no_op" : {
             "type" : "boolean",
-            "x-ballerina-name" : "noOp"
+            "x-ballerina-name" : "noOp",
+            "description" : "`true` if the conversation was already in the requested state and nothing changed"
           }
         },
         "additionalProperties" : false,
@@ -16396,16 +16672,23 @@
         "type" : "object",
         "properties" : {
           "paging" : {
-            "$ref" : "#/components/schemas/PagingObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/PagingObj"
+            } ],
+            "description" : "Pagination details of the results"
           },
           "response_metadata" : {
             "allOf" : [ {
               "$ref" : "#/components/schemas/ResponseMetadataObj"
             } ],
-            "x-ballerina-name" : "responseMetadata"
+            "x-ballerina-name" : "responseMetadata",
+            "description" : "Metadata about the response, including the cursor for the next page of results"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "items" : {
             "type" : "array",
@@ -16459,7 +16742,8 @@
                   "additionalProperties" : false
                 } ]
               }
-            }
+            },
+            "description" : "Items the user reacted to"
           }
         },
         "additionalProperties" : false,
@@ -16583,22 +16867,29 @@
         "properties" : {
           "next_dnd_end_ts" : {
             "type" : "integer",
-            "x-ballerina-name" : "nextDndEndTs"
+            "x-ballerina-name" : "nextDndEndTs",
+            "description" : "Unix timestamp when the next scheduled Do Not Disturb period ends"
           },
           "dnd_enabled" : {
             "type" : "boolean",
-            "x-ballerina-name" : "dndEnabled"
+            "x-ballerina-name" : "dndEnabled",
+            "description" : "Whether the user has a Do Not Disturb schedule"
           },
           "next_dnd_start_ts" : {
             "type" : "integer",
-            "x-ballerina-name" : "nextDndStartTs"
+            "x-ballerina-name" : "nextDndStartTs",
+            "description" : "Unix timestamp when the next scheduled Do Not Disturb period starts"
           },
           "snooze_enabled" : {
             "type" : "boolean",
-            "x-ballerina-name" : "snoozeEnabled"
+            "x-ballerina-name" : "snoozeEnabled",
+            "description" : "Whether the user has snoozed notifications"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -16624,16 +16915,28 @@
         "type" : "object",
         "properties" : {
           "channel" : {
-            "$ref" : "#/components/schemas/ChannelDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/ChannelDef"
+            } ],
+            "description" : "ID of the conversation"
           },
           "message" : {
-            "$ref" : "#/components/schemas/MessageObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/MessageObj"
+            } ],
+            "description" : "The message"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "ts" : {
-            "$ref" : "#/components/schemas/TsDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/TsDef"
+            } ],
+            "description" : "Timestamp of the message"
           }
         },
         "additionalProperties" : false,
@@ -16711,13 +17014,20 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/ConversationObj"
-            }
+            },
+            "description" : "The conversations"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "response_metadata" : {
-            "$ref" : "#/components/schemas/UsersConversationsResponseResponseMetadata"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/UsersConversationsResponseResponseMetadata"
+            } ],
+            "description" : "Metadata about the response, including the cursor for the next page of results"
           }
         },
         "additionalProperties" : true,
@@ -16750,20 +17060,26 @@
         "properties" : {
           "already_open" : {
             "type" : "boolean",
-            "x-ballerina-name" : "alreadyOpen"
+            "x-ballerina-name" : "alreadyOpen",
+            "description" : "Whether the conversation was already open"
           },
           "channel" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/ConversationsOpenResponseChannel"
-            }
+            },
+            "description" : "The conversation"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "no_op" : {
             "type" : "boolean",
-            "x-ballerina-name" : "noOp"
+            "x-ballerina-name" : "noOp",
+            "description" : "`true` if the conversation was already in the requested state and nothing changed"
           }
         },
         "additionalProperties" : false,
@@ -16775,10 +17091,16 @@
         "type" : "object",
         "properties" : {
           "channel" : {
-            "$ref" : "#/components/schemas/ConversationObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/ConversationObj"
+            } ],
+            "description" : "The conversation"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -16790,25 +17112,34 @@
         "type" : "object",
         "properties" : {
           "auto_away" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "description" : "Whether Slack set the user to away automatically"
           },
           "connection_count" : {
-            "type" : "integer"
+            "type" : "integer",
+            "description" : "Number of clients the user is connected to Slack with"
           },
           "last_activity" : {
-            "type" : "integer"
+            "type" : "integer",
+            "description" : "Unix timestamp of the last activity of the user"
           },
           "manual_away" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "description" : "Whether the user set themselves to away"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "online" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "description" : "Whether the user is connected to Slack"
           },
           "presence" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "Presence of the user, either `active` or `away`"
           }
         },
         "additionalProperties" : true,
@@ -17050,10 +17381,16 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "user" : {
-            "$ref" : "#/components/schemas/UserObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/UserObj"
+            } ],
+            "description" : "The user"
           }
         },
         "additionalProperties" : true,
@@ -17099,7 +17436,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -17111,10 +17451,16 @@
         "type" : "object",
         "properties" : {
           "usergroup" : {
-            "$ref" : "#/components/schemas/SubteamObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/SubteamObj"
+            } ],
+            "description" : "The user group"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -17253,13 +17599,20 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/FileObj"
-            }
+            },
+            "description" : "The files"
           },
           "paging" : {
-            "$ref" : "#/components/schemas/PagingObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/PagingObj"
+            } ],
+            "description" : "Pagination details of the results"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -17288,7 +17641,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -17695,7 +18051,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -18015,35 +18374,45 @@
             "allOf" : [ {
               "$ref" : "#/components/schemas/UserIdDef"
             } ],
-            "x-ballerina-name" : "userId"
+            "x-ballerina-name" : "userId",
+            "description" : "ID of the user"
           },
           "is_enterprise_install" : {
             "type" : "boolean",
-            "x-ballerina-name" : "isEnterpriseInstall"
+            "x-ballerina-name" : "isEnterpriseInstall",
+            "description" : "Whether the app is installed on an Enterprise organization"
           },
           "team" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "Name of the workspace"
           },
           "team_id" : {
             "allOf" : [ {
               "$ref" : "#/components/schemas/TeamDef"
             } ],
-            "x-ballerina-name" : "teamId"
+            "x-ballerina-name" : "teamId",
+            "description" : "ID of the workspace"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "user" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "Name of the user"
           },
           "bot_id" : {
             "allOf" : [ {
               "$ref" : "#/components/schemas/BotIdDef"
             } ],
-            "x-ballerina-name" : "botId"
+            "x-ballerina-name" : "botId",
+            "description" : "ID of the bot, when the token belongs to a bot"
           },
           "url" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "URL of the workspace"
           }
         },
         "additionalProperties" : false,
@@ -18055,10 +18424,16 @@
         "type" : "object",
         "properties" : {
           "channel" : {
-            "$ref" : "#/components/schemas/ConversationObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/ConversationObj"
+            } ],
+            "description" : "The conversation"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -18373,10 +18748,16 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "user" : {
-            "$ref" : "#/components/schemas/UserObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/UserObj"
+            } ],
+            "description" : "The user"
           }
         },
         "additionalProperties" : true,
@@ -18422,7 +18803,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -18687,10 +19071,16 @@
         "type" : "object",
         "properties" : {
           "usergroup" : {
-            "$ref" : "#/components/schemas/SubteamObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/SubteamObj"
+            } ],
+            "description" : "The user group"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -18904,10 +19294,16 @@
         "type" : "object",
         "properties" : {
           "channel" : {
-            "$ref" : "#/components/schemas/ConversationObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/ConversationObj"
+            } ],
+            "description" : "The conversation"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -18959,10 +19355,16 @@
         "type" : "object",
         "properties" : {
           "file" : {
-            "$ref" : "#/components/schemas/FileObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/FileObj"
+            } ],
+            "description" : "The file"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -19096,7 +19498,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -19115,10 +19520,16 @@
         "type" : "object",
         "properties" : {
           "profile" : {
-            "$ref" : "#/components/schemas/UsersSetPhotoResponseProfile"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/UsersSetPhotoResponseProfile"
+            } ],
+            "description" : "Profile of the user"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -19150,10 +19561,16 @@
         "type" : "object",
         "properties" : {
           "channel" : {
-            "$ref" : "#/components/schemas/ConversationObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/ConversationObj"
+            } ],
+            "description" : "The conversation"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -19165,10 +19582,16 @@
         "type" : "object",
         "properties" : {
           "team" : {
-            "$ref" : "#/components/schemas/TeamObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/TeamObj"
+            } ],
+            "description" : "Details of the workspace"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -19264,14 +19687,21 @@
         "type" : "object",
         "properties" : {
           "channel" : {
-            "$ref" : "#/components/schemas/ChannelDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/ChannelDef"
+            } ],
+            "description" : "ID of the conversation"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "permalink" : {
             "type" : "string",
-            "format" : "uri"
+            "format" : "uri",
+            "description" : "Permanent URL of the message"
           }
         },
         "additionalProperties" : false,
@@ -19689,7 +20119,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -19736,7 +20169,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -19776,7 +20212,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -19788,7 +20227,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -19817,7 +20259,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -19829,7 +20274,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -19841,7 +20289,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -19879,7 +20330,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -19911,7 +20365,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -20125,10 +20582,16 @@
         "type" : "object",
         "properties" : {
           "profile" : {
-            "$ref" : "#/components/schemas/UserProfileObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/UserProfileObj"
+            } ],
+            "description" : "Profile of the user"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -20195,16 +20658,21 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/ConversationObj"
-            }
+            },
+            "description" : "The conversations"
           },
           "response_metadata" : {
             "allOf" : [ {
               "$ref" : "#/components/schemas/ConversationsListResponseResponseMetadata"
             } ],
-            "x-ballerina-name" : "responseMetadata"
+            "x-ballerina-name" : "responseMetadata",
+            "description" : "Metadata about the response, including the cursor for the next page of results"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -20318,7 +20786,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -20330,7 +20801,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -20411,7 +20885,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -20428,7 +20905,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -20440,7 +20920,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -20452,7 +20935,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -20464,7 +20950,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -20476,7 +20965,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -20735,7 +21227,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -20748,13 +21243,15 @@
         "properties" : {
           "next_cursor" : {
             "type" : "string",
-            "x-ballerina-name" : "nextCursor"
+            "x-ballerina-name" : "nextCursor",
+            "description" : "Cursor for the next page of results; empty when there are no more results"
           },
           "channels" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/ChannelObj"
-            }
+            },
+            "description" : "Conversations that match the search"
           }
         },
         "additionalProperties" : false,
@@ -20766,13 +21263,22 @@
         "type" : "object",
         "properties" : {
           "channel" : {
-            "$ref" : "#/components/schemas/ChannelDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/ChannelDef"
+            } ],
+            "description" : "ID of the conversation"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "ts" : {
-            "$ref" : "#/components/schemas/TsDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/TsDef"
+            } ],
+            "description" : "Timestamp of the message"
           }
         },
         "additionalProperties" : false,
@@ -20839,7 +21345,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -20883,7 +21392,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -20895,7 +21407,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -20923,7 +21438,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -20999,7 +21517,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -21011,7 +21532,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -21023,7 +21547,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -21038,7 +21565,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -21053,7 +21583,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -21068,7 +21601,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -21093,7 +21629,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -21105,7 +21644,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -21332,14 +21874,19 @@
                   "additionalProperties" : false
                 } ]
               }
-            }
+            },
+            "description" : "The parent message followed by its replies"
           },
           "has_more" : {
             "type" : "boolean",
-            "x-ballerina-name" : "hasMore"
+            "x-ballerina-name" : "hasMore",
+            "description" : "Whether more results are available"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -21425,7 +21972,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -21442,7 +21992,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -21454,7 +22007,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -21486,7 +22042,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -21524,7 +22083,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -21536,7 +22098,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -21548,7 +22113,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -21601,10 +22169,16 @@
         "type" : "object",
         "properties" : {
           "usergroup" : {
-            "$ref" : "#/components/schemas/SubteamObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/SubteamObj"
+            } ],
+            "description" : "The user group"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -21616,7 +22190,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -21628,7 +22205,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -21867,7 +22447,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -21939,7 +22522,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -21997,7 +22583,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -22009,7 +22598,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -22021,7 +22613,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -22033,7 +22628,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -22045,7 +22643,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -22057,7 +22658,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -22069,7 +22673,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -22085,7 +22692,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -22097,10 +22707,16 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "prefs" : {
-            "$ref" : "#/components/schemas/AdminConversationsGetConversationPrefsResponsePrefs"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/AdminConversationsGetConversationPrefsResponsePrefs"
+            } ],
+            "description" : "Preferences of the conversation"
           }
         },
         "additionalProperties" : false,
@@ -22134,7 +22750,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -22159,7 +22778,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -22171,19 +22793,28 @@
         "type" : "object",
         "properties" : {
           "channel" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "ID of the conversation"
           },
           "text" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "Text of the updated message"
           },
           "message" : {
-            "$ref" : "#/components/schemas/MessageObject"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/MessageObject"
+            } ],
+            "description" : "The message"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "ts" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "Timestamp of the message"
           }
         },
         "additionalProperties" : false,
@@ -22302,7 +22933,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : {
@@ -22317,25 +22951,34 @@
         "properties" : {
           "enterprise_id" : {
             "title" : "The enterprise grid organization ID containing the workspace/team.",
-            "type" : "string"
+            "type" : "string",
+            "description" : "ID of the Enterprise organization"
           },
           "invalid_user_ids" : {
             "title" : "A list of User IDs that cannot be mapped or found",
             "type" : "array",
             "items" : {
               "type" : "string"
-            }
+            },
+            "description" : "User IDs that could not be mapped"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "team_id" : {
-            "$ref" : "#/components/schemas/TeamDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/TeamDef"
+            } ],
+            "description" : "ID of the workspace"
           },
           "user_id_map" : {
             "title" : "A mapping of provided user IDs with mapped user IDs",
             "type" : "object",
-            "additionalProperties" : true
+            "additionalProperties" : true,
+            "description" : "Map of the given user IDs to their corresponding IDs"
           }
         },
         "additionalProperties" : true,
@@ -22392,10 +23035,14 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/SubteamObj"
-            }
+            },
+            "description" : "User groups of the workspace"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -22426,11 +23073,13 @@
         "properties" : {
           "channel_actions_count" : {
             "type" : "integer",
-            "x-ballerina-name" : "channelActionsCount"
+            "x-ballerina-name" : "channelActionsCount",
+            "description" : "Number of channel actions in the conversation"
           },
           "pin_count" : {
             "type" : "integer",
-            "x-ballerina-name" : "pinCount"
+            "x-ballerina-name" : "pinCount",
+            "description" : "Number of pinned items in the conversation"
           },
           "messages" : {
             "minItems" : 1,
@@ -22438,21 +23087,27 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/MessageObj"
-            }
+            },
+            "description" : "Messages of the conversation"
           },
           "channel_actions_ts" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/ConversationsHistoryResponseChannelActionsTs"
             },
-            "x-ballerina-name" : "channelActionsTs"
+            "x-ballerina-name" : "channelActionsTs",
+            "description" : "Timestamp of the last channel action in the conversation"
           },
           "has_more" : {
             "type" : "boolean",
-            "x-ballerina-name" : "hasMore"
+            "x-ballerina-name" : "hasMore",
+            "description" : "Whether more results are available"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -22493,7 +23148,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -22505,7 +23163,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -22517,7 +23178,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -22529,7 +23193,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -22541,12 +23208,16 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "not_in_channel" : {
             "type" : "boolean",
             "enum" : [ true ],
-            "x-ballerina-name" : "notInChannel"
+            "x-ballerina-name" : "notInChannel",
+            "description" : "`true` if the user was not a member of the conversation"
           }
         },
         "additionalProperties" : false,
@@ -22558,7 +23229,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -22570,7 +23244,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -22582,7 +23259,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -22643,7 +23323,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -22655,17 +23338,27 @@
         "type" : "object",
         "properties" : {
           "self" : {
-            "$ref" : "#/components/schemas/RtmConnectResponseSelf"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/RtmConnectResponseSelf"
+            } ],
+            "description" : "Details of the authenticated user"
           },
           "team" : {
-            "$ref" : "#/components/schemas/RtmConnectResponseTeam"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/RtmConnectResponseTeam"
+            } ],
+            "description" : "Details of the workspace"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "url" : {
             "type" : "string",
-            "format" : "uri"
+            "format" : "uri",
+            "description" : "WebSocket URL to connect to"
           }
         },
         "additionalProperties" : false,
@@ -22677,7 +23370,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -22689,7 +23385,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -22701,7 +23400,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : true,
@@ -22804,16 +23506,21 @@
             "items" : {
               "$ref" : "#/components/schemas/TeamDef"
             },
-            "x-ballerina-name" : "teamIds"
+            "x-ballerina-name" : "teamIds",
+            "description" : "IDs of the workspaces the conversation is connected to"
           },
           "response_metadata" : {
             "allOf" : [ {
               "$ref" : "#/components/schemas/AdminConversationsGetTeamsResponseResponseMetadata"
             } ],
-            "x-ballerina-name" : "responseMetadata"
+            "x-ballerina-name" : "responseMetadata",
+            "description" : "Metadata about the response, including the cursor for the next page of results"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -22945,78 +23652,98 @@
           },
           "has_2fa" : {
             "type" : "boolean",
-            "x-ballerina-name" : "has2fa"
+            "x-ballerina-name" : "has2fa",
+            "description" : "Whether the user has two-factor authentication enabled"
           },
           "is_restricted" : {
             "type" : "boolean",
-            "x-ballerina-name" : "isRestricted"
+            "x-ballerina-name" : "isRestricted",
+            "description" : "Whether the user is a multi-channel guest"
           },
           "tz" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/UserObjTz1"
-            }
+            },
+            "description" : "Time zone of the user, such as `America/Los_Angeles`"
           },
           "tz_label" : {
             "type" : "string",
-            "x-ballerina-name" : "tzLabel"
+            "x-ballerina-name" : "tzLabel",
+            "description" : "Display name of the time zone of the user"
           },
           "is_primary_owner" : {
             "type" : "boolean",
-            "x-ballerina-name" : "isPrimaryOwner"
+            "x-ballerina-name" : "isPrimaryOwner",
+            "description" : "Whether the user is the primary owner of the workspace"
           },
           "team_profile" : {
             "allOf" : [ {
               "$ref" : "#/components/schemas/UserObjTeamProfile1"
             } ],
-            "x-ballerina-name" : "teamProfile"
+            "x-ballerina-name" : "teamProfile",
+            "description" : "Custom profile fields of the user in the workspace"
           },
           "real_name" : {
             "type" : "string",
-            "x-ballerina-name" : "realName"
+            "x-ballerina-name" : "realName",
+            "description" : "Full name of the user"
           },
           "team_id" : {
             "allOf" : [ {
               "$ref" : "#/components/schemas/WorkspaceIdDef"
             } ],
-            "x-ballerina-name" : "teamId"
+            "x-ballerina-name" : "teamId",
+            "description" : "ID of the workspace"
           },
           "locale" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "Locale of the user, such as `en-US`"
           },
           "is_admin" : {
             "type" : "boolean",
-            "x-ballerina-name" : "isAdmin"
+            "x-ballerina-name" : "isAdmin",
+            "description" : "Whether the user is an admin of the workspace"
           },
           "is_app_user" : {
             "type" : "boolean",
-            "x-ballerina-name" : "isAppUser"
+            "x-ballerina-name" : "isAppUser",
+            "description" : "Whether the user is an authorized user of the calling app"
           },
           "tz_offset" : {
             "type" : "number",
-            "x-ballerina-name" : "tzOffset"
+            "x-ballerina-name" : "tzOffset",
+            "description" : "Offset of the time zone of the user from UTC, in seconds"
           },
           "is_stranger" : {
             "type" : "boolean",
-            "x-ballerina-name" : "isStranger"
+            "x-ballerina-name" : "isStranger",
+            "description" : "Whether the user belongs to another workspace and shares no conversation visible to the caller"
           },
           "is_forgotten" : {
             "type" : "boolean",
-            "x-ballerina-name" : "isForgotten"
+            "x-ballerina-name" : "isForgotten",
+            "description" : "Whether the user was deleted and their personal data erased"
           },
           "id" : {
-            "$ref" : "#/components/schemas/UserIdDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/UserIdDef"
+            } ],
+            "description" : "ID of the user"
           },
           "is_bot" : {
             "type" : "boolean",
-            "x-ballerina-name" : "isBot"
+            "x-ballerina-name" : "isBot",
+            "description" : "Whether the user is a bot"
           },
           "presence" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "Presence of the user, either `active` or `away`"
           },
           "is_ultra_restricted" : {
             "type" : "boolean",
-            "x-ballerina-name" : "isUltraRestricted"
+            "x-ballerina-name" : "isUltraRestricted",
+            "description" : "Whether the user is a single-channel guest"
           },
           "teams" : {
             "minItems" : 1,
@@ -23024,37 +23751,48 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/WorkspaceIdDef"
-            }
+            },
+            "description" : "IDs of the workspaces the user belongs to"
           },
           "is_owner" : {
             "type" : "boolean",
-            "x-ballerina-name" : "isOwner"
+            "x-ballerina-name" : "isOwner",
+            "description" : "Whether the user is an owner of the workspace"
           },
           "profile" : {
-            "$ref" : "#/components/schemas/UserProfileObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/UserProfileObj"
+            } ],
+            "description" : "Profile of the user"
           },
           "is_external" : {
             "type" : "boolean",
-            "x-ballerina-name" : "isExternal"
+            "x-ballerina-name" : "isExternal",
+            "description" : "Whether the user belongs to an external organization"
           },
           "enterprise_user" : {
             "allOf" : [ {
               "$ref" : "#/components/schemas/EnterpriseUserObj"
             } ],
-            "x-ballerina-name" : "enterpriseUser"
+            "x-ballerina-name" : "enterpriseUser",
+            "description" : "Enterprise organization details of the user"
           },
           "deleted" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "description" : "Whether the user has been deactivated"
           },
           "two_factor_type" : {
             "type" : "string",
-            "x-ballerina-name" : "twoFactorType"
+            "x-ballerina-name" : "twoFactorType",
+            "description" : "Type of two-factor authentication the user uses, such as `app` or `sms`"
           },
           "name" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "Username of the user"
           },
           "updated" : {
-            "type" : "number"
+            "type" : "number",
+            "description" : "Unix timestamp of the last update to the user"
           }
         },
         "additionalProperties" : false,
@@ -23090,10 +23828,16 @@
         "type" : "object",
         "properties" : {
           "profile" : {
-            "$ref" : "#/components/schemas/TeamProfileGetResponseProfile"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/TeamProfileGetResponseProfile"
+            } ],
+            "description" : "Custom profile fields of the workspace"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -23232,7 +23976,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -23294,10 +24041,16 @@
         "type" : "object",
         "properties" : {
           "file" : {
-            "$ref" : "#/components/schemas/FileObj"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/FileObj"
+            } ],
+            "description" : "The file"
           },
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           }
         },
         "additionalProperties" : false,
@@ -23333,7 +24086,10 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "upload_url" : {
             "type" : "string",
@@ -23402,13 +24158,17 @@
         "type" : "object",
         "properties" : {
           "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/OkTrueDef"
+            } ],
+            "description" : "`true` if the request succeeded"
           },
           "files" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/FileObj"
-            }
+            },
+            "description" : "The files"
           }
         },
         "description" : "Schema for successful response of files.completeUploadExternal method",
