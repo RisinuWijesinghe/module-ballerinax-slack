@@ -37,6 +37,7 @@
         },
         "operationId" : "admin_apps_approve",
         "requestBody" : {
+          "description" : "Request payload for the `admin.apps.approve` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -363,6 +364,7 @@
         },
         "operationId" : "admin_apps_restrict",
         "requestBody" : {
+          "description" : "Request payload for the `admin.apps.restrict` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -556,6 +558,7 @@
         },
         "operationId" : "admin_conversations_archive",
         "requestBody" : {
+          "description" : "Request payload for the `admin.conversations.archive` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -617,6 +620,7 @@
         },
         "operationId" : "admin_conversations_convertToPrivate",
         "requestBody" : {
+          "description" : "Request payload for the `admin.conversations.convertToPrivate` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -678,6 +682,7 @@
         },
         "operationId" : "admin_conversations_create",
         "requestBody" : {
+          "description" : "Request payload for the `admin.conversations.create` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -740,6 +745,7 @@
         },
         "operationId" : "admin_conversations_delete",
         "requestBody" : {
+          "description" : "Request payload for the `admin.conversations.delete` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -801,6 +807,7 @@
         },
         "operationId" : "admin_conversations_disconnectShared",
         "requestBody" : {
+          "description" : "Request payload for the `admin.conversations.disconnectShared` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -1109,6 +1116,7 @@
         },
         "operationId" : "admin_conversations_invite",
         "requestBody" : {
+          "description" : "Request payload for the `admin.conversations.invite` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -1170,6 +1178,7 @@
         },
         "operationId" : "admin_conversations_rename",
         "requestBody" : {
+          "description" : "Request payload for the `admin.conversations.rename` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -1231,6 +1240,7 @@
         },
         "operationId" : "admin_conversations_restrictAccess_addGroup",
         "requestBody" : {
+          "description" : "Request payload for the `admin.conversations.restrictAccess.addGroup` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -1366,6 +1376,7 @@
         },
         "operationId" : "admin_conversations_restrictAccess_removeGroup",
         "requestBody" : {
+          "description" : "Request payload for the `admin.conversations.restrictAccess.removeGroup` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -1588,6 +1599,7 @@
         },
         "operationId" : "admin_conversations_setConversationPrefs",
         "requestBody" : {
+          "description" : "Request payload for the `admin.conversations.setConversationPrefs` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -1649,6 +1661,7 @@
         },
         "operationId" : "admin_conversations_setTeams",
         "requestBody" : {
+          "description" : "Request payload for the `admin.conversations.setTeams` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -1710,6 +1723,7 @@
         },
         "operationId" : "admin_conversations_unarchive",
         "requestBody" : {
+          "description" : "Request payload for the `admin.conversations.unarchive` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -1771,6 +1785,7 @@
         },
         "operationId" : "admin_emoji_add",
         "requestBody" : {
+          "description" : "Request payload for the `admin.emoji.add` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -1832,6 +1847,7 @@
         },
         "operationId" : "admin_emoji_addAlias",
         "requestBody" : {
+          "description" : "Request payload for the `admin.emoji.addAlias` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -1990,6 +2006,7 @@
         },
         "operationId" : "admin_emoji_remove",
         "requestBody" : {
+          "description" : "Request payload for the `admin.emoji.remove` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -2051,6 +2068,7 @@
         },
         "operationId" : "admin_emoji_rename",
         "requestBody" : {
+          "description" : "Request payload for the `admin.emoji.rename` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -2552,6 +2570,7 @@
         },
         "operationId" : "admin_teams_create",
         "requestBody" : {
+          "description" : "Request payload for the `admin.teams.create` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -2851,6 +2870,7 @@
         },
         "operationId" : "admin_teams_settings_setDefaultChannels",
         "requestBody" : {
+          "description" : "Request payload for the `admin.teams.settings.setDefaultChannels` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -2912,6 +2932,7 @@
         },
         "operationId" : "admin_teams_settings_setDescription",
         "requestBody" : {
+          "description" : "Request payload for the `admin.teams.settings.setDescription` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -2973,6 +2994,7 @@
         },
         "operationId" : "admin_teams_settings_setDiscoverability",
         "requestBody" : {
+          "description" : "Request payload for the `admin.teams.settings.setDiscoverability` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -3034,6 +3056,7 @@
         },
         "operationId" : "admin_teams_settings_setIcon",
         "requestBody" : {
+          "description" : "Request payload for the `admin.teams.settings.setIcon` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -3095,6 +3118,7 @@
         },
         "operationId" : "admin_teams_settings_setName",
         "requestBody" : {
+          "description" : "Request payload for the `admin.teams.settings.setName` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -3156,6 +3180,7 @@
         },
         "operationId" : "admin_usergroups_addChannels",
         "requestBody" : {
+          "description" : "Request payload for the `admin.usergroups.addChannels` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -3217,6 +3242,7 @@
         },
         "operationId" : "admin_usergroups_addTeams",
         "requestBody" : {
+          "description" : "Request payload for the `admin.usergroups.addTeams` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -3383,6 +3409,7 @@
         },
         "operationId" : "admin_usergroups_removeChannels",
         "requestBody" : {
+          "description" : "Request payload for the `admin.usergroups.removeChannels` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -3444,6 +3471,7 @@
         },
         "operationId" : "admin_users_assign",
         "requestBody" : {
+          "description" : "Request payload for the `admin.users.assign` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -3505,6 +3533,7 @@
         },
         "operationId" : "admin_users_invite",
         "requestBody" : {
+          "description" : "Request payload for the `admin.users.invite` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -3659,6 +3688,7 @@
         },
         "operationId" : "admin_users_remove",
         "requestBody" : {
+          "description" : "Request payload for the `admin.users.remove` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -3720,6 +3750,7 @@
         },
         "operationId" : "admin_users_session_invalidate",
         "requestBody" : {
+          "description" : "Request payload for the `admin.users.session.invalidate` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -3781,6 +3812,7 @@
         },
         "operationId" : "admin_users_session_reset",
         "requestBody" : {
+          "description" : "Request payload for the `admin.users.session.reset` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -3842,6 +3874,7 @@
         },
         "operationId" : "admin_users_setAdmin",
         "requestBody" : {
+          "description" : "Request payload for the `admin.users.setAdmin` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -3903,6 +3936,7 @@
         },
         "operationId" : "admin_users_setExpiration",
         "requestBody" : {
+          "description" : "Request payload for the `admin.users.setExpiration` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -3975,6 +4009,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Request payload for the `admin.users.setOwner` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -4036,6 +4071,7 @@
         },
         "operationId" : "admin_users_setRegular",
         "requestBody" : {
+          "description" : "Request payload for the `admin.users.setRegular` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -4516,6 +4552,7 @@
         },
         "operationId" : "calls_add",
         "requestBody" : {
+          "description" : "Request payload for the `calls.add` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -4577,6 +4614,7 @@
         },
         "operationId" : "calls_end",
         "requestBody" : {
+          "description" : "Request payload for the `calls.end` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -4700,6 +4738,7 @@
         },
         "operationId" : "calls_participants_add",
         "requestBody" : {
+          "description" : "Request payload for the `calls.participants.add` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -4761,6 +4800,7 @@
         },
         "operationId" : "calls_participants_remove",
         "requestBody" : {
+          "description" : "Request payload for the `calls.participants.remove` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -4822,6 +4862,7 @@
         },
         "operationId" : "calls_update",
         "requestBody" : {
+          "description" : "Request payload for the `calls.update` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -4883,6 +4924,7 @@
         },
         "operationId" : "chat_delete",
         "requestBody" : {
+          "description" : "Request payload for the `chat.delete` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -4945,6 +4987,7 @@
         },
         "operationId" : "chat_deleteScheduledMessage",
         "requestBody" : {
+          "description" : "Request payload for the `chat.deleteScheduledMessage` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -5080,6 +5123,7 @@
         },
         "operationId" : "chat_meMessage",
         "requestBody" : {
+          "description" : "Request payload for the `chat.meMessage` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -5142,6 +5186,7 @@
         },
         "operationId" : "chat_postEphemeral",
         "requestBody" : {
+          "description" : "Request payload for the `chat.postEphemeral` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -5203,6 +5248,7 @@
         },
         "operationId" : "chat_postMessage",
         "requestBody" : {
+          "description" : "Request payload for the `chat.postMessage` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -5278,6 +5324,7 @@
         },
         "operationId" : "chat_scheduleMessage",
         "requestBody" : {
+          "description" : "Request payload for the `chat.scheduleMessage` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -5465,6 +5512,7 @@
         },
         "operationId" : "chat_unfurl",
         "requestBody" : {
+          "description" : "Request payload for the `chat.unfurl` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -5526,6 +5574,7 @@
         },
         "operationId" : "chat_update",
         "requestBody" : {
+          "description" : "Request payload for the `chat.update` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -5593,6 +5642,7 @@
         },
         "operationId" : "conversations_archive",
         "requestBody" : {
+          "description" : "Request payload for the `conversations.archive` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -5653,6 +5703,7 @@
         },
         "operationId" : "conversations_close",
         "requestBody" : {
+          "description" : "Request payload for the `conversations.close` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -5713,6 +5764,7 @@
         },
         "operationId" : "conversations_create",
         "requestBody" : {
+          "description" : "Request payload for the `conversations.create` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -6058,6 +6110,7 @@
         },
         "operationId" : "conversations_invite",
         "requestBody" : {
+          "description" : "Request payload for the `conversations.invite` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -6154,6 +6207,7 @@
         },
         "operationId" : "conversations_join",
         "requestBody" : {
+          "description" : "Request payload for the `conversations.join` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -6250,6 +6304,7 @@
         },
         "operationId" : "conversations_kick",
         "requestBody" : {
+          "description" : "Request payload for the `conversations.kick` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -6310,6 +6365,7 @@
         },
         "operationId" : "conversations_leave",
         "requestBody" : {
+          "description" : "Request payload for the `conversations.leave` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -6531,6 +6587,7 @@
         },
         "operationId" : "conversations_mark",
         "requestBody" : {
+          "description" : "Request payload for the `conversations.mark` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -6677,6 +6734,7 @@
         },
         "operationId" : "conversations_open",
         "requestBody" : {
+          "description" : "Request payload for the `conversations.open` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -6740,6 +6798,7 @@
         },
         "operationId" : "conversations_rename",
         "requestBody" : {
+          "description" : "Request payload for the `conversations.rename` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -6994,6 +7053,7 @@
         },
         "operationId" : "conversations_setPurpose",
         "requestBody" : {
+          "description" : "Request payload for the `conversations.setPurpose` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -7054,6 +7114,7 @@
         },
         "operationId" : "conversations_setTopic",
         "requestBody" : {
+          "description" : "Request payload for the `conversations.setTopic` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -7114,6 +7175,7 @@
         },
         "operationId" : "conversations_unarchive",
         "requestBody" : {
+          "description" : "Request payload for the `conversations.unarchive` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -7411,6 +7473,7 @@
         },
         "operationId" : "dnd_setSnooze",
         "requestBody" : {
+          "description" : "Request payload for the `dnd.setSnooze` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -7597,6 +7660,7 @@
         },
         "operationId" : "files_completeUploadExternal",
         "requestBody" : {
+          "description" : "Request payload for the `files.completeUploadExternal` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -7662,6 +7726,7 @@
         },
         "operationId" : "files_delete",
         "requestBody" : {
+          "description" : "Request payload for the `files.delete` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -7722,6 +7787,7 @@
         },
         "operationId" : "files_getUploadURLExternal",
         "requestBody" : {
+          "description" : "Request payload for the `files.getUploadURLExternal` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -8163,6 +8229,7 @@
         },
         "operationId" : "files_remote_add",
         "requestBody" : {
+          "description" : "Request payload for the `files.remote.add` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -8400,6 +8467,7 @@
         },
         "operationId" : "files_remote_remove",
         "requestBody" : {
+          "description" : "Request payload for the `files.remote.remove` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -8543,6 +8611,7 @@
         },
         "operationId" : "files_remote_update",
         "requestBody" : {
+          "description" : "Request payload for the `files.remote.update` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -8603,6 +8672,7 @@
         },
         "operationId" : "files_revokePublicURL",
         "requestBody" : {
+          "description" : "Request payload for the `files.revokePublicURL` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -8663,6 +8733,7 @@
         },
         "operationId" : "files_sharedPublicURL",
         "requestBody" : {
+          "description" : "Request payload for the `files.sharedPublicURL` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -9041,6 +9112,7 @@
         },
         "operationId" : "pins_add",
         "requestBody" : {
+          "description" : "Request payload for the `pins.add` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -9196,6 +9268,7 @@
         },
         "operationId" : "pins_remove",
         "requestBody" : {
+          "description" : "Request payload for the `pins.remove` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -9257,6 +9330,7 @@
         },
         "operationId" : "reactions_add",
         "requestBody" : {
+          "description" : "Request payload for the `reactions.add` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -9618,6 +9692,7 @@
         },
         "operationId" : "reactions_remove",
         "requestBody" : {
+          "description" : "Request payload for the `reactions.remove` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -10424,6 +10499,7 @@
         },
         "operationId" : "usergroups_create",
         "requestBody" : {
+          "description" : "Request payload for the `usergroups.create` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -10484,6 +10560,7 @@
         },
         "operationId" : "usergroups_disable",
         "requestBody" : {
+          "description" : "Request payload for the `usergroups.disable` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -10544,6 +10621,7 @@
         },
         "operationId" : "usergroups_enable",
         "requestBody" : {
+          "description" : "Request payload for the `usergroups.enable` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -10750,6 +10828,7 @@
         },
         "operationId" : "usergroups_update",
         "requestBody" : {
+          "description" : "Request payload for the `usergroups.update` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -10906,6 +10985,7 @@
         },
         "operationId" : "usergroups_users_update",
         "requestBody" : {
+          "description" : "Request payload for the `usergroups.users.update` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -11155,6 +11235,7 @@
         },
         "operationId" : "users_deletePhoto",
         "requestBody" : {
+          "description" : "Request payload for the `users.deletePhoto` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -11807,6 +11888,7 @@
         },
         "operationId" : "users_profile_set",
         "requestBody" : {
+          "description" : "Request payload for the `users.profile.set` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -11885,6 +11967,7 @@
         },
         "operationId" : "users_setPhoto",
         "requestBody" : {
+          "description" : "Request payload for the `users.setPhoto` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -11946,6 +12029,7 @@
         },
         "operationId" : "users_setPresence",
         "requestBody" : {
+          "description" : "Request payload for the `users.setPresence` method",
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
@@ -23361,6 +23445,7 @@
     },
     "requestBodies" : {
       "admin_inviteRequests_approve" : {
+        "description" : "Request payload identifying the workspace invite request to approve or deny",
         "content" : {
           "application/x-www-form-urlencoded" : {
             "schema" : {

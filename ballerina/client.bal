@@ -36,6 +36,7 @@ public isolated client class Client {
     # Approve an app for installation on a workspace.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.apps.approve` method 
     # + return - Typical success response 
     remote isolated function adminAppsApprove(AdminAppsApproveBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse|error {
         string resourcePath = string `/admin.apps.approve`;
@@ -70,6 +71,7 @@ public isolated client class Client {
     # Restrict an app for installation on a workspace.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.apps.restrict` method 
     # + return - Typical success response 
     remote isolated function adminAppsRestrict(AdminAppsRestrictBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse3|error {
         string resourcePath = string `/admin.apps.restrict`;
@@ -93,6 +95,7 @@ public isolated client class Client {
     # Archive a public or private channel.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.conversations.archive` method 
     # + return - Typical success response 
     remote isolated function adminConversationsArchive(AdminConversationsArchiveBody payload, map<string|string[]> headers = {}) returns AdminConversationsArchiveResponse|error {
         string resourcePath = string `/admin.conversations.archive`;
@@ -105,6 +108,7 @@ public isolated client class Client {
     # Convert a public channel to a private channel.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.conversations.convertToPrivate` method 
     # + return - Typical success response 
     remote isolated function adminConversationsConvertToPrivate(AdminConversationsConvertToPrivateBody payload, map<string|string[]> headers = {}) returns AdminConversationsConvertToPrivateResponse|error {
         string resourcePath = string `/admin.conversations.convertToPrivate`;
@@ -117,6 +121,7 @@ public isolated client class Client {
     # Create a public or private channel-based conversation.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.conversations.create` method 
     # + return - Typical success response 
     remote isolated function adminConversationsCreate(AdminConversationsCreateBody payload, map<string|string[]> headers = {}) returns AdminConversationsCreateResponse|error {
         string resourcePath = string `/admin.conversations.create`;
@@ -129,6 +134,7 @@ public isolated client class Client {
     # Delete a public or private channel.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.conversations.delete` method 
     # + return - Typical success response 
     remote isolated function adminConversationsDelete(AdminConversationsDeleteBody payload, map<string|string[]> headers = {}) returns AdminConversationsDeleteResponse|error {
         string resourcePath = string `/admin.conversations.delete`;
@@ -141,6 +147,7 @@ public isolated client class Client {
     # Disconnect a connected channel from one or more workspaces.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.conversations.disconnectShared` method 
     # + return - Typical success response 
     remote isolated function adminConversationsDisconnectShared(AdminConversationsDisconnectSharedBody payload, map<string|string[]> headers = {}) returns AdminConversationsRenameResponse|error {
         string resourcePath = string `/admin.conversations.disconnectShared`;
@@ -186,6 +193,7 @@ public isolated client class Client {
     # Invite a user to a public or private channel.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.conversations.invite` method 
     # + return - Typical success response 
     remote isolated function adminConversationsInvite(AdminConversationsInviteBody payload, map<string|string[]> headers = {}) returns AdminConversationsInviteResponse|error {
         string resourcePath = string `/admin.conversations.invite`;
@@ -198,6 +206,7 @@ public isolated client class Client {
     # Rename a public or private channel.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.conversations.rename` method 
     # + return - Typical success response 
     remote isolated function adminConversationsRename(AdminConversationsRenameBody payload, map<string|string[]> headers = {}) returns AdminConversationsRenameResponse1|error {
         string resourcePath = string `/admin.conversations.rename`;
@@ -210,6 +219,7 @@ public isolated client class Client {
     # Add an allowlist of IDP groups for accessing a channel
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.conversations.restrictAccess.addGroup` method 
     # + return - Typical success response 
     remote isolated function adminConversationsRestrictAccessAddGroup(AdminConversationsRestrictAccessAddGroupBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse6|error {
         string resourcePath = string `/admin.conversations.restrictAccess.addGroup`;
@@ -233,6 +243,7 @@ public isolated client class Client {
     # Remove a linked IDP group linked from a private channel
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.conversations.restrictAccess.removeGroup` method 
     # + return - Typical success response 
     remote isolated function adminConversationsRestrictAccessRemoveGroup(AdminConversationsRestrictAccessRemoveGroupBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse8|error {
         string resourcePath = string `/admin.conversations.restrictAccess.removeGroup`;
@@ -256,6 +267,7 @@ public isolated client class Client {
     # Set the posting permissions for a public or private channel.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.conversations.setConversationPrefs` method 
     # + return - Typical success response 
     remote isolated function adminConversationsSetConversationPrefs(AdminConversationsSetConversationPrefsBody payload, map<string|string[]> headers = {}) returns AdminConversationsSetConversationPrefsResponse|error {
         string resourcePath = string `/admin.conversations.setConversationPrefs`;
@@ -268,6 +280,7 @@ public isolated client class Client {
     # Set the workspaces in an Enterprise grid org that connect to a public or private channel.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.conversations.setTeams` method 
     # + return - Typical success response 
     remote isolated function adminConversationsSetTeams(AdminConversationsSetTeamsBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse9|error {
         string resourcePath = string `/admin.conversations.setTeams`;
@@ -280,6 +293,7 @@ public isolated client class Client {
     # Unarchive a public or private channel.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.conversations.unarchive` method 
     # + return - Typical success response 
     remote isolated function adminConversationsUnarchive(AdminConversationsUnarchiveBody payload, map<string|string[]> headers = {}) returns AdminConversationsUnarchiveResponse|error {
         string resourcePath = string `/admin.conversations.unarchive`;
@@ -292,6 +306,7 @@ public isolated client class Client {
     # Add an emoji.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.emoji.add` method 
     # + return - Typical success response 
     remote isolated function adminEmojiAdd(AdminEmojiAddBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse10|error {
         string resourcePath = string `/admin.emoji.add`;
@@ -304,6 +319,7 @@ public isolated client class Client {
     # Add an emoji alias.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.emoji.addAlias` method 
     # + return - Typical success response 
     remote isolated function adminEmojiAddAlias(AdminEmojiAddAliasBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse11|error {
         string resourcePath = string `/admin.emoji.addAlias`;
@@ -327,6 +343,7 @@ public isolated client class Client {
     # Remove an emoji across an Enterprise Grid organization
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.emoji.remove` method 
     # + return - Typical success response 
     remote isolated function adminEmojiRemove(AdminEmojiRemoveBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse13|error {
         string resourcePath = string `/admin.emoji.remove`;
@@ -339,6 +356,7 @@ public isolated client class Client {
     # Rename an emoji.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.emoji.rename` method 
     # + return - Typical success response 
     remote isolated function adminEmojiRename(AdminEmojiRenameBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse14|error {
         string resourcePath = string `/admin.emoji.rename`;
@@ -351,6 +369,7 @@ public isolated client class Client {
     # Approve a workspace invite request.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload identifying the workspace invite request to approve or deny 
     # + return - Typical success response 
     remote isolated function adminInviteRequestsApprove(record {string invite_request_id; string team_id?;} payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse15|error {
         string resourcePath = string `/admin.inviteRequests.approve`;
@@ -385,6 +404,7 @@ public isolated client class Client {
     # Deny a workspace invite request.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload identifying the workspace invite request to approve or deny 
     # + return - Typical success response 
     remote isolated function adminInviteRequestsDeny(record {string invite_request_id; string team_id?;} payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse18|error {
         string resourcePath = string `/admin.inviteRequests.deny`;
@@ -419,6 +439,7 @@ public isolated client class Client {
     # Create an Enterprise team.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.teams.create` method 
     # + return - Typical success response 
     remote isolated function adminTeamsCreate(AdminTeamsCreateBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse21|error {
         string resourcePath = string `/admin.teams.create`;
@@ -464,6 +485,7 @@ public isolated client class Client {
     # Set the default channels of a workspace.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.teams.settings.setDefaultChannels` method 
     # + return - Typical success response 
     remote isolated function adminTeamsSettingsSetDefaultChannels(AdminTeamsSettingsSetDefaultChannelsBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse25|error {
         string resourcePath = string `/admin.teams.settings.setDefaultChannels`;
@@ -476,6 +498,7 @@ public isolated client class Client {
     # Set the description of a given workspace.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.teams.settings.setDescription` method 
     # + return - Typical success response 
     remote isolated function adminTeamsSettingsSetDescription(AdminTeamsSettingsSetDescriptionBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse26|error {
         string resourcePath = string `/admin.teams.settings.setDescription`;
@@ -488,6 +511,7 @@ public isolated client class Client {
     # An API method that allows admins to set the discoverability of a given workspace
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.teams.settings.setDiscoverability` method 
     # + return - Typical success response 
     remote isolated function adminTeamsSettingsSetDiscoverability(AdminTeamsSettingsSetDiscoverabilityBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse27|error {
         string resourcePath = string `/admin.teams.settings.setDiscoverability`;
@@ -500,6 +524,7 @@ public isolated client class Client {
     # Sets the icon of a workspace.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.teams.settings.setIcon` method 
     # + return - Typical success response 
     remote isolated function adminTeamsSettingsSetIcon(AdminTeamsSettingsSetIconBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse28|error {
         string resourcePath = string `/admin.teams.settings.setIcon`;
@@ -512,6 +537,7 @@ public isolated client class Client {
     # Set the name of a given workspace.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.teams.settings.setName` method 
     # + return - Typical success response 
     remote isolated function adminTeamsSettingsSetName(AdminTeamsSettingsSetNameBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse29|error {
         string resourcePath = string `/admin.teams.settings.setName`;
@@ -524,6 +550,7 @@ public isolated client class Client {
     # Add one or more default channels to an IDP group.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.usergroups.addChannels` method 
     # + return - Typical success response 
     remote isolated function adminUsergroupsAddChannels(AdminUsergroupsAddChannelsBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse30|error {
         string resourcePath = string `/admin.usergroups.addChannels`;
@@ -536,6 +563,7 @@ public isolated client class Client {
     # Associate one or more default workspaces with an organization-wide IDP group.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.usergroups.addTeams` method 
     # + return - Typical success response 
     remote isolated function adminUsergroupsAddTeams(AdminUsergroupsAddTeamsBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse31|error {
         string resourcePath = string `/admin.usergroups.addTeams`;
@@ -559,6 +587,7 @@ public isolated client class Client {
     # Remove one or more default channels from an org-level IDP group (user group).
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.usergroups.removeChannels` method 
     # + return - Typical success response 
     remote isolated function adminUsergroupsRemoveChannels(AdminUsergroupsRemoveChannelsBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse33|error {
         string resourcePath = string `/admin.usergroups.removeChannels`;
@@ -571,6 +600,7 @@ public isolated client class Client {
     # Add an Enterprise user to a workspace.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.users.assign` method 
     # + return - Typical success response 
     remote isolated function adminUsersAssign(AdminUsersAssignBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse34|error {
         string resourcePath = string `/admin.users.assign`;
@@ -583,6 +613,7 @@ public isolated client class Client {
     # Invite a user to a workspace.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.users.invite` method 
     # + return - Typical success response 
     remote isolated function adminUsersInvite(AdminUsersInviteBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse35|error {
         string resourcePath = string `/admin.users.invite`;
@@ -606,6 +637,7 @@ public isolated client class Client {
     # Remove a user from a workspace.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.users.remove` method 
     # + return - Typical success response 
     remote isolated function adminUsersRemove(AdminUsersRemoveBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse37|error {
         string resourcePath = string `/admin.users.remove`;
@@ -618,6 +650,7 @@ public isolated client class Client {
     # Invalidate a single session for a user by session_id
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.users.session.invalidate` method 
     # + return - Typical success response 
     remote isolated function adminUsersSessionInvalidate(AdminUsersSessionInvalidateBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse38|error {
         string resourcePath = string `/admin.users.session.invalidate`;
@@ -630,6 +663,7 @@ public isolated client class Client {
     # Wipes all valid sessions on all devices for a given user
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.users.session.reset` method 
     # + return - Typical success response 
     remote isolated function adminUsersSessionReset(AdminUsersSessionResetBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse39|error {
         string resourcePath = string `/admin.users.session.reset`;
@@ -642,6 +676,7 @@ public isolated client class Client {
     # Set an existing guest, regular user, or owner to be an admin user.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.users.setAdmin` method 
     # + return - Typical success response 
     remote isolated function adminUsersSetAdmin(AdminUsersSetAdminBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse40|error {
         string resourcePath = string `/admin.users.setAdmin`;
@@ -654,6 +689,7 @@ public isolated client class Client {
     # Set an expiration for a guest user
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.users.setExpiration` method 
     # + return - Typical success response 
     remote isolated function adminUsersSetExpiration(AdminUsersSetExpirationBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse41|error {
         string resourcePath = string `/admin.users.setExpiration`;
@@ -666,6 +702,7 @@ public isolated client class Client {
     # Set an existing guest, regular user, or admin user to be a workspace owner.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.users.setOwner` method 
     # + return - Typical success response 
     remote isolated function adminUsersSetOwner(AdminUsersSetOwnerHeaders headers, AdminUsersSetOwnerBody payload) returns DefaultSuccessResponse42|error {
         string resourcePath = string `/admin.users.setOwner`;
@@ -679,6 +716,7 @@ public isolated client class Client {
     # Set an existing guest user, admin user, or owner to be a regular user.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `admin.users.setRegular` method 
     # + return - Typical success response 
     remote isolated function adminUsersSetRegular(AdminUsersSetRegularBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse43|error {
         string resourcePath = string `/admin.users.setRegular`;
@@ -755,6 +793,7 @@ public isolated client class Client {
     # Registers a new Call.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `calls.add` method 
     # + return - Typical success response 
     remote isolated function callsAdd(CallsAddBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse47|error {
         string resourcePath = string `/calls.add`;
@@ -767,6 +806,7 @@ public isolated client class Client {
     # Ends a Call.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `calls.end` method 
     # + return - Typical success response 
     remote isolated function callsEnd(CallsEndBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse48|error {
         string resourcePath = string `/calls.end`;
@@ -790,6 +830,7 @@ public isolated client class Client {
     # Registers new participants added to a Call.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `calls.participants.add` method 
     # + return - Typical success response 
     remote isolated function callsParticipantsAdd(CallsParticipantsAddBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse50|error {
         string resourcePath = string `/calls.participants.add`;
@@ -802,6 +843,7 @@ public isolated client class Client {
     # Registers participants removed from a Call.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `calls.participants.remove` method 
     # + return - Typical success response 
     remote isolated function callsParticipantsRemove(CallsParticipantsRemoveBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse51|error {
         string resourcePath = string `/calls.participants.remove`;
@@ -814,6 +856,7 @@ public isolated client class Client {
     # Updates information about a Call.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `calls.update` method 
     # + return - Typical success response 
     remote isolated function callsUpdate(CallsUpdateBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse52|error {
         string resourcePath = string `/calls.update`;
@@ -826,6 +869,7 @@ public isolated client class Client {
     # Deletes a message.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `chat.delete` method 
     # + return - Typical success response 
     remote isolated function chatDelete(ChatDeleteBody payload, map<string|string[]> headers = {}) returns ChatDeleteResponse|error {
         string resourcePath = string `/chat.delete`;
@@ -838,6 +882,7 @@ public isolated client class Client {
     # Deletes a pending scheduled message from the queue.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `chat.deleteScheduledMessage` method 
     # + return - Typical success response 
     remote isolated function chatDeleteScheduledMessage(ChatDeleteScheduledMessageBody payload, map<string|string[]> headers = {}) returns ChatDeleteScheduledMessageResponse|error {
         string resourcePath = string `/chat.deleteScheduledMessage`;
@@ -861,6 +906,7 @@ public isolated client class Client {
     # Share a me message into a channel.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `chat.meMessage` method 
     # + return - Typical success response 
     remote isolated function chatMeMessage(ChatMeMessageBody payload, map<string|string[]> headers = {}) returns ChatMeMessageResponse|error {
         string resourcePath = string `/chat.meMessage`;
@@ -873,6 +919,7 @@ public isolated client class Client {
     # Sends an ephemeral message to a user in a channel.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `chat.postEphemeral` method 
     # + return - Typical success response 
     remote isolated function chatPostEphemeral(ChatPostEphemeralBody payload, map<string|string[]> headers = {}) returns ChatPostEphemeralResponse|error {
         string resourcePath = string `/chat.postEphemeral`;
@@ -885,6 +932,7 @@ public isolated client class Client {
     # Sends a message to a channel.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `chat.postMessage` method 
     # + return - Typical success response 
     remote isolated function chatPostMessage(ChatPostMessageBody payload, map<string|string[]> headers = {}) returns ChatPostMessageResponse|error {
         string resourcePath = string `/chat.postMessage`;
@@ -897,6 +945,7 @@ public isolated client class Client {
     # Schedules a message to be sent to a channel.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `chat.scheduleMessage` method 
     # + return - Typical success response 
     remote isolated function chatScheduleMessage(ChatScheduleMessageBody payload, map<string|string[]> headers = {}) returns ChatScheduleMessageResponse|error {
         string resourcePath = string `/chat.scheduleMessage`;
@@ -920,6 +969,7 @@ public isolated client class Client {
     # Provide custom unfurl behavior for user-posted URLs
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `chat.unfurl` method 
     # + return - Typical, minimal success response 
     remote isolated function chatUnfurl(ChatUnfurlBody payload, map<string|string[]> headers = {}) returns ChatUnfurlResponse|error {
         string resourcePath = string `/chat.unfurl`;
@@ -932,6 +982,7 @@ public isolated client class Client {
     # Updates a message.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `chat.update` method 
     # + return - Typical success response 
     remote isolated function chatUpdate(ChatUpdateBody payload, map<string|string[]> headers = {}) returns ChatUpdateResponse|error {
         string resourcePath = string `/chat.update`;
@@ -944,6 +995,7 @@ public isolated client class Client {
     # Archives a conversation.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `conversations.archive` method 
     # + return - Typical success response 
     remote isolated function conversationsArchive(ConversationsArchiveBody payload, map<string|string[]> headers = {}) returns ConversationsArchiveResponse|error {
         string resourcePath = string `/conversations.archive`;
@@ -956,6 +1008,7 @@ public isolated client class Client {
     # Closes a direct message or multi-person direct message.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `conversations.close` method 
     # + return - Typical success response 
     remote isolated function conversationsClose(ConversationsCloseBody payload, map<string|string[]> headers = {}) returns ConversationsCloseResponse|error {
         string resourcePath = string `/conversations.close`;
@@ -968,6 +1021,7 @@ public isolated client class Client {
     # Initiates a public or private channel-based conversation
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `conversations.create` method 
     # + return - If successful, the command returns a rather stark [conversation object](/types/conversation) 
     remote isolated function conversationsCreate(ConversationsCreateBody payload, map<string|string[]> headers = {}) returns ConversationsCreateResponse|error {
         string resourcePath = string `/conversations.create`;
@@ -1002,6 +1056,7 @@ public isolated client class Client {
     # Invites users to a channel.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `conversations.invite` method 
     # + return - Typical success response when an invitation is extended 
     remote isolated function conversationsInvite(ConversationsInviteBody payload, map<string|string[]> headers = {}) returns ConversationsInviteErrorResponse|error {
         string resourcePath = string `/conversations.invite`;
@@ -1014,6 +1069,7 @@ public isolated client class Client {
     # Joins an existing conversation.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `conversations.join` method 
     # + return - Typical success response 
     remote isolated function conversationsJoin(ConversationsJoinBody payload, map<string|string[]> headers = {}) returns ConversationsJoinResponse|error {
         string resourcePath = string `/conversations.join`;
@@ -1026,6 +1082,7 @@ public isolated client class Client {
     # Removes a user from a conversation.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `conversations.kick` method 
     # + return - Typical success response 
     remote isolated function conversationsKick(ConversationsKickBody payload, map<string|string[]> headers = {}) returns ConversationsKickResponse|error {
         string resourcePath = string `/conversations.kick`;
@@ -1038,6 +1095,7 @@ public isolated client class Client {
     # Leaves a conversation.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `conversations.leave` method 
     # + return - Typical success response 
     remote isolated function conversationsLeave(ConversationsLeaveBody payload, map<string|string[]> headers = {}) returns ConversationsLeaveResponse|error {
         string resourcePath = string `/conversations.leave`;
@@ -1061,6 +1119,7 @@ public isolated client class Client {
     # Sets the read cursor in a channel.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `conversations.mark` method 
     # + return - Typical success response 
     remote isolated function conversationsMark(ConversationsMarkBody payload, map<string|string[]> headers = {}) returns ConversationsMarkResponse|error {
         string resourcePath = string `/conversations.mark`;
@@ -1084,6 +1143,7 @@ public isolated client class Client {
     # Opens or resumes a direct message or multi-person direct message.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `conversations.open` method 
     # + return - Typical success response 
     remote isolated function conversationsOpen(ConversationsOpenBody payload, map<string|string[]> headers = {}) returns ConversationsOpenResponse|error {
         string resourcePath = string `/conversations.open`;
@@ -1096,6 +1156,7 @@ public isolated client class Client {
     # Renames a conversation.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `conversations.rename` method 
     # + return - Typical success response 
     remote isolated function conversationsRename(ConversationsRenameBody payload, map<string|string[]> headers = {}) returns ConversationsRenameResponse|error {
         string resourcePath = string `/conversations.rename`;
@@ -1119,6 +1180,7 @@ public isolated client class Client {
     # Sets the purpose for a conversation.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `conversations.setPurpose` method 
     # + return - Typical success response 
     remote isolated function conversationsSetPurpose(ConversationsSetPurposeBody payload, map<string|string[]> headers = {}) returns ConversationsSetPurposeResponse|error {
         string resourcePath = string `/conversations.setPurpose`;
@@ -1131,6 +1193,7 @@ public isolated client class Client {
     # Sets the topic for a conversation.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `conversations.setTopic` method 
     # + return - Typical success response 
     remote isolated function conversationsSetTopic(ConversationsSetTopicBody payload, map<string|string[]> headers = {}) returns ConversationsSetTopicResponse|error {
         string resourcePath = string `/conversations.setTopic`;
@@ -1143,6 +1206,7 @@ public isolated client class Client {
     # Reverses conversation archival.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `conversations.unarchive` method 
     # + return - Typical success response 
     remote isolated function conversationsUnarchive(ConversationsUnarchiveBody payload, map<string|string[]> headers = {}) returns ConversationsUnarchiveResponse|error {
         string resourcePath = string `/conversations.unarchive`;
@@ -1197,6 +1261,7 @@ public isolated client class Client {
     # Turns on Do Not Disturb mode for the current user, or changes its duration.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `dnd.setSnooze` method 
     # + return - Typical success response 
     remote isolated function dndSetSnooze(DndSetSnoozeBody payload, map<string|string[]> headers = {}) returns DndSetSnoozeResponse|error {
         string resourcePath = string `/dnd.setSnooze`;
@@ -1229,6 +1294,7 @@ public isolated client class Client {
     # Finishes an upload started with files.getUploadURLExternal.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `files.completeUploadExternal` method 
     # + return - Typical success response 
     remote isolated function filesCompleteUploadExternal(FilesCompleteUploadExternalBody payload, map<string|string[]> headers = {}) returns FilesCompleteUploadExternalResponse|error {
         string resourcePath = string `/files.completeUploadExternal`;
@@ -1241,6 +1307,7 @@ public isolated client class Client {
     # Deletes a file.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `files.delete` method 
     # + return - Typical success response 
     remote isolated function filesDelete(FilesDeleteBody payload, map<string|string[]> headers = {}) returns FilesDeleteResponse|error {
         string resourcePath = string `/files.delete`;
@@ -1253,6 +1320,7 @@ public isolated client class Client {
     # Gets a URL for an edge external file upload.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `files.getUploadURLExternal` method 
     # + return - Typical success response 
     remote isolated function filesGetUploadURLExternal(FilesGetUploadURLExternalBody payload, map<string|string[]> headers = {}) returns FilesGetUploadURLExternalResponse|error {
         string resourcePath = string `/files.getUploadURLExternal`;
@@ -1287,6 +1355,7 @@ public isolated client class Client {
     # Adds a file from a remote service
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `files.remote.add` method 
     # + return - Typical success response 
     remote isolated function filesRemoteAdd(FilesRemoteAddBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse55|error {
         string resourcePath = string `/files.remote.add`;
@@ -1321,6 +1390,7 @@ public isolated client class Client {
     # Remove a remote file.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `files.remote.remove` method 
     # + return - Typical success response 
     remote isolated function filesRemoteRemove(FilesRemoteRemoveBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse58|error {
         string resourcePath = string `/files.remote.remove`;
@@ -1344,6 +1414,7 @@ public isolated client class Client {
     # Updates an existing remote file.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `files.remote.update` method 
     # + return - Typical success response 
     remote isolated function filesRemoteUpdate(FilesRemoteUpdateBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse60|error {
         string resourcePath = string `/files.remote.update`;
@@ -1356,6 +1427,7 @@ public isolated client class Client {
     # Revokes public/external sharing access for a file
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `files.revokePublicURL` method 
     # + return - Typical success response 
     remote isolated function filesRevokePublicURL(FilesRevokePublicURLBody payload, map<string|string[]> headers = {}) returns FilesRevokePublicURLResponse|error {
         string resourcePath = string `/files.revokePublicURL`;
@@ -1368,6 +1440,7 @@ public isolated client class Client {
     # Enables a file for public/external sharing.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `files.sharedPublicURL` method 
     # + return - Typical success response 
     remote isolated function filesSharedPublicURL(FilesSharedPublicURLBody payload, map<string|string[]> headers = {}) returns FilesSharedPublicURLResponse|error {
         string resourcePath = string `/files.sharedPublicURL`;
@@ -1413,6 +1486,7 @@ public isolated client class Client {
     # Pins an item to a channel.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `pins.add` method 
     # + return - Typical success response 
     remote isolated function pinsAdd(PinsAddBody payload, map<string|string[]> headers = {}) returns PinsAddResponse|error {
         string resourcePath = string `/pins.add`;
@@ -1436,6 +1510,7 @@ public isolated client class Client {
     # Un-pins an item from a channel.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `pins.remove` method 
     # + return - Typical success response 
     remote isolated function pinsRemove(PinsRemoveBody payload, map<string|string[]> headers = {}) returns PinsRemoveResponse|error {
         string resourcePath = string `/pins.remove`;
@@ -1448,6 +1523,7 @@ public isolated client class Client {
     # Adds a reaction to an item.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `reactions.add` method 
     # + return - Typical success response 
     remote isolated function reactionsAdd(ReactionsAddBody payload, map<string|string[]> headers = {}) returns ReactionsAddResponse|error {
         string resourcePath = string `/reactions.add`;
@@ -1482,6 +1558,7 @@ public isolated client class Client {
     # Removes a reaction from an item.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `reactions.remove` method 
     # + return - Typical success response 
     remote isolated function reactionsRemove(ReactionsRemoveBody payload, map<string|string[]> headers = {}) returns ReactionsRemoveResponse|error {
         string resourcePath = string `/reactions.remove`;
@@ -1571,6 +1648,7 @@ public isolated client class Client {
     # Create a User Group
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `usergroups.create` method 
     # + return - Typical success response 
     remote isolated function usergroupsCreate(UsergroupsCreateBody payload, map<string|string[]> headers = {}) returns UsergroupsCreateResponse|error {
         string resourcePath = string `/usergroups.create`;
@@ -1583,6 +1661,7 @@ public isolated client class Client {
     # Disable an existing User Group
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `usergroups.disable` method 
     # + return - Typical success response 
     remote isolated function usergroupsDisable(UsergroupsDisableBody payload, map<string|string[]> headers = {}) returns UsergroupsDisableResponse|error {
         string resourcePath = string `/usergroups.disable`;
@@ -1595,6 +1674,7 @@ public isolated client class Client {
     # Enable a User Group
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `usergroups.enable` method 
     # + return - Typical success response 
     remote isolated function usergroupsEnable(UsergroupsEnableBody payload, map<string|string[]> headers = {}) returns UsergroupsEnableResponse|error {
         string resourcePath = string `/usergroups.enable`;
@@ -1618,6 +1698,7 @@ public isolated client class Client {
     # Update an existing User Group
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `usergroups.update` method 
     # + return - Typical success response 
     remote isolated function usergroupsUpdate(UsergroupsUpdateBody payload, map<string|string[]> headers = {}) returns UsergroupsUpdateResponse|error {
         string resourcePath = string `/usergroups.update`;
@@ -1641,6 +1722,7 @@ public isolated client class Client {
     # Update the list of users for a User Group
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `usergroups.users.update` method 
     # + return - Typical success response 
     remote isolated function usergroupsUsersUpdate(UsergroupsUsersUpdateBody payload, map<string|string[]> headers = {}) returns UsergroupsUsersUpdateResponse|error {
         string resourcePath = string `/usergroups.users.update`;
@@ -1664,6 +1746,7 @@ public isolated client class Client {
     # Delete the user profile photo
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `users.deletePhoto` method 
     # + return - Typical success response 
     remote isolated function usersDeletePhoto(UsersDeletePhotoBody payload, map<string|string[]> headers = {}) returns UsersDeletePhotoResponse|error {
         string resourcePath = string `/users.deletePhoto`;
@@ -1740,6 +1823,7 @@ public isolated client class Client {
     # Set the profile information for a user.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `users.profile.set` method 
     # + return - Typical success response 
     remote isolated function usersProfileSet(UsersProfileSetBody payload, map<string|string[]> headers = {}) returns UsersProfileSetResponse|error {
         string resourcePath = string `/users.profile.set`;
@@ -1752,6 +1836,7 @@ public isolated client class Client {
     # Set the user profile photo
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `users.setPhoto` method 
     # + return - Typical success response 
     remote isolated function usersSetPhoto(UsersSetPhotoBody payload, map<string|string[]> headers = {}) returns UsersSetPhotoResponse|error {
         string resourcePath = string `/users.setPhoto`;
@@ -1764,6 +1849,7 @@ public isolated client class Client {
     # Manually sets user presence.
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload for the `users.setPresence` method 
     # + return - Typical success response 
     remote isolated function usersSetPresence(UsersSetPresenceBody payload, map<string|string[]> headers = {}) returns UsersSetPresenceResponse|error {
         string resourcePath = string `/users.setPresence`;

@@ -52,6 +52,8 @@ These changes are done in order to improve the overall usability, and to address
 
 4. Added the `files.getUploadURLExternal` and `files.completeUploadExternal` operations, which replace `files.upload`. They are defined from the [Slack API method reference](https://docs.slack.dev/reference/methods/files.getUploadURLExternal), with the `FilesGetUploadURLExternalBody`, `FilesGetUploadURLExternalResponse`, `FilesCompleteUploadExternalBody` and `FilesCompleteUploadExternalResponse` schemas and their error response schemas. The file contents are sent to the `upload_url` returned by `files.getUploadURLExternal` with a plain HTTP `POST`, which is not a Slack API method and therefore not part of the specification.
 
+5. Added a `description` to the request body of each operation that has one (on the shared `admin_inviteRequests_approve` request body for `admin.inviteRequests.approve` and `admin.inviteRequests.deny`). The original specification has none, so the generated remote methods had no documentation for their `payload` parameter.
+
 ## OpenAPI cli command
 
 The following command was used to generate the Ballerina client from the OpenAPI specification. The command should be executed from the repository root directory.

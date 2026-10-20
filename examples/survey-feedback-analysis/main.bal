@@ -44,10 +44,12 @@ public function main() returns error? {
         log:printError(sendMsgResponse.message());
         return;
     }
+    // conversations.replies needs the channel ID, which chat.postMessage returns, not the channel name
+    string channelId = sendMsgResponse.channel;
     string messageTimestamp = sendMsgResponse.message.ts;
 
     // Check for replies to the survey message
-    slack:ConversationsRepliesResponse|error repliesResponse = slack->conversationsReplies(channel = CHANNEL_NAME, ts = check decimal:fromString(messageTimestamp));
+    slack:ConversationsRepliesResponse|error repliesResponse = slack->conversationsReplies(channel = channelId, ts = check decimal:fromString(messageTimestamp));
     if repliesResponse is error {
         log:printError(repliesResponse.message());
         return;
