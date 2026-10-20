@@ -31,12 +31,33 @@ These changes are done in order to improve the overall usability, and to address
 2. Sanitized the inline and component schema names by removing the whitespaces, special characters and, converting them to pascal case.
    * This was done using the `sanitations.bal` script under the `docs/spec` directory.
 
+3. Removed the following operations, which are no longer listed in the [Slack API method reference](https://docs.slack.dev/reference/methods) and return an `unknown_method` error. The `ResourcesObj` and `ScopesObj` schemas, along with the request, response and error schemas used only by these operations, were removed as well.
+    * apps.permissions.info
+    * apps.permissions.request
+    * apps.permissions.resources.list
+    * apps.permissions.scopes.list
+    * apps.permissions.users.list
+    * apps.permissions.users.request
+    * oauth.token
+    * workflows.stepCompleted
+    * workflows.stepFailed
+    * workflows.updateStep
+
+   The following operations were removed as well. Slack still lists them, but documents them as sunset, non-functional or without any user-facing effect. Their request, response and error schemas were removed with them.
+    * files.upload (sunset on November 12, 2025, and now returns a `method_deprecated` error; replaced by the operations added in item 4)
+    * reminders.add, reminders.complete, reminders.delete, reminders.info and reminders.list (replaced by Save it for Later in March 2023 and documented as degraded, with no API replacement)
+    * stars.add, stars.list and stars.remove (replaced by Save it for Later in March 2023, with no API replacement)
+    * files.comments.delete (Slack replaced file comments with threaded message replies in 2018, which can be deleted with `chat.delete`)
+    * users.setActive (non-functional; use `users.setPresence`)
+
+4. Added the `files.getUploadURLExternal` and `files.completeUploadExternal` operations, which replace `files.upload`. They are defined from the [Slack API method reference](https://docs.slack.dev/reference/methods/files.getUploadURLExternal), with the `FilesGetUploadURLExternalBody`, `FilesGetUploadURLExternalResponse`, `FilesCompleteUploadExternalBody` and `FilesCompleteUploadExternalResponse` schemas and their error response schemas. The file contents are sent to the `upload_url` returned by `files.getUploadURLExternal` with a plain HTTP `POST`, which is not a Slack API method and therefore not part of the specification.
+
 ## OpenAPI cli command
 
 The following command was used to generate the Ballerina client from the OpenAPI specification. The command should be executed from the repository root directory.
 
 ```bash
-bal openapi -i docs/spec/openapi.json --mode client --license docs/license.txt -o ballerina/
+bal openapi -i docs/spec/openapi.json --mode client --client-methods remote --license docs/license.txt -o ballerina/
 ```
 
 Note: The license year is hardcoded to 2024, change if necessary.

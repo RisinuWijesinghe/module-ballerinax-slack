@@ -32,14 +32,14 @@ final slack:Client slack = check new ({
 public function main() returns error? {
 
     // Create a new channel for the survey
-    slack:ConversationsCreateResponse|error createChannelResponse = slack->/conversations\.create.post({name: CHANNEL_NAME});
+    slack:ConversationsCreateResponse|error createChannelResponse = slack->conversationsCreate({name: CHANNEL_NAME});
     if createChannelResponse is error {
         log:printError("Error creating the survey conversation: " + createChannelResponse.message());
         return;
     }
 
     // Post a message to the conversation created and get the timestamp of the message
-    slack:ChatPostMessageResponse|error sendMsgResponse = slack->/chat\.postMessage.post({channel: CHANNEL_NAME, text: SURVEY_REQUEST_MSG});
+    slack:ChatPostMessageResponse|error sendMsgResponse = slack->chatPostMessage({channel: CHANNEL_NAME, text: SURVEY_REQUEST_MSG});
     if sendMsgResponse is error {
         log:printError(sendMsgResponse.message());
         return;
@@ -47,7 +47,7 @@ public function main() returns error? {
     string messageTimestamp = sendMsgResponse.message.ts;
 
     // Check for replies to the survey message
-    slack:ConversationsRepliesResponse|error repliesResponse = slack->/conversations\.replies({channel: CHANNEL_NAME, ts: messageTimestamp});
+    slack:ConversationsRepliesResponse|error repliesResponse = slack->conversationsReplies(channel = CHANNEL_NAME, ts = check decimal:fromString(messageTimestamp));
     if repliesResponse is error {
         log:printError(repliesResponse.message());
         return;

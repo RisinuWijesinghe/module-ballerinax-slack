@@ -23,7 +23,7 @@ import ballerina/http;
 
 public type TzAnyOf11 anydata?;
 
-# Represents the Queries record for the operation: views_push
+# Represents the Queries record for the operation: viewsPush
 public type ViewsPushQueries record {
     # A [view payload](/reference/surfaces/views). This must be a JSON-encoded string
     string view;
@@ -42,7 +42,7 @@ public type UsergroupsUsersListResponse record {|
     UserIdDef[] users;
 |};
 
-# Represents the Queries record for the operation: admin_conversations_search
+# Represents the Queries record for the operation: adminConversationsSearch
 public type AdminConversationsSearchQueries record {
     # Set `cursor` to `next_cursor` returned by the previous call to list items in the next page
     string cursor?;
@@ -84,7 +84,7 @@ public type FilesSharedPublicURLBody record {
     string file?;
 };
 
-# Represents the Queries record for the operation: files_list
+# Represents the Queries record for the operation: filesList
 public type FilesListQueries record {
     # Filter files created after this timestamp (inclusive)
     @http:Query {name: "ts_from"}
@@ -142,11 +142,6 @@ public type ConversationsCloseBody record {
     string channel?;
 };
 
-public type AppsPermissionsInfoResponseInfoChannel record {
-    ResourcesObj resources?;
-    ScopesObj scopes?;
-};
-
 public type ConversationsInviteBody record {
     # The ID of the public or private channel to invite user(s) to
     string channel?;
@@ -167,6 +162,32 @@ public type AdminConversationsUnarchiveResponse record {|
 public type DiscoverableDiscoverableAnyOf12 string;
 
 public type TzTzAnyOf112 string;
+
+public type FilesCompleteUploadExternalBody record {
+    # A JSON-based array of file IDs and their corresponding (optional) titles, e.g. `[{"id":"F123ABC456","title":"slack-test"}]`, presented as a URL-encoded string.
+    string files;
+    # Channel ID where the file will be shared. If not specified the file will be private.
+    @jsondata:Name {value: "channel_id"}
+    string channelId?;
+    # Comma-separated string of channel IDs or user IDs where the file will be shared.
+    string channels?;
+    # Provide another message's `ts` value to upload this file as a reply. Never use a reply's `ts` value; use its parent instead. Also make sure to provide only one channel when using `thread_ts`.
+    @jsondata:Name {value: "thread_ts"}
+    string threadTs?;
+    # The message text introducing the file in specified channels.
+    @jsondata:Name {value: "initial_comment"}
+    string initialComment?;
+    # A JSON-based array of structured rich text blocks, presented as a URL-encoded string. If the `initial_comment` field is provided, the `blocks` field is ignored.
+    string blocks?;
+    # Set your bot's user name for the file share message. Requires the `chat:write.customize` scope.
+    string username?;
+    # URL to an image to use as the icon for the file share message. Requires the `chat:write.customize` scope.
+    @jsondata:Name {value: "icon_url"}
+    string iconUrl?;
+    # Emoji to use as the icon for the file share message. Overrides `icon_url`. Requires the `chat:write.customize` scope.
+    @jsondata:Name {value: "icon_emoji"}
+    string iconEmoji?;
+};
 
 public type RtmConnectResponseTeam record {|
     string domain;
@@ -257,7 +278,7 @@ public type FilesRemoteUpdateBody record {
 @constraint:String {pattern: re `^\d{10}\.\d{6}$`}
 public type TsDef string;
 
-# Represents the Queries record for the operation: oauth_access
+# Represents the Queries record for the operation: oauthAccess
 public type OauthAccessQueries record {
     # Request the user to add your app only to a single channel. Only valid with a [legacy workspace app](https://api.slack.com/legacy-workspace-apps)
     @http:Query {name: "single_channel"}
@@ -314,7 +335,7 @@ public type AdminTeamsSettingsSetDefaultChannelsBody record {
     string token;
 };
 
-# Represents the Queries record for the operation: conversations_info
+# Represents the Queries record for the operation: conversationsInfo
 public type ConversationsInfoQueries record {
     # Set to `true` to include the member count for the specified conversation. Defaults to `false`
     @http:Query {name: "include_num_members"}
@@ -329,7 +350,7 @@ public type ConversationsInfoQueries record {
 @constraint:String {pattern: re `^[E][A-Z0-9]{8,}$`}
 public type EnterpriseIdDef string;
 
-# Represents the Queries record for the operation: users_info
+# Represents the Queries record for the operation: usersInfo
 public type UsersInfoQueries record {
     # Set this to `true` to receive the locale for this user. Defaults to `false`
     @http:Query {name: "include_locale"}
@@ -355,7 +376,7 @@ public type ChannelAnyOf2 record {|
     MessageObj latest?;
 |};
 
-# Represents the Queries record for the operation: team_billableInfo
+# Represents the Queries record for the operation: teamBillableInfo
 public type TeamBillableInfoQueries record {
     # A user to retrieve the billable information for. Defaults to all users
     string user?;
@@ -452,7 +473,7 @@ public type AdminUsersRemoveBody record {
 
 public type ConversationObjParentConversation ChannelDef|ParentConversationAnyOf2?;
 
-# Represents the Queries record for the operation: files_remote_info
+# Represents the Queries record for the operation: filesRemoteInfo
 public type FilesRemoteInfoQueries record {
     # Specify a file by providing its ID
     string file?;
@@ -474,16 +495,11 @@ public type BotsInfoResponseBotIcons record {|
     string image72;
 |};
 
-public type AppsPermissionsResourcesListResponseResponseMetadata record {|
-    @jsondata:Name {value: "next_cursor"}
-    string nextCursor;
-|};
-
 public type ParentConversationAnyOf22 anydata?;
 
 public type ParentConversationAnyOf21 anydata?;
 
-# Represents the Queries record for the operation: admin_inviteRequests_list
+# Represents the Queries record for the operation: adminInviteRequestsList
 public type AdminInviteRequestsListQueries record {
     # Value of the `next_cursor` field sent as part of the previous API response
     string cursor?;
@@ -733,24 +749,6 @@ public type ConversationObjParentConversation2 ChannelDef|ParentConversationAnyO
 
 public type ConversationObjParentConversation1 ChannelDef|ParentConversationAnyOf21?;
 
-# Represents the Queries record for the operation: oauth_token
-public type OauthTokenQueries record {
-    # Request the user to add your app only to a single channel
-    @http:Query {name: "single_channel"}
-    boolean singleChannel?;
-    # The `code` param returned via the OAuth callback
-    string code?;
-    # Issued when you created your application
-    @http:Query {name: "client_secret"}
-    string clientSecret?;
-    # This must match the originally submitted URI (if one was sent)
-    @http:Query {name: "redirect_uri"}
-    string redirectUri?;
-    # Issued when you created your application
-    @http:Query {name: "client_id"}
-    string clientId?;
-};
-
 public type '200AnyOf1 record {|
     OkTrueDef ok;
     '200Items[] items;
@@ -790,13 +788,7 @@ public type FilesInfoResponse record {|
     anydata? contentHtml?;
 |};
 
-# Schema for successful response api.permissions.scopes.list method
-public type ApiPermissionsScopesListResponse record {
-    OkTrueDef ok;
-    ApiPermissionsScopesListResponseScopes scopes;
-};
-
-# Represents the Queries record for the operation: admin_inviteRequests_denied_list
+# Represents the Queries record for the operation: adminInviteRequestsDeniedList
 public type AdminInviteRequestsDeniedListQueries record {
     # Value of the `next_cursor` field sent as part of the previous api response
     string cursor?;
@@ -807,7 +799,7 @@ public type AdminInviteRequestsDeniedListQueries record {
     string teamId?;
 };
 
-# Represents the Queries record for the operation: admin_conversations_ekm_listOriginalConnectedChannelInfo
+# Represents the Queries record for the operation: adminConversationsEkmListOriginalConnectedChannelInfo
 public type AdminConversationsEkmListOriginalConnectedChannelInfoQueries record {
     # A comma-separated list of channels to filter to
     @http:Query {name: "channel_ids"}
@@ -819,16 +811,6 @@ public type AdminConversationsEkmListOriginalConnectedChannelInfoQueries record 
     string teamIds?;
     # The maximum number of items to return. Must be between 1 - 1000 both inclusive
     int 'limit?;
-};
-
-public type AppsPermissionsInfoResponseInfo record {
-    AppsPermissionsInfoResponseInfoIm im;
-    AppsPermissionsInfoResponseInfoMpim mpim;
-    AppsPermissionsInfoResponseInfoChannel channel;
-    @jsondata:Name {value: "app_home"}
-    AppsPermissionsInfoResponseInfoAppHome appHome;
-    AppsPermissionsInfoResponseInfoTeam team;
-    AppsPermissionsInfoResponseInfoGroup group;
 };
 
 public type AdminEmojiRenameBody record {
@@ -904,23 +886,6 @@ public type UserObjAnyOf1 record {|
     decimal updated;
 |};
 
-# Represents the Queries record for the operation: workflows_updateStep
-public type WorkflowsUpdateStepQueries record {
-    # An JSON array of output objects used during step execution. This is the data your app agrees to provide when your workflow step was executed
-    string outputs?;
-    # A JSON key-value map of inputs required from a user during configuration. This is the data your app expects to receive when the workflow step starts. **Please note**: the embedded variable format is set and replaced by the workflow system. You cannot create custom variables that will be replaced at runtime. [Read more about variables in workflow steps here](/workflows/steps#variables)
-    string inputs?;
-    # An optional field that can be used to override the step name that is shown in the Workflow Builder
-    @http:Query {name: "step_name"}
-    string stepName?;
-    # An optional field that can be used to override app image that is shown in the Workflow Builder
-    @http:Query {name: "step_image_url"}
-    string stepImageUrl?;
-    # A context identifier provided with `view_submission` payloads used to call back to `workflows.updateStep`
-    @http:Query {name: "workflow_step_edit_id"}
-    string workflowStepEditId;
-};
-
 public type ConversationsRenameBody record {
     # ID of conversation to rename
     string channel?;
@@ -945,16 +910,6 @@ public type ChatDeleteScheduledMessageResponse record {|
     OkTrueDef ok;
 |};
 
-public type ApiPermissionsScopesListResponseScopes record {
-    ScopesObj app_home?;
-    ScopesObj channel?;
-    ScopesObj group?;
-    ScopesObj im?;
-    ScopesObj mpim?;
-    ScopesObj team?;
-    ScopesObj user?;
-};
-
 # Schema for successful response from conversations.join method
 public type ConversationsJoinResponse record {|
     ConversationObj channel;
@@ -962,13 +917,6 @@ public type ConversationsJoinResponse record {|
     @jsondata:Name {value: "response_metadata"}
     ResponseMetadata responseMetadata?;
     OkTrueDef ok;
-|};
-
-# Schema for successful response from stars.list method
-public type StarsListResponse record {|
-    PagingObj paging?;
-    OkTrueDef ok;
-    (record {|ChannelDef channel; int date_create; MessageObj message; "message" 'type;|}|record {|int date_create; FileObj file; "file" 'type;|}|record {|CommentObj comment; int date_create; FileObj file; "file_comment" 'type;|}|record {|ChannelDef channel; int date_create; "channel" 'type;|}|record {|DmIdDef channel; int date_create; "im" 'type;|}|record {|GroupIdDef channel; int date_create; "group" 'type;|})[][] items;
 |};
 
 # Schema for successful response conversations.members method
@@ -988,7 +936,7 @@ public type AdminTeamsSettingsSetDescriptionBody record {
     string teamId;
 };
 
-# Represents the Queries record for the operation: views_update
+# Represents the Queries record for the operation: viewsUpdate
 public type ViewsUpdateQueries record {
     # A [view object](/reference/surfaces/views). This must be a JSON-encoded string
     string view?;
@@ -1002,7 +950,7 @@ public type ViewsUpdateQueries record {
     string hash?;
 };
 
-# Represents the Queries record for the operation: dnd_info
+# Represents the Queries record for the operation: dndInfo
 public type DndInfoQueries record {
     # User to fetch status for (defaults to current user)
     string user?;
@@ -1019,15 +967,6 @@ public type ChatScheduleMessageResponseMessage record {|
     BotIdDef botId;
     string username?;
 |};
-
-# Represents the Queries record for the operation: apps_permissions_request
-public type AppsPermissionsRequestQueries record {
-    # Token used to trigger the permissions API
-    @http:Query {name: "trigger_id"}
-    string triggerId;
-    # A comma separated list of scopes to request for
-    string scopes;
-};
 
 public type ConversationsUnarchiveBody record {
     # ID of conversation to unarchive
@@ -1077,7 +1016,7 @@ public type ExternalOrgMigrationsObj record {
     int dateUpdated;
 };
 
-# Represents the Queries record for the operation: migration_exchange
+# Represents the Queries record for the operation: migrationExchange
 public type MigrationExchangeQueries record {
     # Specify `true` to convert `W` global user IDs to workspace-specific `U` IDs. Defaults to `false`
     @http:Query {name: "to_old"}
@@ -1088,29 +1027,6 @@ public type MigrationExchangeQueries record {
     # A comma-separated list of user ids, up to 400 per request
     string users;
 };
-
-public type StarsRemoveBody record {
-    # File to remove star from
-    string file?;
-    # Channel to remove star from, or channel where the message to remove star from was posted (used with `timestamp`)
-    string channel?;
-    # File comment to remove star from
-    @jsondata:Name {value: "file_comment"}
-    string fileComment?;
-    # Timestamp of the message to remove star from
-    string timestamp?;
-};
-
-public type ReminderObj record {|
-    UserIdDef creator;
-    boolean recurring;
-    @jsondata:Name {value: "complete_ts"}
-    int completeTs?;
-    ReminderIdDef id;
-    string text;
-    int time?;
-    UserIdDef user;
-|};
 
 public type AdminUsersSetExpirationBody record {
     # Timestamp when guest account should be disabled
@@ -1138,16 +1054,11 @@ public type ConversationsJoinBody record {
     string channel?;
 };
 
-# Schema for successful response from reminders.delete method
-public type RemindersDeleteResponse record {|
-    OkTrueDef ok;
-|};
-
 public type OkTrueDef true;
 
 public type ChannelActionsTsChannelActionsTsAnyOf12 anydata?;
 
-# Represents the Queries record for the operation: admin_apps_restricted_list
+# Represents the Queries record for the operation: adminAppsRestrictedList
 public type AdminAppsRestrictedListQueries record {
     # Set `cursor` to `next_cursor` returned by the previous call to list items in the next page
     string cursor?;
@@ -1196,12 +1107,6 @@ public type ChatUnfurlResponse record {|
     OkTrueDef ok;
 |};
 
-# Schema for successful response from reminders.info method
-public type RemindersInfoResponse record {|
-    ReminderObj reminder;
-    OkTrueDef ok;
-|};
-
 public type TeamAccessLogsResponseLogins record {|
     string? country;
     @jsondata:Name {value: "date_last"}
@@ -1224,7 +1129,7 @@ public type AdminConversationsGetConversationPrefsResponsePrefsCanThread record 
     string[] user?;
 };
 
-# Represents the Queries record for the operation: search_messages
+# Represents the Queries record for the operation: searchMessages
 public type SearchMessagesQueries record {
     # Pass a value of `true` to enable query highlight markers (see below)
     boolean highlight?;
@@ -1258,12 +1163,6 @@ public type AdminUsersAssignBody record {
     string teamId;
 };
 
-# Represents the Queries record for the operation: reminders_info
-public type RemindersInfoQueries record {
-    # The ID of the reminder
-    string reminder?;
-};
-
 # Schema for successful response of admin.conversations.delete
 public type AdminConversationsDeleteResponse record {|
     OkTrueDef ok;
@@ -1272,7 +1171,7 @@ public type AdminConversationsDeleteResponse record {|
 @constraint:String {pattern: re `^[T][A-Z0-9]{2,}$`}
 public type TeamDef string;
 
-# Represents the Queries record for the operation: conversations_members
+# Represents the Queries record for the operation: conversationsMembers
 public type ConversationsMembersQueries record {
     # Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first "page" of the collection. See [pagination](/docs/pagination) for more detail
     string cursor?;
@@ -1289,7 +1188,7 @@ public type ConversationObjTopic1 record {|
     string value;
 |};
 
-# Represents the Queries record for the operation: oauth_v2_access
+# Represents the Queries record for the operation: oauthV2Access
 public type OauthV2AccessQueries record {
     # The `code` param returned via the OAuth callback
     string code;
@@ -1308,15 +1207,6 @@ public type OauthV2AccessQueries record {
 public type PinsAddResponse record {|
     OkTrueDef ok;
 |};
-
-# Represents the Queries record for the operation: workflows_stepFailed
-public type WorkflowsStepFailedQueries record {
-    # Context identifier that maps to the correct workflow step execution
-    @http:Query {name: "workflow_step_execute_id"}
-    string workflowStepExecuteId;
-    # A JSON-based object with a `message` property that should contain a human readable error message
-    string 'error;
-};
 
 public type TzAnyOf1 anydata?;
 
@@ -1345,7 +1235,7 @@ public type ConversationsArchiveBody record {
 
 public type OptionsAnyOf1 anydata?;
 
-# Represents the Queries record for the operation: usergroups_list
+# Represents the Queries record for the operation: usergroupsList
 public type UsergroupsListQueries record {
     # Include disabled User Groups
     @http:Query {name: "include_disabled"}
@@ -1367,9 +1257,7 @@ public type BotProfileObjIcons record {|
     string image72;
 |};
 
-public type ScopesObj string[];
-
-# Represents the Queries record for the operation: team_accessLogs
+# Represents the Queries record for the operation: teamAccessLogs
 public type TeamAccessLogsQueries record {
     # End of time range of logs to include in results (inclusive)
     string before?;
@@ -1387,13 +1275,13 @@ public type ChannelActionsTsAnyOf1 int;
 
 public type ChannelNameDef string;
 
-# Represents the Headers record for the operation: admin_users_setOwner
+# Represents the Headers record for the operation: adminUsersSetOwner
 public type AdminUsersSetOwnerHeaders record {
     # Authentication token. Requires scope: `admin.users:write`
     string token;
 };
 
-# Represents the Queries record for the operation: bots_info
+# Represents the Queries record for the operation: botsInfo
 public type BotsInfoQueries record {
     # Bot user to get info on
     string bot?;
@@ -1420,7 +1308,7 @@ public type AdminUsergroupsAddTeamsBody record {
     boolean autoProvision?;
 };
 
-# Represents the Queries record for the operation: admin_inviteRequests_approved_list
+# Represents the Queries record for the operation: adminInviteRequestsApprovedList
 public type AdminInviteRequestsApprovedListQueries record {
     # Value of the `next_cursor` field sent as part of the previous API response
     string cursor?;
@@ -1436,11 +1324,6 @@ public type ConversationsInfoResponse record {|
     ConversationObj channel;
     OkTrueDef ok;
 |};
-
-public type RemindersDeleteBody record {
-    # The ID of the reminder
-    string reminder?;
-};
 
 # Schema for successful response from bots.info method
 public type BotsInfoResponse record {|
@@ -1498,7 +1381,7 @@ public type ChatScheduledMessagesListResponseResponseMetadata record {|
 
 public type LatestAnyOf2 anydata?;
 
-# Represents the Queries record for the operation: rtm_connect
+# Represents the Queries record for the operation: rtmConnect
 public type RtmConnectQueries record {
     # Batch presence deliveries via subscription. Enabling changes the shape of `presence_change` events. See [batch presence](/docs/presence-and-status#batching)
     @http:Query {name: "batch_presence_aware"}
@@ -1517,7 +1400,7 @@ public type ConversationsCloseResponse record {|
     boolean noOp?;
 |};
 
-# Represents the Queries record for the operation: team_profile_get
+# Represents the Queries record for the operation: teamProfileGet
 public type TeamProfileGetQueries record {
     # Filter by visibility
     string visibility?;
@@ -1556,14 +1439,6 @@ public type UsergroupsUpdateBody record {
     boolean includeCount?;
 };
 
-# Represents the Queries record for the operation: apps_permissions_resources_list
-public type AppsPermissionsResourcesListQueries record {
-    # Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first "page" of the collection. See [pagination](/docs/pagination) for more detail
-    string cursor?;
-    # The maximum number of items to return
-    int 'limit?;
-};
-
 public type DeletedByAnyOf1 anydata?;
 
 public type IconObj record {
@@ -1595,11 +1470,6 @@ public type DndEndSnoozeResponse record {|
     int nextDndStartTs;
     @jsondata:Name {value: "snooze_enabled"}
     boolean snoozeEnabled;
-    OkTrueDef ok;
-|};
-
-# Schema for successful response files.comments.delete method
-public type FilesCommentsDeleteResponse record {|
     OkTrueDef ok;
 |};
 
@@ -1673,7 +1543,7 @@ public type ConversationsInviteErrorResponse record {|
     OkTrueDef ok;
 |};
 
-# Represents the Queries record for the operation: api_test
+# Represents the Queries record for the operation: apiTest
 public type ApiTestQueries record {
     # example property to return
     string foo?;
@@ -1794,36 +1664,8 @@ public type BotsInfoResponseBot record {|
     int updated;
 |};
 
-public type FilesUploadBody record {
-    # A [file type](/types/file#file_types) identifier
-    string filetype?;
-    # File contents via `multipart/form-data`. If omitting this parameter, you must submit `content`
-    string file?;
-    # Filename of file
-    string filename?;
-    # Comma-separated list of channel names or IDs where the file will be shared
-    string channels?;
-    # Provide another message's `ts` value to upload this file as a reply. Never use a reply's `ts` value; use its parent instead
-    @jsondata:Name {value: "thread_ts"}
-    decimal threadTs?;
-    # The message text introducing the file in specified `channels`
-    @jsondata:Name {value: "initial_comment"}
-    string initialComment?;
-    # Title of file
-    string title?;
-    # File contents via a POST variable. If omitting this parameter, you must provide a `file`
-    string content?;
-    # Authentication token. Requires scope: `files:write:user`
-    string token?;
-};
-
 # Schema for successful response of admin.conversations.rename
 public type AdminConversationsRenameResponse1 record {|
-    OkTrueDef ok;
-|};
-
-# Schema for successful response from stars.remove method
-public type StarsRemoveResponse record {|
     OkTrueDef ok;
 |};
 
@@ -1833,7 +1675,7 @@ public type UsergroupsDisableResponse record {|
     OkTrueDef ok;
 |};
 
-# Represents the Queries record for the operation: users_lookupByEmail
+# Represents the Queries record for the operation: usersLookupByEmail
 public type UsersLookupByEmailQueries record {
     # An email address belonging to a user in the workspace
     string email;
@@ -1886,12 +1728,6 @@ public type FilesListResponse record {|
 public type DefaultSuccessResponse record {
     OkTrueDef ok;
 };
-
-# Schema for successful response from reminders.list method
-public type RemindersListResponse record {|
-    ReminderObj[] reminders;
-    OkTrueDef ok;
-|};
 
 public type ConversationIMChannelObjectFromConversationsMethods record {|
     @jsondata:Name {value: "has_pins"}
@@ -1946,11 +1782,6 @@ public type ConversationObjShares1 record {|
     UserIdDef user;
 |};
 
-public type AppsPermissionsInfoResponseInfoMpim record {
-    ResourcesObj resources?;
-    ScopesObj scopes?;
-};
-
 public type ConversationObjShares2 record {|
     @jsondata:Name {value: "is_active"}
     boolean isActive;
@@ -1977,6 +1808,17 @@ public type AdminAppsApproveBody record {
     string requestId?;
 };
 
+# Schema for successful response of files.getUploadURLExternal method
+public type FilesGetUploadURLExternalResponse record {|
+    OkTrueDef ok;
+    # URL to send the file contents to with an HTTP POST
+    @jsondata:Name {value: "upload_url"}
+    string uploadUrl;
+    # ID of the file being uploaded
+    @jsondata:Name {value: "file_id"}
+    string fileId;
+|};
+
 @constraint:String {pattern: re `^[UW][A-Z0-9]{2,}$`}
 public type UserIdDef string;
 
@@ -1985,7 +1827,7 @@ public type UsersSetPresenceBody record {
     string presence;
 };
 
-# Represents the Queries record for the operation: admin_usergroups_listChannels
+# Represents the Queries record for the operation: adminUsergroupsListChannels
 public type AdminUsergroupsListChannelsQueries record {
     # Flag to include or exclude the count of members per channel
     @http:Query {name: "include_num_members"}
@@ -2002,12 +1844,7 @@ public type '200Team record {|
     TeamDef id;
 |};
 
-public type AppsPermissionsInfoResponseInfoGroup record {
-    ResourcesObj resources?;
-    ScopesObj scopes?;
-};
-
-# Represents the Queries record for the operation: files_info
+# Represents the Queries record for the operation: filesInfo
 public type FilesInfoQueries record {
     # Parameter for pagination. File comments are paginated for a single file. Set `cursor` equal to the `next_cursor` attribute returned by the previous request's `response_metadata`. This parameter is optional, but pagination is mandatory: the default value simply fetches the first "page" of the collection of comments. See [pagination](/docs/pagination) for more details
     string cursor?;
@@ -2024,19 +1861,12 @@ public type SubteamObjPrefs record {|
     GroupIdDef[] groups;
 |};
 
-# Schema for successful response apps.permissions.resources.list method
-public type AppsPermissionsResourcesListResponse record {
-    OkTrueDef ok;
-    AppsPermissionsResourcesListResponseResources[] resources;
-    AppsPermissionsResourcesListResponseResponseMetadata response_metadata?;
-};
-
 public type ConversationsListResponseResponseMetadata record {|
     @jsondata:Name {value: "next_cursor"}
     string nextCursor;
 |};
 
-# Represents the Queries record for the operation: admin_apps_approved_list
+# Represents the Queries record for the operation: adminAppsApprovedList
 public type AdminAppsApprovedListQueries record {
     # Set `cursor` to `next_cursor` returned by the previous call to list items in the next page
     string cursor?;
@@ -2048,7 +1878,7 @@ public type AdminAppsApprovedListQueries record {
     string enterpriseId?;
 };
 
-# Represents the Queries record for the operation: admin_teams_settings_info
+# Represents the Queries record for the operation: adminTeamsSettingsInfo
 public type AdminTeamsSettingsInfoQueries record {
     @http:Query {name: "team_id"}
     string teamId;
@@ -2064,7 +1894,7 @@ public type ConversationsMarkResponse record {|
     OkTrueDef ok;
 |};
 
-# Represents the Queries record for the operation: conversations_replies
+# Represents the Queries record for the operation: conversationsReplies
 public type ConversationsRepliesQueries record {
     # Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first "page" of the collection. See [pagination](/docs/pagination) for more detail
     string cursor?;
@@ -2082,7 +1912,7 @@ public type ConversationsRepliesQueries record {
     decimal latest?;
 };
 
-# Represents the Queries record for the operation: apps_uninstall
+# Represents the Queries record for the operation: appsUninstall
 public type AppsUninstallQueries record {
     # Issued when you created your application
     @http:Query {name: "client_secret"}
@@ -2235,7 +2065,7 @@ public type ConversationsSetTopicResponse record {|
     OkTrueDef ok;
 |};
 
-# Represents the Queries record for the operation: users_getPresence
+# Represents the Queries record for the operation: usersGetPresence
 public type UsersGetPresenceQueries record {
     # User to get presence info on. Defaults to the authed user
     string user?;
@@ -2272,10 +2102,7 @@ public type '200User2 record {|
     string image512;
 |};
 
-@constraint:String {pattern: re `^Rm[A-Z0-9]{8,}$`}
-public type ReminderIdDef string;
-
-# Represents the Queries record for the operation: usergroups_users_list
+# Represents the Queries record for the operation: usergroupsUsersList
 public type UsergroupsUsersListQueries record {
     # Allow results that involve disabled User Groups
     @http:Query {name: "include_disabled"}
@@ -2290,7 +2117,7 @@ public type '200User1 record {|
     string email;
 |};
 
-# Represents the Queries record for the operation: calls_info
+# Represents the Queries record for the operation: callsInfo
 public type CallsInfoQueries record {
     # `id` of the Call returned by the [`calls.add`](/methods/calls.add) method
     string id;
@@ -2392,7 +2219,7 @@ public type AdminUsersInviteBody record {
     string email;
 };
 
-# Represents the Queries record for the operation: chat_getPermalink
+# Represents the Queries record for the operation: chatGetPermalink
 public type ChatGetPermalinkQueries record {
     # The ID of the conversation or channel containing the message
     string channel;
@@ -2401,7 +2228,7 @@ public type ChatGetPermalinkQueries record {
     string messageTs;
 };
 
-# Represents the Queries record for the operation: conversations_history
+# Represents the Queries record for the operation: conversationsHistory
 public type ConversationsHistoryQueries record {
     # Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first "page" of the collection. See [pagination](/docs/pagination) for more detail
     string cursor?;
@@ -2541,7 +2368,7 @@ public type MessagePin record {|
 
 public type DiscoverableAnyOf1 anydata?;
 
-# Represents the Queries record for the operation: admin_teams_list
+# Represents the Queries record for the operation: adminTeamsList
 public type AdminTeamsListQueries record {
     # Set `cursor` to `next_cursor` returned by the previous call to list items in the next page
     string cursor?;
@@ -2549,7 +2376,7 @@ public type AdminTeamsListQueries record {
     int 'limit?;
 };
 
-# Represents the Queries record for the operation: admin_apps_requests_list
+# Represents the Queries record for the operation: adminAppsRequestsList
 public type AdminAppsRequestsListQueries record {
     # Set `cursor` to `next_cursor` returned by the previous call to list items in the next page
     string cursor?;
@@ -2572,7 +2399,7 @@ public type CallsUpdateBody record {
     string title?;
 };
 
-# Represents the Queries record for the operation: auth_revoke
+# Represents the Queries record for the operation: authRevoke
 public type AuthRevokeQueries record {
     # Setting this parameter to `1` triggers a _testing mode_ where the specified token will not actually be revoked
     boolean test?;
@@ -2667,7 +2494,7 @@ public type SubteamObj record {|
     string enterpriseSubteamId;
 |};
 
-# Represents the Queries record for the operation: files_remote_list
+# Represents the Queries record for the operation: filesRemoteList
 public type FilesRemoteListQueries record {
     # Filter files created after this timestamp (inclusive)
     @http:Query {name: "ts_from"}
@@ -2683,7 +2510,7 @@ public type FilesRemoteListQueries record {
     int 'limit?;
 };
 
-# Represents the Queries record for the operation: reactions_list
+# Represents the Queries record for the operation: reactionsList
 public type ReactionsListQueries record {
     # Parameter for pagination. Set `cursor` equal to the `next_cursor` attribute returned by the previous request's `response_metadata`. This parameter is optional, but pagination is mandatory: the default value simply fetches the first "page" of the collection. See [pagination](/docs/pagination) for more details
     string cursor?;
@@ -2722,7 +2549,7 @@ public type ConversationsSetPurposeResponse record {|
     OkTrueDef ok;
 |};
 
-# Represents the Queries record for the operation: users_list
+# Represents the Queries record for the operation: usersList
 public type UsersListQueries record {
     # Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first "page" of the collection. See [pagination](/docs/pagination) for more detail
     string cursor?;
@@ -2739,14 +2566,7 @@ public type '200200200200AnyOf12234 record {|
     '200User3 user;
 |};
 
-public type ResourcesObj record {|
-    (ChannelDef|TeamDef)[][] ids;
-    @jsondata:Name {value: "excluded_ids"}
-    (ChannelDef|TeamDef)[][] excludedIds?;
-    boolean wildcard?;
-|};
-
-# Represents the Queries record for the operation: views_open
+# Represents the Queries record for the operation: viewsOpen
 public type ViewsOpenQueries record {
     # A [view payload](/reference/surfaces/views). This must be a JSON-encoded string
     string view;
@@ -2779,7 +2599,7 @@ public type '200User record {|
 @constraint:String {pattern: re `^[C][A-Z0-9]{2,}$`}
 public type ChannelIdDef string;
 
-# Represents the Queries record for the operation: conversations_list
+# Represents the Queries record for the operation: conversationsList
 public type ConversationsListQueries record {
     # Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first "page" of the collection. See [pagination](/docs/pagination) for more detail
     string cursor?;
@@ -2806,18 +2626,13 @@ public type AdminConversationsInviteResponse record {|
 
 public type UserObjTz TzAnyOf1|TzTzAnyOf12?;
 
-public type AppsPermissionsInfoResponseInfoTeam record {
-    ResourcesObj resources;
-    ScopesObj scopes;
-};
-
 # Schema for successful response from users.setPhoto method
 public type UsersSetPhotoResponse record {|
     UsersSetPhotoResponseProfile profile;
     OkTrueDef ok;
 |};
 
-# Represents the Queries record for the operation: admin_conversations_restrictAccess_listGroups
+# Represents the Queries record for the operation: adminConversationsRestrictAccessListGroups
 public type AdminConversationsRestrictAccessListGroupsQueries record {
     # The workspace where the channel exists. This argument is required for channels only tied to one workspace, and optional for channels that are shared across an organization
     @http:Query {name: "team_id"}
@@ -2825,11 +2640,6 @@ public type AdminConversationsRestrictAccessListGroupsQueries record {
     @http:Query {name: "channel_id"}
     string channelId;
 };
-
-# Schema for successful response from users.setActive method
-public type UsersSetActiveResponse record {|
-    OkTrueDef ok;
-|};
 
 # Schema for successful response from conversations.rename method
 public type ConversationsRenameResponse record {|
@@ -2864,7 +2674,7 @@ public type FilesRemoteAddBody record {
     string token?;
 };
 
-# Represents the Queries record for the operation: apps_event_authorizations_list
+# Represents the Queries record for the operation: appsEventAuthorizationsList
 public type AppsEventAuthorizationsListQueries record {
     string cursor?;
     int 'limit?;
@@ -2875,11 +2685,6 @@ public type AppsEventAuthorizationsListQueries record {
 public type AdminConversationsGetConversationPrefsResponsePrefsWhoCanPost record {
     string[] 'type?;
     string[] user?;
-};
-
-public type RemindersCompleteBody record {
-    # The ID of the reminder to be marked as complete
-    string reminder?;
 };
 
 # Schema for successful response chat.getPermalink
@@ -2899,7 +2704,7 @@ public type DeprecationWarning record {|
 
 public type CommentsObj anydata[];
 
-# Represents the Queries record for the operation: dialog_open
+# Represents the Queries record for the operation: dialogOpen
 public type DialogOpenQueries record {
     # The dialog definition. This must be a JSON-encoded string
     string dialog;
@@ -3015,7 +2820,7 @@ public type ConversationObjShares record {|
     UserIdDef user;
 |};
 
-# Represents the Queries record for the operation: users_conversations
+# Represents the Queries record for the operation: usersConversations
 public type UsersConversationsQueries record {
     # Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first "page" of the collection. See [pagination](/docs/pagination) for more detail
     string cursor?;
@@ -3042,7 +2847,7 @@ public type DialogOpenResponse record {|
     OkTrueDef ok;
 |};
 
-# Represents the Queries record for the operation: files_remote_share
+# Represents the Queries record for the operation: filesRemoteShare
 public type FilesRemoteShareQueries record {
     # Specify a file registered with Slack by providing its ID. Either this field or `external_id` or both are required
     string file?;
@@ -3060,21 +2865,6 @@ public type ChatMeMessageBody record {
     string text?;
 };
 
-# This method either only returns a brief _OK_ response or a verbose schema is not available for this method
-public type DefaultSuccessResponse72 record {
-    OkTrueDef ok;
-};
-
-# This method either only returns a brief _OK_ response or a verbose schema is not available for this method
-public type DefaultSuccessResponse71 record {
-    OkTrueDef ok;
-};
-
-# This method either only returns a brief _OK_ response or a verbose schema is not available for this method
-public type DefaultSuccessResponse70 record {
-    OkTrueDef ok;
-};
-
 public type AdminConversationsSetConversationPrefsBody record {
     # The channel to set the prefs for
     @jsondata:Name {value: "channel_id"}
@@ -3083,7 +2873,7 @@ public type AdminConversationsSetConversationPrefsBody record {
     string prefs;
 };
 
-# Represents the Queries record for the operation: reactions_get
+# Represents the Queries record for the operation: reactionsGet
 public type ReactionsGetQueries record {
     # File to get reactions for
     string file?;
@@ -3098,7 +2888,7 @@ public type ReactionsGetQueries record {
     string timestamp?;
 };
 
-# Represents the Queries record for the operation: users_profile_get
+# Represents the Queries record for the operation: usersProfileGet
 public type UsersProfileGetQueries record {
     # Include labels for each ID in custom profile fields
     @http:Query {name: "include_labels"}
@@ -3149,7 +2939,7 @@ public type DefaultSuccessResponse63 record {
     OkTrueDef ok;
 };
 
-# Represents the Queries record for the operation: pins_list
+# Represents the Queries record for the operation: pinsList
 public type PinsListQueries record {
     # Channel to get pinned items for
     string channel;
@@ -3301,11 +3091,6 @@ public type AdminConversationsRenameBody record {
     string channelId;
 };
 
-# Schema for successful response from apps.permissions.request method
-public type AppsPermissionsRequestResponse record {|
-    OkTrueDef ok;
-|};
-
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse51 record {
     OkTrueDef ok;
@@ -3314,25 +3099,6 @@ public type DefaultSuccessResponse51 record {
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse50 record {
     OkTrueDef ok;
-};
-
-public type FilesCommentsDeleteBody record {
-    # File to delete a comment from
-    string file?;
-    # The comment to delete
-    string id?;
-};
-
-public type StarsAddBody record {
-    # File to add star to
-    string file?;
-    # Channel to add star to, or channel where the message to add star to was posted (used with `timestamp`)
-    string channel?;
-    # File comment to add star to
-    @jsondata:Name {value: "file_comment"}
-    string fileComment?;
-    # Timestamp of the message to add star to
-    string timestamp?;
 };
 
 public type TeamObjSsoProvider record {
@@ -3374,33 +3140,8 @@ public type DefaultSuccessResponse47 record {
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
-public type DefaultSuccessResponse46 record {
-    OkTrueDef ok;
-};
-
-# Represents the Queries record for the operation: stars_list
-public type StarsListQueries record {
-    # Parameter for pagination. Set `cursor` equal to the `next_cursor` attribute returned by the previous request's `response_metadata`. This parameter is optional, but pagination is mandatory: the default value simply fetches the first "page" of the collection. See [pagination](/docs/pagination) for more details
-    string cursor?;
-    string count?;
-    # The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached
-    int 'limit?;
-    string page?;
-};
-
-# This method either only returns a brief _OK_ response or a verbose schema is not available for this method
-public type DefaultSuccessResponse45 record {
-    OkTrueDef ok;
-};
-
-# This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse44 record {
     OkTrueDef ok;
-};
-
-public type AppsPermissionsInfoResponseInfoAppHome record {
-    ResourcesObj resources?;
-    ScopesObj scopes?;
 };
 
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
@@ -3511,7 +3252,7 @@ public type DefaultSuccessResponse41 record {
     OkTrueDef ok;
 };
 
-# Represents the Queries record for the operation: admin_conversations_getTeams
+# Represents the Queries record for the operation: adminConversationsGetTeams
 public type AdminConversationsGetTeamsQueries record {
     # Set `cursor` to `next_cursor` returned by the previous call to list items in the next page
     string cursor?;
@@ -3566,11 +3307,6 @@ public type AdminConversationsDeleteBody record {
     string channelId;
 };
 
-# This method either only returns a brief _OK_ response or a verbose schema is not available for this method
-public type DefaultSuccessResponse62 record {
-    OkTrueDef ok;
-};
-
 # Schema for successful response from reactions.add method
 public type ReactionsAddResponse record {|
     OkTrueDef ok;
@@ -3592,7 +3328,7 @@ public type AdminConversationsConvertToPrivateBody record {
     string channelId;
 };
 
-# Represents the Queries record for the operation: admin_users_list
+# Represents the Queries record for the operation: adminUsersList
 public type AdminUsersListQueries record {
     # Set `cursor` to `next_cursor` returned by the previous call to list items in the next page
     string cursor?;
@@ -3705,10 +3441,24 @@ public type ConversationsRepliesResponse record {|
     OkTrueDef ok;
 |};
 
-# Schema for successful response from reminders.complete method
-public type RemindersCompleteResponse record {|
+# Schema for successful response of files.completeUploadExternal method
+public type FilesCompleteUploadExternalResponse record {|
     OkTrueDef ok;
+    FileObj[] files;
 |};
+
+public type FilesGetUploadURLExternalBody record {
+    # Name of the file being uploaded.
+    string filename;
+    # Size in bytes of the file being uploaded.
+    int length;
+    # Syntax type of the snippet being uploaded.
+    @jsondata:Name {value: "snippet_type"}
+    string snippetType?;
+    # Description of image for screen-reader.
+    @jsondata:Name {value: "alt_txt"}
+    string altTxt?;
+};
 
 public type ChatPostMessageBody record {
     # URL to an image to use as the icon for this message. Must be used in conjunction with `as_user` set to false, otherwise ignored. See [authorship](#authorship) below
@@ -3754,15 +3504,6 @@ public type ChatPostMessageBody record {
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse26 record {
     OkTrueDef ok;
-};
-
-# Represents the Queries record for the operation: workflows_stepCompleted
-public type WorkflowsStepCompletedQueries record {
-    # Key-value object of outputs from your step. Keys of this object reflect the configured `key` properties of your [`outputs`](/reference/workflows/workflow_step#output) array from your `workflow_step` object
-    string outputs?;
-    # Context identifier that maps to the correct workflow step execution
-    @http:Query {name: "workflow_step_execute_id"}
-    string workflowStepExecuteId;
 };
 
 @constraint:String {pattern: re `^A[A-Z0-9]{1,}$`}
@@ -3990,11 +3731,6 @@ public type DefaultSuccessResponse37 record {
     OkTrueDef ok;
 };
 
-public type AppsPermissionsInfoResponseInfoIm record {
-    ResourcesObj resources?;
-    ScopesObj scopes?;
-};
-
 # This method either only returns a brief _OK_ response or a verbose schema is not available for this method
 public type DefaultSuccessResponse36 record {
     OkTrueDef ok;
@@ -4005,7 +3741,7 @@ public type DefaultSuccessResponse35 record {
     OkTrueDef ok;
 };
 
-# Represents the Queries record for the operation: team_integrationLogs
+# Represents the Queries record for the operation: teamIntegrationLogs
 public type TeamIntegrationLogsQueries record {
     # Filter logs to this service. Defaults to all logs
     @http:Query {name: "service_id"}
@@ -4027,7 +3763,7 @@ public type DefaultSuccessResponse34 record {
     OkTrueDef ok;
 };
 
-# Represents the Queries record for the operation: admin_teams_owners_list
+# Represents the Queries record for the operation: adminTeamsOwnersList
 public type AdminTeamsOwnersListQueries record {
     # Set `cursor` to `next_cursor` returned by the previous call to list items in the next page
     string cursor?;
@@ -4072,7 +3808,7 @@ public type ConversationObjDisplayCounts1 record {|
     int guestCounts;
 |};
 
-# Represents the Queries record for the operation: admin_teams_admins_list
+# Represents the Queries record for the operation: adminTeamsAdminsList
 public type AdminTeamsAdminsListQueries record {
     # Set `cursor` to `next_cursor` returned by the previous call to list items in the next page
     string cursor?;
@@ -4111,13 +3847,13 @@ public type ParentConversationAnyOf2 anydata?;
 
 public type InlineArrayItemsUserObj UserObjAnyOf1|UserObjUserObjAnyOf12;
 
-# Represents the Queries record for the operation: dnd_teamInfo
+# Represents the Queries record for the operation: dndTeamInfo
 public type DndTeamInfoQueries record {
     # Comma-separated list of users to fetch Do Not Disturb status for
     string users?;
 };
 
-# Represents the Queries record for the operation: admin_emoji_list
+# Represents the Queries record for the operation: adminEmojiList
 public type AdminEmojiListQueries record {
     # Set `cursor` to `next_cursor` returned by the previous call to list items in the next page
     string cursor?;
@@ -4136,7 +3872,7 @@ public type ConversationsLeaveBody record {
     string channel?;
 };
 
-# Represents the Queries record for the operation: admin_conversations_getConversationPrefs
+# Represents the Queries record for the operation: adminConversationsGetConversationPrefs
 public type AdminConversationsGetConversationPrefsQueries record {
     # The channel to get preferences for
     @http:Query {name: "channel_id"}
@@ -4149,11 +3885,6 @@ public type ApiTestResponse record {|
     record {}...;
 |};
 
-public type AppsPermissionsResourcesListResponseResources record {
-    string id?;
-    string 'type?;
-};
-
 # Schema for successful response from migration.exchange method
 public type MigrationExchangeResponse record {
     string enterprise_id;
@@ -4163,18 +3894,10 @@ public type MigrationExchangeResponse record {
     record {} user_id_map?;
 };
 
-# Represents the Queries record for the operation: team_info
+# Represents the Queries record for the operation: teamInfo
 public type TeamInfoQueries record {
     # Team to get info on, if omitted, will return information about the current team. Will only return team that the authenticated token is allowed to see through external shared channels
     string team?;
-};
-
-# Represents the Queries record for the operation: apps_permissions_users_list
-public type AppsPermissionsUsersListQueries record {
-    # Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first "page" of the collection. See [pagination](/docs/pagination) for more detail
-    string cursor?;
-    # The maximum number of items to return
-    int 'limit?;
 };
 
 # Schema for successful response from usergroups.list method
@@ -4282,7 +4005,7 @@ public type ConversationsCreateBody record {
     string name?;
 };
 
-# Represents the Queries record for the operation: chat_scheduledMessages_list
+# Represents the Queries record for the operation: chatScheduledMessagesList
 public type ChatScheduledMessagesListQueries record {
     # For pagination purposes, this is the `cursor` value returned from a previous call to `chat.scheduledmessages.list` indicating where you want to start this call from
     string cursor?;
@@ -4340,22 +4063,10 @@ public type AdminConversationsInviteBody record {
     string channelId;
 };
 
-# Schema for successful response from apps.permissions.info method
-public type AppsPermissionsInfoResponse record {|
-    OkTrueDef ok;
-    AppsPermissionsInfoResponseInfo info;
-|};
-
 @constraint:String {pattern: re `^[G][A-Z0-9]{8,}$`}
 public type GroupIdDef string;
 
 public type TeamObjDiscoverable DiscoverableAnyOf1|DiscoverableDiscoverableAnyOf12?;
-
-# Schema for successful response from reminders.add method
-public type RemindersAddResponse record {|
-    ReminderObj reminder;
-    OkTrueDef ok;
-|};
 
 # Schema for successful response of admin.conversations.getTeams
 public type AdminConversationsGetTeamsResponse record {|
@@ -4379,17 +4090,6 @@ public type FilesRemoteRemoveBody record {
     string externalId?;
     # Authentication token. Requires scope: `remote_files:write`
     string token?;
-};
-
-# Represents the Queries record for the operation: apps_permissions_users_request
-public type AppsPermissionsUsersRequestQueries record {
-    # Token used to trigger the request
-    @http:Query {name: "trigger_id"}
-    string triggerId;
-    # A comma separated list of user scopes to request for
-    string scopes;
-    # The user this scope is being requested for
-    string user;
 };
 
 public type ReactionObj record {
@@ -4468,20 +4168,6 @@ public type ConversationsKickResponse record {|
     OkTrueDef ok;
 |};
 
-public type RemindersAddBody record {
-    # The content of the reminder
-    string text;
-    # When this reminder should happen: the Unix timestamp (up to five years from now), the number of seconds until the reminder (if within 24 hours), or a natural language description (Ex. "in 15 minutes," or "every Thursday")
-    string time;
-    # The user who will receive the reminder. If no user is specified, the reminder will go to user who created it
-    string user?;
-};
-
-# Schema for successful response from stars.add method
-public type StarsAddResponse record {|
-    OkTrueDef ok;
-|};
-
 public type ConversationsOpenBody record {
     # Boolean, indicates you want the full IM channel definition in the response
     @jsondata:Name {value: "return_im"}
@@ -4492,7 +4178,7 @@ public type ConversationsOpenBody record {
     string users?;
 };
 
-# Represents the Queries record for the operation: views_publish
+# Represents the Queries record for the operation: viewsPublish
 public type ViewsPublishQueries record {
     # A [view payload](/reference/surfaces/views). This must be a JSON-encoded string
     string view;
@@ -4505,12 +4191,6 @@ public type ViewsPublishQueries record {
 
 # Schema for successful response from files.sharedPublicURL method
 public type FilesSharedPublicURLResponse record {|
-    FileObj file;
-    OkTrueDef ok;
-|};
-
-# Schema for successful response files.upload method
-public type FilesUploadResponse record {|
     FileObj file;
     OkTrueDef ok;
 |};

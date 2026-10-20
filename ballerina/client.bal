@@ -37,7 +37,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.apps\.approve(AdminAppsApproveBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse|error {
+    remote isolated function adminAppsApprove(AdminAppsApproveBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse|error {
         string resourcePath = string `/admin.apps.approve`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -50,7 +50,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get admin\.apps\.approved\.list(map<string|string[]> headers = {}, *AdminAppsApprovedListQueries queries) returns DefaultSuccessResponse1|error {
+    remote isolated function adminAppsApprovedList(map<string|string[]> headers = {}, *AdminAppsApprovedListQueries queries) returns DefaultSuccessResponse1|error {
         string resourcePath = string `/admin.apps.approved.list`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -61,7 +61,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get admin\.apps\.requests\.list(map<string|string[]> headers = {}, *AdminAppsRequestsListQueries queries) returns DefaultSuccessResponse2|error {
+    remote isolated function adminAppsRequestsList(map<string|string[]> headers = {}, *AdminAppsRequestsListQueries queries) returns DefaultSuccessResponse2|error {
         string resourcePath = string `/admin.apps.requests.list`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -71,7 +71,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.apps\.restrict(AdminAppsRestrictBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse3|error {
+    remote isolated function adminAppsRestrict(AdminAppsRestrictBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse3|error {
         string resourcePath = string `/admin.apps.restrict`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -84,7 +84,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get admin\.apps\.restricted\.list(map<string|string[]> headers = {}, *AdminAppsRestrictedListQueries queries) returns DefaultSuccessResponse4|error {
+    remote isolated function adminAppsRestrictedList(map<string|string[]> headers = {}, *AdminAppsRestrictedListQueries queries) returns DefaultSuccessResponse4|error {
         string resourcePath = string `/admin.apps.restricted.list`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -94,7 +94,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.conversations\.archive(AdminConversationsArchiveBody payload, map<string|string[]> headers = {}) returns AdminConversationsArchiveResponse|error {
+    remote isolated function adminConversationsArchive(AdminConversationsArchiveBody payload, map<string|string[]> headers = {}) returns AdminConversationsArchiveResponse|error {
         string resourcePath = string `/admin.conversations.archive`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -106,7 +106,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.conversations\.convertToPrivate(AdminConversationsConvertToPrivateBody payload, map<string|string[]> headers = {}) returns AdminConversationsConvertToPrivateResponse|error {
+    remote isolated function adminConversationsConvertToPrivate(AdminConversationsConvertToPrivateBody payload, map<string|string[]> headers = {}) returns AdminConversationsConvertToPrivateResponse|error {
         string resourcePath = string `/admin.conversations.convertToPrivate`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -118,7 +118,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.conversations\.create(AdminConversationsCreateBody payload, map<string|string[]> headers = {}) returns AdminConversationsCreateResponse|error {
+    remote isolated function adminConversationsCreate(AdminConversationsCreateBody payload, map<string|string[]> headers = {}) returns AdminConversationsCreateResponse|error {
         string resourcePath = string `/admin.conversations.create`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -130,7 +130,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.conversations\.delete(AdminConversationsDeleteBody payload, map<string|string[]> headers = {}) returns AdminConversationsDeleteResponse|error {
+    remote isolated function adminConversationsDelete(AdminConversationsDeleteBody payload, map<string|string[]> headers = {}) returns AdminConversationsDeleteResponse|error {
         string resourcePath = string `/admin.conversations.delete`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -142,7 +142,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.conversations\.disconnectShared(AdminConversationsDisconnectSharedBody payload, map<string|string[]> headers = {}) returns AdminConversationsRenameResponse|error {
+    remote isolated function adminConversationsDisconnectShared(AdminConversationsDisconnectSharedBody payload, map<string|string[]> headers = {}) returns AdminConversationsRenameResponse|error {
         string resourcePath = string `/admin.conversations.disconnectShared`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -155,7 +155,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get admin\.conversations\.ekm\.listOriginalConnectedChannelInfo(map<string|string[]> headers = {}, *AdminConversationsEkmListOriginalConnectedChannelInfoQueries queries) returns DefaultSuccessResponse5|error {
+    remote isolated function adminConversationsEkmListOriginalConnectedChannelInfo(map<string|string[]> headers = {}, *AdminConversationsEkmListOriginalConnectedChannelInfoQueries queries) returns DefaultSuccessResponse5|error {
         string resourcePath = string `/admin.conversations.ekm.listOriginalConnectedChannelInfo`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -166,7 +166,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get admin\.conversations\.getConversationPrefs(map<string|string[]> headers = {}, *AdminConversationsGetConversationPrefsQueries queries) returns AdminConversationsGetConversationPrefsResponse|error {
+    remote isolated function adminConversationsGetConversationPrefs(map<string|string[]> headers = {}, *AdminConversationsGetConversationPrefsQueries queries) returns AdminConversationsGetConversationPrefsResponse|error {
         string resourcePath = string `/admin.conversations.getConversationPrefs`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -177,7 +177,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get admin\.conversations\.getTeams(map<string|string[]> headers = {}, *AdminConversationsGetTeamsQueries queries) returns AdminConversationsGetTeamsResponse|error {
+    remote isolated function adminConversationsGetTeams(map<string|string[]> headers = {}, *AdminConversationsGetTeamsQueries queries) returns AdminConversationsGetTeamsResponse|error {
         string resourcePath = string `/admin.conversations.getTeams`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -187,7 +187,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.conversations\.invite(AdminConversationsInviteBody payload, map<string|string[]> headers = {}) returns AdminConversationsInviteResponse|error {
+    remote isolated function adminConversationsInvite(AdminConversationsInviteBody payload, map<string|string[]> headers = {}) returns AdminConversationsInviteResponse|error {
         string resourcePath = string `/admin.conversations.invite`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -199,7 +199,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.conversations\.rename(AdminConversationsRenameBody payload, map<string|string[]> headers = {}) returns AdminConversationsRenameResponse1|error {
+    remote isolated function adminConversationsRename(AdminConversationsRenameBody payload, map<string|string[]> headers = {}) returns AdminConversationsRenameResponse1|error {
         string resourcePath = string `/admin.conversations.rename`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -211,7 +211,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.conversations\.restrictAccess\.addGroup(AdminConversationsRestrictAccessAddGroupBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse6|error {
+    remote isolated function adminConversationsRestrictAccessAddGroup(AdminConversationsRestrictAccessAddGroupBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse6|error {
         string resourcePath = string `/admin.conversations.restrictAccess.addGroup`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -224,7 +224,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get admin\.conversations\.restrictAccess\.listGroups(map<string|string[]> headers = {}, *AdminConversationsRestrictAccessListGroupsQueries queries) returns DefaultSuccessResponse7|error {
+    remote isolated function adminConversationsRestrictAccessListGroups(map<string|string[]> headers = {}, *AdminConversationsRestrictAccessListGroupsQueries queries) returns DefaultSuccessResponse7|error {
         string resourcePath = string `/admin.conversations.restrictAccess.listGroups`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -234,7 +234,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.conversations\.restrictAccess\.removeGroup(AdminConversationsRestrictAccessRemoveGroupBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse8|error {
+    remote isolated function adminConversationsRestrictAccessRemoveGroup(AdminConversationsRestrictAccessRemoveGroupBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse8|error {
         string resourcePath = string `/admin.conversations.restrictAccess.removeGroup`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -247,7 +247,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get admin\.conversations\.search(map<string|string[]> headers = {}, *AdminConversationsSearchQueries queries) returns AdminConversationsSearchResponse|error {
+    remote isolated function adminConversationsSearch(map<string|string[]> headers = {}, *AdminConversationsSearchQueries queries) returns AdminConversationsSearchResponse|error {
         string resourcePath = string `/admin.conversations.search`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -257,7 +257,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.conversations\.setConversationPrefs(AdminConversationsSetConversationPrefsBody payload, map<string|string[]> headers = {}) returns AdminConversationsSetConversationPrefsResponse|error {
+    remote isolated function adminConversationsSetConversationPrefs(AdminConversationsSetConversationPrefsBody payload, map<string|string[]> headers = {}) returns AdminConversationsSetConversationPrefsResponse|error {
         string resourcePath = string `/admin.conversations.setConversationPrefs`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -269,7 +269,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.conversations\.setTeams(AdminConversationsSetTeamsBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse9|error {
+    remote isolated function adminConversationsSetTeams(AdminConversationsSetTeamsBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse9|error {
         string resourcePath = string `/admin.conversations.setTeams`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -281,7 +281,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.conversations\.unarchive(AdminConversationsUnarchiveBody payload, map<string|string[]> headers = {}) returns AdminConversationsUnarchiveResponse|error {
+    remote isolated function adminConversationsUnarchive(AdminConversationsUnarchiveBody payload, map<string|string[]> headers = {}) returns AdminConversationsUnarchiveResponse|error {
         string resourcePath = string `/admin.conversations.unarchive`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -293,7 +293,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.emoji\.add(AdminEmojiAddBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse10|error {
+    remote isolated function adminEmojiAdd(AdminEmojiAddBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse10|error {
         string resourcePath = string `/admin.emoji.add`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -305,7 +305,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.emoji\.addAlias(AdminEmojiAddAliasBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse11|error {
+    remote isolated function adminEmojiAddAlias(AdminEmojiAddAliasBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse11|error {
         string resourcePath = string `/admin.emoji.addAlias`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -318,7 +318,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get admin\.emoji\.list(map<string|string[]> headers = {}, *AdminEmojiListQueries queries) returns DefaultSuccessResponse12|error {
+    remote isolated function adminEmojiList(map<string|string[]> headers = {}, *AdminEmojiListQueries queries) returns DefaultSuccessResponse12|error {
         string resourcePath = string `/admin.emoji.list`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -328,7 +328,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.emoji\.remove(AdminEmojiRemoveBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse13|error {
+    remote isolated function adminEmojiRemove(AdminEmojiRemoveBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse13|error {
         string resourcePath = string `/admin.emoji.remove`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -340,7 +340,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.emoji\.rename(AdminEmojiRenameBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse14|error {
+    remote isolated function adminEmojiRename(AdminEmojiRenameBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse14|error {
         string resourcePath = string `/admin.emoji.rename`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -352,7 +352,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.inviteRequests\.approve(record {string invite_request_id; string team_id?;} payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse15|error {
+    remote isolated function adminInviteRequestsApprove(record {string invite_request_id; string team_id?;} payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse15|error {
         string resourcePath = string `/admin.inviteRequests.approve`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -365,7 +365,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get admin\.inviteRequests\.approved\.list(map<string|string[]> headers = {}, *AdminInviteRequestsApprovedListQueries queries) returns DefaultSuccessResponse16|error {
+    remote isolated function adminInviteRequestsApprovedList(map<string|string[]> headers = {}, *AdminInviteRequestsApprovedListQueries queries) returns DefaultSuccessResponse16|error {
         string resourcePath = string `/admin.inviteRequests.approved.list`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -376,7 +376,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get admin\.inviteRequests\.denied\.list(map<string|string[]> headers = {}, *AdminInviteRequestsDeniedListQueries queries) returns DefaultSuccessResponse17|error {
+    remote isolated function adminInviteRequestsDeniedList(map<string|string[]> headers = {}, *AdminInviteRequestsDeniedListQueries queries) returns DefaultSuccessResponse17|error {
         string resourcePath = string `/admin.inviteRequests.denied.list`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -386,7 +386,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.inviteRequests\.deny(record {string invite_request_id; string team_id?;} payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse18|error {
+    remote isolated function adminInviteRequestsDeny(record {string invite_request_id; string team_id?;} payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse18|error {
         string resourcePath = string `/admin.inviteRequests.deny`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -399,7 +399,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get admin\.inviteRequests\.list(map<string|string[]> headers = {}, *AdminInviteRequestsListQueries queries) returns DefaultSuccessResponse19|error {
+    remote isolated function adminInviteRequestsList(map<string|string[]> headers = {}, *AdminInviteRequestsListQueries queries) returns DefaultSuccessResponse19|error {
         string resourcePath = string `/admin.inviteRequests.list`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -410,7 +410,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get admin\.teams\.admins\.list(map<string|string[]> headers = {}, *AdminTeamsAdminsListQueries queries) returns DefaultSuccessResponse20|error {
+    remote isolated function adminTeamsAdminsList(map<string|string[]> headers = {}, *AdminTeamsAdminsListQueries queries) returns DefaultSuccessResponse20|error {
         string resourcePath = string `/admin.teams.admins.list`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -420,7 +420,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.teams\.create(AdminTeamsCreateBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse21|error {
+    remote isolated function adminTeamsCreate(AdminTeamsCreateBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse21|error {
         string resourcePath = string `/admin.teams.create`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -433,7 +433,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get admin\.teams\.list(map<string|string[]> headers = {}, *AdminTeamsListQueries queries) returns DefaultSuccessResponse22|error {
+    remote isolated function adminTeamsList(map<string|string[]> headers = {}, *AdminTeamsListQueries queries) returns DefaultSuccessResponse22|error {
         string resourcePath = string `/admin.teams.list`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -444,7 +444,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get admin\.teams\.owners\.list(map<string|string[]> headers = {}, *AdminTeamsOwnersListQueries queries) returns DefaultSuccessResponse23|error {
+    remote isolated function adminTeamsOwnersList(map<string|string[]> headers = {}, *AdminTeamsOwnersListQueries queries) returns DefaultSuccessResponse23|error {
         string resourcePath = string `/admin.teams.owners.list`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -455,7 +455,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get admin\.teams\.settings\.info(map<string|string[]> headers = {}, *AdminTeamsSettingsInfoQueries queries) returns DefaultSuccessResponse24|error {
+    remote isolated function adminTeamsSettingsInfo(map<string|string[]> headers = {}, *AdminTeamsSettingsInfoQueries queries) returns DefaultSuccessResponse24|error {
         string resourcePath = string `/admin.teams.settings.info`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -465,7 +465,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.teams\.settings\.setDefaultChannels(AdminTeamsSettingsSetDefaultChannelsBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse25|error {
+    remote isolated function adminTeamsSettingsSetDefaultChannels(AdminTeamsSettingsSetDefaultChannelsBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse25|error {
         string resourcePath = string `/admin.teams.settings.setDefaultChannels`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -477,7 +477,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.teams\.settings\.setDescription(AdminTeamsSettingsSetDescriptionBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse26|error {
+    remote isolated function adminTeamsSettingsSetDescription(AdminTeamsSettingsSetDescriptionBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse26|error {
         string resourcePath = string `/admin.teams.settings.setDescription`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -489,7 +489,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.teams\.settings\.setDiscoverability(AdminTeamsSettingsSetDiscoverabilityBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse27|error {
+    remote isolated function adminTeamsSettingsSetDiscoverability(AdminTeamsSettingsSetDiscoverabilityBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse27|error {
         string resourcePath = string `/admin.teams.settings.setDiscoverability`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -501,7 +501,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.teams\.settings\.setIcon(AdminTeamsSettingsSetIconBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse28|error {
+    remote isolated function adminTeamsSettingsSetIcon(AdminTeamsSettingsSetIconBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse28|error {
         string resourcePath = string `/admin.teams.settings.setIcon`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -513,7 +513,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.teams\.settings\.setName(AdminTeamsSettingsSetNameBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse29|error {
+    remote isolated function adminTeamsSettingsSetName(AdminTeamsSettingsSetNameBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse29|error {
         string resourcePath = string `/admin.teams.settings.setName`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -525,7 +525,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.usergroups\.addChannels(AdminUsergroupsAddChannelsBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse30|error {
+    remote isolated function adminUsergroupsAddChannels(AdminUsergroupsAddChannelsBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse30|error {
         string resourcePath = string `/admin.usergroups.addChannels`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -537,7 +537,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.usergroups\.addTeams(AdminUsergroupsAddTeamsBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse31|error {
+    remote isolated function adminUsergroupsAddTeams(AdminUsergroupsAddTeamsBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse31|error {
         string resourcePath = string `/admin.usergroups.addTeams`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -550,7 +550,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get admin\.usergroups\.listChannels(map<string|string[]> headers = {}, *AdminUsergroupsListChannelsQueries queries) returns DefaultSuccessResponse32|error {
+    remote isolated function adminUsergroupsListChannels(map<string|string[]> headers = {}, *AdminUsergroupsListChannelsQueries queries) returns DefaultSuccessResponse32|error {
         string resourcePath = string `/admin.usergroups.listChannels`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -560,7 +560,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.usergroups\.removeChannels(AdminUsergroupsRemoveChannelsBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse33|error {
+    remote isolated function adminUsergroupsRemoveChannels(AdminUsergroupsRemoveChannelsBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse33|error {
         string resourcePath = string `/admin.usergroups.removeChannels`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -572,7 +572,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.users\.assign(AdminUsersAssignBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse34|error {
+    remote isolated function adminUsersAssign(AdminUsersAssignBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse34|error {
         string resourcePath = string `/admin.users.assign`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -584,7 +584,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.users\.invite(AdminUsersInviteBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse35|error {
+    remote isolated function adminUsersInvite(AdminUsersInviteBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse35|error {
         string resourcePath = string `/admin.users.invite`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -597,7 +597,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get admin\.users\.list(map<string|string[]> headers = {}, *AdminUsersListQueries queries) returns DefaultSuccessResponse36|error {
+    remote isolated function adminUsersList(map<string|string[]> headers = {}, *AdminUsersListQueries queries) returns DefaultSuccessResponse36|error {
         string resourcePath = string `/admin.users.list`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -607,7 +607,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.users\.remove(AdminUsersRemoveBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse37|error {
+    remote isolated function adminUsersRemove(AdminUsersRemoveBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse37|error {
         string resourcePath = string `/admin.users.remove`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -619,7 +619,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.users\.session\.invalidate(AdminUsersSessionInvalidateBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse38|error {
+    remote isolated function adminUsersSessionInvalidate(AdminUsersSessionInvalidateBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse38|error {
         string resourcePath = string `/admin.users.session.invalidate`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -631,7 +631,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.users\.session\.reset(AdminUsersSessionResetBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse39|error {
+    remote isolated function adminUsersSessionReset(AdminUsersSessionResetBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse39|error {
         string resourcePath = string `/admin.users.session.reset`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -643,7 +643,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.users\.setAdmin(AdminUsersSetAdminBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse40|error {
+    remote isolated function adminUsersSetAdmin(AdminUsersSetAdminBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse40|error {
         string resourcePath = string `/admin.users.setAdmin`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -655,7 +655,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.users\.setExpiration(AdminUsersSetExpirationBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse41|error {
+    remote isolated function adminUsersSetExpiration(AdminUsersSetExpirationBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse41|error {
         string resourcePath = string `/admin.users.setExpiration`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -667,7 +667,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.users\.setOwner(AdminUsersSetOwnerHeaders headers, AdminUsersSetOwnerBody payload) returns DefaultSuccessResponse42|error {
+    remote isolated function adminUsersSetOwner(AdminUsersSetOwnerHeaders headers, AdminUsersSetOwnerBody payload) returns DefaultSuccessResponse42|error {
         string resourcePath = string `/admin.users.setOwner`;
         map<string|string[]> httpHeaders = http:getHeaderMap(headers);
         http:Request request = new;
@@ -680,7 +680,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post admin\.users\.setRegular(AdminUsersSetRegularBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse43|error {
+    remote isolated function adminUsersSetRegular(AdminUsersSetRegularBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse43|error {
         string resourcePath = string `/admin.users.setRegular`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -693,7 +693,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Standard success response 
-    resource isolated function get api\.test(map<string|string[]> headers = {}, *ApiTestQueries queries) returns ApiTestResponse|error {
+    remote isolated function apiTest(map<string|string[]> headers = {}, *ApiTestQueries queries) returns ApiTestResponse|error {
         string resourcePath = string `/api.test`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -704,70 +704,8 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get apps\.event\.authorizations\.list(map<string|string[]> headers = {}, *AppsEventAuthorizationsListQueries queries) returns DefaultSuccessResponse44|error {
+    remote isolated function appsEventAuthorizationsList(map<string|string[]> headers = {}, *AppsEventAuthorizationsListQueries queries) returns DefaultSuccessResponse44|error {
         string resourcePath = string `/apps.event.authorizations.list`;
-        resourcePath = resourcePath + check getPathForQueryParam(queries);
-        return self.clientEp->get(resourcePath, headers);
-    }
-
-    # Returns list of permissions this app has on a team.
-    #
-    # + headers - Headers to be sent with the request 
-    # + return - Standard success response when used with a user token 
-    resource isolated function get apps\.permissions\.info(map<string|string[]> headers = {}) returns AppsPermissionsInfoResponse|error {
-        string resourcePath = string `/apps.permissions.info`;
-        return self.clientEp->get(resourcePath, headers);
-    }
-
-    # Allows an app to request additional scopes
-    #
-    # + headers - Headers to be sent with the request 
-    # + queries - Queries to be sent with the request 
-    # + return - Standard success response when used with a user token 
-    resource isolated function get apps\.permissions\.request(map<string|string[]> headers = {}, *AppsPermissionsRequestQueries queries) returns AppsPermissionsRequestResponse|error {
-        string resourcePath = string `/apps.permissions.request`;
-        resourcePath = resourcePath + check getPathForQueryParam(queries);
-        return self.clientEp->get(resourcePath, headers);
-    }
-
-    # Returns list of resource grants this app has on a team.
-    #
-    # + headers - Headers to be sent with the request 
-    # + queries - Queries to be sent with the request 
-    # + return - Typical successful paginated response 
-    resource isolated function get apps\.permissions\.resources\.list(map<string|string[]> headers = {}, *AppsPermissionsResourcesListQueries queries) returns AppsPermissionsResourcesListResponse|error {
-        string resourcePath = string `/apps.permissions.resources.list`;
-        resourcePath = resourcePath + check getPathForQueryParam(queries);
-        return self.clientEp->get(resourcePath, headers);
-    }
-
-    # Returns list of scopes this app has on a team.
-    #
-    # + headers - Headers to be sent with the request 
-    # + return - Typical successful paginated response 
-    resource isolated function get apps\.permissions\.scopes\.list(map<string|string[]> headers = {}) returns ApiPermissionsScopesListResponse|error {
-        string resourcePath = string `/apps.permissions.scopes.list`;
-        return self.clientEp->get(resourcePath, headers);
-    }
-
-    # Returns list of user grants and corresponding scopes this app has on a team.
-    #
-    # + headers - Headers to be sent with the request 
-    # + queries - Queries to be sent with the request 
-    # + return - Typical successful paginated response 
-    resource isolated function get apps\.permissions\.users\.list(map<string|string[]> headers = {}, *AppsPermissionsUsersListQueries queries) returns DefaultSuccessResponse45|error {
-        string resourcePath = string `/apps.permissions.users.list`;
-        resourcePath = resourcePath + check getPathForQueryParam(queries);
-        return self.clientEp->get(resourcePath, headers);
-    }
-
-    # Enables an app to trigger a permissions modal to grant an app access to a user access scope.
-    #
-    # + headers - Headers to be sent with the request 
-    # + queries - Queries to be sent with the request 
-    # + return - Standard success response when used with a user token 
-    resource isolated function get apps\.permissions\.users\.request(map<string|string[]> headers = {}, *AppsPermissionsUsersRequestQueries queries) returns DefaultSuccessResponse46|error {
-        string resourcePath = string `/apps.permissions.users.request`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
     }
@@ -777,7 +715,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get apps\.uninstall(map<string|string[]> headers = {}, *AppsUninstallQueries queries) returns AppsUninstallResponse|error {
+    remote isolated function appsUninstall(map<string|string[]> headers = {}, *AppsUninstallQueries queries) returns AppsUninstallResponse|error {
         string resourcePath = string `/apps.uninstall`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -788,7 +726,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get auth\.revoke(map<string|string[]> headers = {}, *AuthRevokeQueries queries) returns AuthRevokeResponse|error {
+    remote isolated function authRevoke(map<string|string[]> headers = {}, *AuthRevokeQueries queries) returns AuthRevokeResponse|error {
         string resourcePath = string `/auth.revoke`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -798,7 +736,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Standard success response when used with a user token 
-    resource isolated function get auth\.test(map<string|string[]> headers = {}) returns AuthTestResponse|error {
+    remote isolated function authTest(map<string|string[]> headers = {}) returns AuthTestResponse|error {
         string resourcePath = string `/auth.test`;
         return self.clientEp->get(resourcePath, headers);
     }
@@ -808,7 +746,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - When successful, returns bot info by bot ID 
-    resource isolated function get bots\.info(map<string|string[]> headers = {}, *BotsInfoQueries queries) returns BotsInfoResponse|error {
+    remote isolated function botsInfo(map<string|string[]> headers = {}, *BotsInfoQueries queries) returns BotsInfoResponse|error {
         string resourcePath = string `/bots.info`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -818,7 +756,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post calls\.add(CallsAddBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse47|error {
+    remote isolated function callsAdd(CallsAddBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse47|error {
         string resourcePath = string `/calls.add`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -830,7 +768,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post calls\.end(CallsEndBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse48|error {
+    remote isolated function callsEnd(CallsEndBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse48|error {
         string resourcePath = string `/calls.end`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -843,7 +781,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get calls\.info(map<string|string[]> headers = {}, *CallsInfoQueries queries) returns DefaultSuccessResponse49|error {
+    remote isolated function callsInfo(map<string|string[]> headers = {}, *CallsInfoQueries queries) returns DefaultSuccessResponse49|error {
         string resourcePath = string `/calls.info`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -853,7 +791,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post calls\.participants\.add(CallsParticipantsAddBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse50|error {
+    remote isolated function callsParticipantsAdd(CallsParticipantsAddBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse50|error {
         string resourcePath = string `/calls.participants.add`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -865,7 +803,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post calls\.participants\.remove(CallsParticipantsRemoveBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse51|error {
+    remote isolated function callsParticipantsRemove(CallsParticipantsRemoveBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse51|error {
         string resourcePath = string `/calls.participants.remove`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -877,7 +815,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post calls\.update(CallsUpdateBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse52|error {
+    remote isolated function callsUpdate(CallsUpdateBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse52|error {
         string resourcePath = string `/calls.update`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -889,7 +827,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post chat\.delete(ChatDeleteBody payload, map<string|string[]> headers = {}) returns ChatDeleteResponse|error {
+    remote isolated function chatDelete(ChatDeleteBody payload, map<string|string[]> headers = {}) returns ChatDeleteResponse|error {
         string resourcePath = string `/chat.delete`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -901,7 +839,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post chat\.deleteScheduledMessage(ChatDeleteScheduledMessageBody payload, map<string|string[]> headers = {}) returns ChatDeleteScheduledMessageResponse|error {
+    remote isolated function chatDeleteScheduledMessage(ChatDeleteScheduledMessageBody payload, map<string|string[]> headers = {}) returns ChatDeleteScheduledMessageResponse|error {
         string resourcePath = string `/chat.deleteScheduledMessage`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -914,7 +852,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Standard success response 
-    resource isolated function get chat\.getPermalink(map<string|string[]> headers = {}, *ChatGetPermalinkQueries queries) returns ChatGetPermalinkResponse|error {
+    remote isolated function chatGetPermalink(map<string|string[]> headers = {}, *ChatGetPermalinkQueries queries) returns ChatGetPermalinkResponse|error {
         string resourcePath = string `/chat.getPermalink`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -924,7 +862,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post chat\.meMessage(ChatMeMessageBody payload, map<string|string[]> headers = {}) returns ChatMeMessageResponse|error {
+    remote isolated function chatMeMessage(ChatMeMessageBody payload, map<string|string[]> headers = {}) returns ChatMeMessageResponse|error {
         string resourcePath = string `/chat.meMessage`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -936,7 +874,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post chat\.postEphemeral(ChatPostEphemeralBody payload, map<string|string[]> headers = {}) returns ChatPostEphemeralResponse|error {
+    remote isolated function chatPostEphemeral(ChatPostEphemeralBody payload, map<string|string[]> headers = {}) returns ChatPostEphemeralResponse|error {
         string resourcePath = string `/chat.postEphemeral`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -948,7 +886,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post chat\.postMessage(ChatPostMessageBody payload, map<string|string[]> headers = {}) returns ChatPostMessageResponse|error {
+    remote isolated function chatPostMessage(ChatPostMessageBody payload, map<string|string[]> headers = {}) returns ChatPostMessageResponse|error {
         string resourcePath = string `/chat.postMessage`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -960,7 +898,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post chat\.scheduleMessage(ChatScheduleMessageBody payload, map<string|string[]> headers = {}) returns ChatScheduleMessageResponse|error {
+    remote isolated function chatScheduleMessage(ChatScheduleMessageBody payload, map<string|string[]> headers = {}) returns ChatScheduleMessageResponse|error {
         string resourcePath = string `/chat.scheduleMessage`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -973,7 +911,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get chat\.scheduledMessages\.list(map<string|string[]> headers = {}, *ChatScheduledMessagesListQueries queries) returns ChatScheduledMessagesListResponse|error {
+    remote isolated function chatScheduledMessagesList(map<string|string[]> headers = {}, *ChatScheduledMessagesListQueries queries) returns ChatScheduledMessagesListResponse|error {
         string resourcePath = string `/chat.scheduledMessages.list`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -983,7 +921,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical, minimal success response 
-    resource isolated function post chat\.unfurl(ChatUnfurlBody payload, map<string|string[]> headers = {}) returns ChatUnfurlResponse|error {
+    remote isolated function chatUnfurl(ChatUnfurlBody payload, map<string|string[]> headers = {}) returns ChatUnfurlResponse|error {
         string resourcePath = string `/chat.unfurl`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -995,7 +933,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post chat\.update(ChatUpdateBody payload, map<string|string[]> headers = {}) returns ChatUpdateResponse|error {
+    remote isolated function chatUpdate(ChatUpdateBody payload, map<string|string[]> headers = {}) returns ChatUpdateResponse|error {
         string resourcePath = string `/chat.update`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1007,7 +945,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post conversations\.archive(ConversationsArchiveBody payload, map<string|string[]> headers = {}) returns ConversationsArchiveResponse|error {
+    remote isolated function conversationsArchive(ConversationsArchiveBody payload, map<string|string[]> headers = {}) returns ConversationsArchiveResponse|error {
         string resourcePath = string `/conversations.archive`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1019,7 +957,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post conversations\.close(ConversationsCloseBody payload, map<string|string[]> headers = {}) returns ConversationsCloseResponse|error {
+    remote isolated function conversationsClose(ConversationsCloseBody payload, map<string|string[]> headers = {}) returns ConversationsCloseResponse|error {
         string resourcePath = string `/conversations.close`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1031,7 +969,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - If successful, the command returns a rather stark [conversation object](/types/conversation) 
-    resource isolated function post conversations\.create(ConversationsCreateBody payload, map<string|string[]> headers = {}) returns ConversationsCreateResponse|error {
+    remote isolated function conversationsCreate(ConversationsCreateBody payload, map<string|string[]> headers = {}) returns ConversationsCreateResponse|error {
         string resourcePath = string `/conversations.create`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1044,7 +982,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response containing a channel's messages 
-    resource isolated function get conversations\.history(map<string|string[]> headers = {}, *ConversationsHistoryQueries queries) returns ConversationsHistoryResponse|error {
+    remote isolated function conversationsHistory(map<string|string[]> headers = {}, *ConversationsHistoryQueries queries) returns ConversationsHistoryResponse|error {
         string resourcePath = string `/conversations.history`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1055,7 +993,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response for a public channel. (Also, a response from a private channel and a multi-party IM is very similar to this example.) 
-    resource isolated function get conversations\.info(map<string|string[]> headers = {}, *ConversationsInfoQueries queries) returns ConversationsInfoResponse|error {
+    remote isolated function conversationsInfo(map<string|string[]> headers = {}, *ConversationsInfoQueries queries) returns ConversationsInfoResponse|error {
         string resourcePath = string `/conversations.info`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1065,7 +1003,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response when an invitation is extended 
-    resource isolated function post conversations\.invite(ConversationsInviteBody payload, map<string|string[]> headers = {}) returns ConversationsInviteErrorResponse|error {
+    remote isolated function conversationsInvite(ConversationsInviteBody payload, map<string|string[]> headers = {}) returns ConversationsInviteErrorResponse|error {
         string resourcePath = string `/conversations.invite`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1077,7 +1015,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post conversations\.join(ConversationsJoinBody payload, map<string|string[]> headers = {}) returns ConversationsJoinResponse|error {
+    remote isolated function conversationsJoin(ConversationsJoinBody payload, map<string|string[]> headers = {}) returns ConversationsJoinResponse|error {
         string resourcePath = string `/conversations.join`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1089,7 +1027,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post conversations\.kick(ConversationsKickBody payload, map<string|string[]> headers = {}) returns ConversationsKickResponse|error {
+    remote isolated function conversationsKick(ConversationsKickBody payload, map<string|string[]> headers = {}) returns ConversationsKickResponse|error {
         string resourcePath = string `/conversations.kick`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1101,7 +1039,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post conversations\.leave(ConversationsLeaveBody payload, map<string|string[]> headers = {}) returns ConversationsLeaveResponse|error {
+    remote isolated function conversationsLeave(ConversationsLeaveBody payload, map<string|string[]> headers = {}) returns ConversationsLeaveResponse|error {
         string resourcePath = string `/conversations.leave`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1114,7 +1052,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response with only public channels 
-    resource isolated function get conversations\.list(map<string|string[]> headers = {}, *ConversationsListQueries queries) returns ConversationsListResponse|error {
+    remote isolated function conversationsList(map<string|string[]> headers = {}, *ConversationsListQueries queries) returns ConversationsListResponse|error {
         string resourcePath = string `/conversations.list`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1124,7 +1062,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post conversations\.mark(ConversationsMarkBody payload, map<string|string[]> headers = {}) returns ConversationsMarkResponse|error {
+    remote isolated function conversationsMark(ConversationsMarkBody payload, map<string|string[]> headers = {}) returns ConversationsMarkResponse|error {
         string resourcePath = string `/conversations.mark`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1137,7 +1075,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical paginated success response 
-    resource isolated function get conversations\.members(map<string|string[]> headers = {}, *ConversationsMembersQueries queries) returns ConversationsMembersResponse|error {
+    remote isolated function conversationsMembers(map<string|string[]> headers = {}, *ConversationsMembersQueries queries) returns ConversationsMembersResponse|error {
         string resourcePath = string `/conversations.members`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1147,7 +1085,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post conversations\.open(ConversationsOpenBody payload, map<string|string[]> headers = {}) returns ConversationsOpenResponse|error {
+    remote isolated function conversationsOpen(ConversationsOpenBody payload, map<string|string[]> headers = {}) returns ConversationsOpenResponse|error {
         string resourcePath = string `/conversations.open`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1159,7 +1097,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post conversations\.rename(ConversationsRenameBody payload, map<string|string[]> headers = {}) returns ConversationsRenameResponse|error {
+    remote isolated function conversationsRename(ConversationsRenameBody payload, map<string|string[]> headers = {}) returns ConversationsRenameResponse|error {
         string resourcePath = string `/conversations.rename`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1172,7 +1110,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get conversations\.replies(map<string|string[]> headers = {}, *ConversationsRepliesQueries queries) returns ConversationsRepliesResponse|error {
+    remote isolated function conversationsReplies(map<string|string[]> headers = {}, *ConversationsRepliesQueries queries) returns ConversationsRepliesResponse|error {
         string resourcePath = string `/conversations.replies`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1182,7 +1120,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post conversations\.setPurpose(ConversationsSetPurposeBody payload, map<string|string[]> headers = {}) returns ConversationsSetPurposeResponse|error {
+    remote isolated function conversationsSetPurpose(ConversationsSetPurposeBody payload, map<string|string[]> headers = {}) returns ConversationsSetPurposeResponse|error {
         string resourcePath = string `/conversations.setPurpose`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1194,7 +1132,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post conversations\.setTopic(ConversationsSetTopicBody payload, map<string|string[]> headers = {}) returns ConversationsSetTopicResponse|error {
+    remote isolated function conversationsSetTopic(ConversationsSetTopicBody payload, map<string|string[]> headers = {}) returns ConversationsSetTopicResponse|error {
         string resourcePath = string `/conversations.setTopic`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1206,7 +1144,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post conversations\.unarchive(ConversationsUnarchiveBody payload, map<string|string[]> headers = {}) returns ConversationsUnarchiveResponse|error {
+    remote isolated function conversationsUnarchive(ConversationsUnarchiveBody payload, map<string|string[]> headers = {}) returns ConversationsUnarchiveResponse|error {
         string resourcePath = string `/conversations.unarchive`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1219,7 +1157,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response is quite minimal 
-    resource isolated function get dialog\.open(map<string|string[]> headers = {}, *DialogOpenQueries queries) returns DialogOpenResponse|error {
+    remote isolated function dialogOpen(map<string|string[]> headers = {}, *DialogOpenQueries queries) returns DialogOpenResponse|error {
         string resourcePath = string `/dialog.open`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1229,7 +1167,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post dnd\.endDnd(map<string|string[]> headers = {}) returns DndEndDndResponse|error {
+    remote isolated function dndEndDnd(map<string|string[]> headers = {}) returns DndEndDndResponse|error {
         string resourcePath = string `/dnd.endDnd`;
         http:Request request = new;
         return self.clientEp->post(resourcePath, request, headers);
@@ -1239,7 +1177,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post dnd\.endSnooze(map<string|string[]> headers = {}) returns DndEndSnoozeResponse|error {
+    remote isolated function dndEndSnooze(map<string|string[]> headers = {}) returns DndEndSnoozeResponse|error {
         string resourcePath = string `/dnd.endSnooze`;
         http:Request request = new;
         return self.clientEp->post(resourcePath, request, headers);
@@ -1250,7 +1188,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get dnd\.info(map<string|string[]> headers = {}, *DndInfoQueries queries) returns DndInfoResponse|error {
+    remote isolated function dndInfo(map<string|string[]> headers = {}, *DndInfoQueries queries) returns DndInfoResponse|error {
         string resourcePath = string `/dnd.info`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1260,7 +1198,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post dnd\.setSnooze(DndSetSnoozeBody payload, map<string|string[]> headers = {}) returns DndSetSnoozeResponse|error {
+    remote isolated function dndSetSnooze(DndSetSnoozeBody payload, map<string|string[]> headers = {}) returns DndSetSnoozeResponse|error {
         string resourcePath = string `/dnd.setSnooze`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1273,7 +1211,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get dnd\.teamInfo(map<string|string[]> headers = {}, *DndTeamInfoQueries queries) returns DefaultSuccessResponse53|error {
+    remote isolated function dndTeamInfo(map<string|string[]> headers = {}, *DndTeamInfoQueries queries) returns DefaultSuccessResponse53|error {
         string resourcePath = string `/dnd.teamInfo`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1283,17 +1221,17 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get emoji\.list(map<string|string[]> headers = {}) returns DefaultSuccessResponse54|error {
+    remote isolated function emojiList(map<string|string[]> headers = {}) returns DefaultSuccessResponse54|error {
         string resourcePath = string `/emoji.list`;
         return self.clientEp->get(resourcePath, headers);
     }
 
-    # Deletes an existing comment on a file.
+    # Finishes an upload started with files.getUploadURLExternal.
     #
     # + headers - Headers to be sent with the request 
-    # + return - Standard success response is very simple 
-    resource isolated function post files\.comments\.delete(FilesCommentsDeleteBody payload, map<string|string[]> headers = {}) returns FilesCommentsDeleteResponse|error {
-        string resourcePath = string `/files.comments.delete`;
+    # + return - Typical success response 
+    remote isolated function filesCompleteUploadExternal(FilesCompleteUploadExternalBody payload, map<string|string[]> headers = {}) returns FilesCompleteUploadExternalResponse|error {
+        string resourcePath = string `/files.completeUploadExternal`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
         request.setPayload(encodedRequestBody, "application/x-www-form-urlencoded");
@@ -1304,8 +1242,20 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post files\.delete(FilesDeleteBody payload, map<string|string[]> headers = {}) returns FilesDeleteResponse|error {
+    remote isolated function filesDelete(FilesDeleteBody payload, map<string|string[]> headers = {}) returns FilesDeleteResponse|error {
         string resourcePath = string `/files.delete`;
+        http:Request request = new;
+        string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
+        request.setPayload(encodedRequestBody, "application/x-www-form-urlencoded");
+        return self.clientEp->post(resourcePath, request, headers);
+    }
+
+    # Gets a URL for an edge external file upload.
+    #
+    # + headers - Headers to be sent with the request 
+    # + return - Typical success response 
+    remote isolated function filesGetUploadURLExternal(FilesGetUploadURLExternalBody payload, map<string|string[]> headers = {}) returns FilesGetUploadURLExternalResponse|error {
+        string resourcePath = string `/files.getUploadURLExternal`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
         request.setPayload(encodedRequestBody, "application/x-www-form-urlencoded");
@@ -1317,7 +1267,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get files\.info(map<string|string[]> headers = {}, *FilesInfoQueries queries) returns FilesInfoResponse|error {
+    remote isolated function filesInfo(map<string|string[]> headers = {}, *FilesInfoQueries queries) returns FilesInfoResponse|error {
         string resourcePath = string `/files.info`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1328,7 +1278,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get files\.list(map<string|string[]> headers = {}, *FilesListQueries queries) returns FilesListResponse|error {
+    remote isolated function filesList(map<string|string[]> headers = {}, *FilesListQueries queries) returns FilesListResponse|error {
         string resourcePath = string `/files.list`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1338,7 +1288,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post files\.remote\.add(FilesRemoteAddBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse55|error {
+    remote isolated function filesRemoteAdd(FilesRemoteAddBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse55|error {
         string resourcePath = string `/files.remote.add`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1351,7 +1301,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get files\.remote\.info(map<string|string[]> headers = {}, *FilesRemoteInfoQueries queries) returns DefaultSuccessResponse56|error {
+    remote isolated function filesRemoteInfo(map<string|string[]> headers = {}, *FilesRemoteInfoQueries queries) returns DefaultSuccessResponse56|error {
         string resourcePath = string `/files.remote.info`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1362,7 +1312,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get files\.remote\.list(map<string|string[]> headers = {}, *FilesRemoteListQueries queries) returns DefaultSuccessResponse57|error {
+    remote isolated function filesRemoteList(map<string|string[]> headers = {}, *FilesRemoteListQueries queries) returns DefaultSuccessResponse57|error {
         string resourcePath = string `/files.remote.list`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1372,7 +1322,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post files\.remote\.remove(FilesRemoteRemoveBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse58|error {
+    remote isolated function filesRemoteRemove(FilesRemoteRemoveBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse58|error {
         string resourcePath = string `/files.remote.remove`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1385,7 +1335,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get files\.remote\.share(map<string|string[]> headers = {}, *FilesRemoteShareQueries queries) returns DefaultSuccessResponse59|error {
+    remote isolated function filesRemoteShare(map<string|string[]> headers = {}, *FilesRemoteShareQueries queries) returns DefaultSuccessResponse59|error {
         string resourcePath = string `/files.remote.share`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1395,7 +1345,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post files\.remote\.update(FilesRemoteUpdateBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse60|error {
+    remote isolated function filesRemoteUpdate(FilesRemoteUpdateBody payload, map<string|string[]> headers = {}) returns DefaultSuccessResponse60|error {
         string resourcePath = string `/files.remote.update`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1407,7 +1357,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post files\.revokePublicURL(FilesRevokePublicURLBody payload, map<string|string[]> headers = {}) returns FilesRevokePublicURLResponse|error {
+    remote isolated function filesRevokePublicURL(FilesRevokePublicURLBody payload, map<string|string[]> headers = {}) returns FilesRevokePublicURLResponse|error {
         string resourcePath = string `/files.revokePublicURL`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1419,20 +1369,8 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post files\.sharedPublicURL(FilesSharedPublicURLBody payload, map<string|string[]> headers = {}) returns FilesSharedPublicURLResponse|error {
+    remote isolated function filesSharedPublicURL(FilesSharedPublicURLBody payload, map<string|string[]> headers = {}) returns FilesSharedPublicURLResponse|error {
         string resourcePath = string `/files.sharedPublicURL`;
-        http:Request request = new;
-        string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
-        request.setPayload(encodedRequestBody, "application/x-www-form-urlencoded");
-        return self.clientEp->post(resourcePath, request, headers);
-    }
-
-    # Uploads or creates a file.
-    #
-    # + headers - Headers to be sent with the request 
-    # + return - Success response after uploading a file to a channel with an initial message 
-    resource isolated function post files\.upload(FilesUploadBody payload, map<string|string[]> headers = {}) returns FilesUploadResponse|error {
-        string resourcePath = string `/files.upload`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
         request.setPayload(encodedRequestBody, "application/x-www-form-urlencoded");
@@ -1444,7 +1382,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response when mappings exist for the specified user IDs 
-    resource isolated function get migration\.exchange(map<string|string[]> headers = {}, *MigrationExchangeQueries queries) returns MigrationExchangeResponse|error {
+    remote isolated function migrationExchange(map<string|string[]> headers = {}, *MigrationExchangeQueries queries) returns MigrationExchangeResponse|error {
         string resourcePath = string `/migration.exchange`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1455,19 +1393,8 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Successful user token negotiation for a single scope 
-    resource isolated function get oauth\.access(map<string|string[]> headers = {}, *OauthAccessQueries queries) returns DefaultSuccessResponse61|error {
+    remote isolated function oauthAccess(map<string|string[]> headers = {}, *OauthAccessQueries queries) returns DefaultSuccessResponse61|error {
         string resourcePath = string `/oauth.access`;
-        resourcePath = resourcePath + check getPathForQueryParam(queries);
-        return self.clientEp->get(resourcePath, headers);
-    }
-
-    # Exchanges a temporary OAuth verifier code for a workspace token.
-    #
-    # + headers - Headers to be sent with the request 
-    # + queries - Queries to be sent with the request 
-    # + return - Success example using a workspace app produces a very different kind of response 
-    resource isolated function get oauth\.token(map<string|string[]> headers = {}, *OauthTokenQueries queries) returns DefaultSuccessResponse62|error {
-        string resourcePath = string `/oauth.token`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
     }
@@ -1477,7 +1404,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Successful token request with scopes for both a bot user and a user token 
-    resource isolated function get oauth\.v2\.access(map<string|string[]> headers = {}, *OauthV2AccessQueries queries) returns DefaultSuccessResponse63|error {
+    remote isolated function oauthV2Access(map<string|string[]> headers = {}, *OauthV2AccessQueries queries) returns DefaultSuccessResponse63|error {
         string resourcePath = string `/oauth.v2.access`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1487,7 +1414,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post pins\.add(PinsAddBody payload, map<string|string[]> headers = {}) returns PinsAddResponse|error {
+    remote isolated function pinsAdd(PinsAddBody payload, map<string|string[]> headers = {}) returns PinsAddResponse|error {
         string resourcePath = string `/pins.add`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1500,7 +1427,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get pins\.list(map<string|string[]> headers = {}, *PinsListQueries queries) returns InlineResponseItems200[]|error {
+    remote isolated function pinsList(map<string|string[]> headers = {}, *PinsListQueries queries) returns InlineResponseItems200[]|error {
         string resourcePath = string `/pins.list`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1510,7 +1437,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post pins\.remove(PinsRemoveBody payload, map<string|string[]> headers = {}) returns PinsRemoveResponse|error {
+    remote isolated function pinsRemove(PinsRemoveBody payload, map<string|string[]> headers = {}) returns PinsRemoveResponse|error {
         string resourcePath = string `/pins.remove`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1522,7 +1449,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post reactions\.add(ReactionsAddBody payload, map<string|string[]> headers = {}) returns ReactionsAddResponse|error {
+    remote isolated function reactionsAdd(ReactionsAddBody payload, map<string|string[]> headers = {}) returns ReactionsAddResponse|error {
         string resourcePath = string `/reactions.add`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1535,7 +1462,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get reactions\.get(map<string|string[]> headers = {}, *ReactionsGetQueries queries) returns InlineResponseItems2001[]|error {
+    remote isolated function reactionsGet(map<string|string[]> headers = {}, *ReactionsGetQueries queries) returns InlineResponseItems2001[]|error {
         string resourcePath = string `/reactions.get`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1546,7 +1473,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get reactions\.list(map<string|string[]> headers = {}, *ReactionsListQueries queries) returns ReactionsListResponse|error {
+    remote isolated function reactionsList(map<string|string[]> headers = {}, *ReactionsListQueries queries) returns ReactionsListResponse|error {
         string resourcePath = string `/reactions.list`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1556,7 +1483,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post reactions\.remove(ReactionsRemoveBody payload, map<string|string[]> headers = {}) returns ReactionsRemoveResponse|error {
+    remote isolated function reactionsRemove(ReactionsRemoveBody payload, map<string|string[]> headers = {}) returns ReactionsRemoveResponse|error {
         string resourcePath = string `/reactions.remove`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1564,68 +1491,12 @@ public isolated client class Client {
         return self.clientEp->post(resourcePath, request, headers);
     }
 
-    # Creates a reminder.
-    #
-    # + headers - Headers to be sent with the request 
-    # + return - Typical success response 
-    resource isolated function post reminders\.add(RemindersAddBody payload, map<string|string[]> headers = {}) returns RemindersAddResponse|error {
-        string resourcePath = string `/reminders.add`;
-        http:Request request = new;
-        string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
-        request.setPayload(encodedRequestBody, "application/x-www-form-urlencoded");
-        return self.clientEp->post(resourcePath, request, headers);
-    }
-
-    # Marks a reminder as complete.
-    #
-    # + headers - Headers to be sent with the request 
-    # + return - Typical success response 
-    resource isolated function post reminders\.complete(RemindersCompleteBody payload, map<string|string[]> headers = {}) returns RemindersCompleteResponse|error {
-        string resourcePath = string `/reminders.complete`;
-        http:Request request = new;
-        string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
-        request.setPayload(encodedRequestBody, "application/x-www-form-urlencoded");
-        return self.clientEp->post(resourcePath, request, headers);
-    }
-
-    # Deletes a reminder.
-    #
-    # + headers - Headers to be sent with the request 
-    # + return - Typical success response 
-    resource isolated function post reminders\.delete(RemindersDeleteBody payload, map<string|string[]> headers = {}) returns RemindersDeleteResponse|error {
-        string resourcePath = string `/reminders.delete`;
-        http:Request request = new;
-        string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
-        request.setPayload(encodedRequestBody, "application/x-www-form-urlencoded");
-        return self.clientEp->post(resourcePath, request, headers);
-    }
-
-    # Gets information about a reminder.
-    #
-    # + headers - Headers to be sent with the request 
-    # + queries - Queries to be sent with the request 
-    # + return - Typical success response 
-    resource isolated function get reminders\.info(map<string|string[]> headers = {}, *RemindersInfoQueries queries) returns RemindersInfoResponse|error {
-        string resourcePath = string `/reminders.info`;
-        resourcePath = resourcePath + check getPathForQueryParam(queries);
-        return self.clientEp->get(resourcePath, headers);
-    }
-
-    # Lists all reminders created by or for a given user.
-    #
-    # + headers - Headers to be sent with the request 
-    # + return - Typical success response 
-    resource isolated function get reminders\.list(map<string|string[]> headers = {}) returns RemindersListResponse|error {
-        string resourcePath = string `/reminders.list`;
-        return self.clientEp->get(resourcePath, headers);
-    }
-
     # Starts a Real Time Messaging session.
     #
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get rtm\.connect(map<string|string[]> headers = {}, *RtmConnectQueries queries) returns RtmConnectResponse|error {
+    remote isolated function rtmConnect(map<string|string[]> headers = {}, *RtmConnectQueries queries) returns RtmConnectResponse|error {
         string resourcePath = string `/rtm.connect`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1636,45 +1507,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get search\.messages(map<string|string[]> headers = {}, *SearchMessagesQueries queries) returns DefaultSuccessResponse64|error {
+    remote isolated function searchMessages(map<string|string[]> headers = {}, *SearchMessagesQueries queries) returns DefaultSuccessResponse64|error {
         string resourcePath = string `/search.messages`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
-    }
-
-    # Adds a star to an item.
-    #
-    # + headers - Headers to be sent with the request 
-    # + return - Typical success response 
-    resource isolated function post stars\.add(StarsAddBody payload, map<string|string[]> headers = {}) returns StarsAddResponse|error {
-        string resourcePath = string `/stars.add`;
-        http:Request request = new;
-        string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
-        request.setPayload(encodedRequestBody, "application/x-www-form-urlencoded");
-        return self.clientEp->post(resourcePath, request, headers);
-    }
-
-    # Lists stars for a user.
-    #
-    # + headers - Headers to be sent with the request 
-    # + queries - Queries to be sent with the request 
-    # + return - Typical success response 
-    resource isolated function get stars\.list(map<string|string[]> headers = {}, *StarsListQueries queries) returns StarsListResponse|error {
-        string resourcePath = string `/stars.list`;
-        resourcePath = resourcePath + check getPathForQueryParam(queries);
-        return self.clientEp->get(resourcePath, headers);
-    }
-
-    # Removes a star from an item.
-    #
-    # + headers - Headers to be sent with the request 
-    # + return - Typical success response 
-    resource isolated function post stars\.remove(StarsRemoveBody payload, map<string|string[]> headers = {}) returns StarsRemoveResponse|error {
-        string resourcePath = string `/stars.remove`;
-        http:Request request = new;
-        string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
-        request.setPayload(encodedRequestBody, "application/x-www-form-urlencoded");
-        return self.clientEp->post(resourcePath, request, headers);
     }
 
     # Gets the access logs for the current team.
@@ -1682,7 +1518,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - This response demonstrates pagination and two access log entries 
-    resource isolated function get team\.accessLogs(map<string|string[]> headers = {}, *TeamAccessLogsQueries queries) returns TeamAccessLogsResponse|error {
+    remote isolated function teamAccessLogs(map<string|string[]> headers = {}, *TeamAccessLogsQueries queries) returns TeamAccessLogsResponse|error {
         string resourcePath = string `/team.accessLogs`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1693,7 +1529,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get team\.billableInfo(map<string|string[]> headers = {}, *TeamBillableInfoQueries queries) returns DefaultSuccessResponse65|error {
+    remote isolated function teamBillableInfo(map<string|string[]> headers = {}, *TeamBillableInfoQueries queries) returns DefaultSuccessResponse65|error {
         string resourcePath = string `/team.billableInfo`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1704,7 +1540,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get team\.info(map<string|string[]> headers = {}, *TeamInfoQueries queries) returns TeamInfoResponse|error {
+    remote isolated function teamInfo(map<string|string[]> headers = {}, *TeamInfoQueries queries) returns TeamInfoResponse|error {
         string resourcePath = string `/team.info`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1715,7 +1551,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get team\.integrationLogs(map<string|string[]> headers = {}, *TeamIntegrationLogsQueries queries) returns TeamIntegrationLogsResponse|error {
+    remote isolated function teamIntegrationLogs(map<string|string[]> headers = {}, *TeamIntegrationLogsQueries queries) returns TeamIntegrationLogsResponse|error {
         string resourcePath = string `/team.integrationLogs`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1726,7 +1562,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get team\.profile\.get(map<string|string[]> headers = {}, *TeamProfileGetQueries queries) returns TeamProfileGetResponse|error {
+    remote isolated function teamProfileGet(map<string|string[]> headers = {}, *TeamProfileGetQueries queries) returns TeamProfileGetResponse|error {
         string resourcePath = string `/team.profile.get`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1736,7 +1572,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post usergroups\.create(UsergroupsCreateBody payload, map<string|string[]> headers = {}) returns UsergroupsCreateResponse|error {
+    remote isolated function usergroupsCreate(UsergroupsCreateBody payload, map<string|string[]> headers = {}) returns UsergroupsCreateResponse|error {
         string resourcePath = string `/usergroups.create`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1748,7 +1584,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post usergroups\.disable(UsergroupsDisableBody payload, map<string|string[]> headers = {}) returns UsergroupsDisableResponse|error {
+    remote isolated function usergroupsDisable(UsergroupsDisableBody payload, map<string|string[]> headers = {}) returns UsergroupsDisableResponse|error {
         string resourcePath = string `/usergroups.disable`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1760,7 +1596,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post usergroups\.enable(UsergroupsEnableBody payload, map<string|string[]> headers = {}) returns UsergroupsEnableResponse|error {
+    remote isolated function usergroupsEnable(UsergroupsEnableBody payload, map<string|string[]> headers = {}) returns UsergroupsEnableResponse|error {
         string resourcePath = string `/usergroups.enable`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1773,7 +1609,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get usergroups\.list(map<string|string[]> headers = {}, *UsergroupsListQueries queries) returns UsergroupsListResponse|error {
+    remote isolated function usergroupsList(map<string|string[]> headers = {}, *UsergroupsListQueries queries) returns UsergroupsListResponse|error {
         string resourcePath = string `/usergroups.list`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1783,7 +1619,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post usergroups\.update(UsergroupsUpdateBody payload, map<string|string[]> headers = {}) returns UsergroupsUpdateResponse|error {
+    remote isolated function usergroupsUpdate(UsergroupsUpdateBody payload, map<string|string[]> headers = {}) returns UsergroupsUpdateResponse|error {
         string resourcePath = string `/usergroups.update`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1796,7 +1632,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Standard success response when used with a user token 
-    resource isolated function get usergroups\.users\.list(map<string|string[]> headers = {}, *UsergroupsUsersListQueries queries) returns UsergroupsUsersListResponse|error {
+    remote isolated function usergroupsUsersList(map<string|string[]> headers = {}, *UsergroupsUsersListQueries queries) returns UsergroupsUsersListResponse|error {
         string resourcePath = string `/usergroups.users.list`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1806,7 +1642,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post usergroups\.users\.update(UsergroupsUsersUpdateBody payload, map<string|string[]> headers = {}) returns UsergroupsUsersUpdateResponse|error {
+    remote isolated function usergroupsUsersUpdate(UsergroupsUsersUpdateBody payload, map<string|string[]> headers = {}) returns UsergroupsUsersUpdateResponse|error {
         string resourcePath = string `/usergroups.users.update`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1819,7 +1655,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response with only public channels. Note how `num_members` and `is_member` are not returned like typical `conversations` objects 
-    resource isolated function get users\.conversations(map<string|string[]> headers = {}, *UsersConversationsQueries queries) returns UsersConversationsResponse|error {
+    remote isolated function usersConversations(map<string|string[]> headers = {}, *UsersConversationsQueries queries) returns UsersConversationsResponse|error {
         string resourcePath = string `/users.conversations`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1829,7 +1665,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post users\.deletePhoto(UsersDeletePhotoBody payload, map<string|string[]> headers = {}) returns UsersDeletePhotoResponse|error {
+    remote isolated function usersDeletePhoto(UsersDeletePhotoBody payload, map<string|string[]> headers = {}) returns UsersDeletePhotoResponse|error {
         string resourcePath = string `/users.deletePhoto`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1842,7 +1678,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - When requesting information for a different user, this method just returns the current presence (either `active` or `away`) 
-    resource isolated function get users\.getPresence(map<string|string[]> headers = {}, *UsersGetPresenceQueries queries) returns APIMethodUsersGetPresence|error {
+    remote isolated function usersGetPresence(map<string|string[]> headers = {}, *UsersGetPresenceQueries queries) returns APIMethodUsersGetPresence|error {
         string resourcePath = string `/users.getPresence`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1852,7 +1688,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - You will receive at a minimum the following information: 
-    resource isolated function get users\.identity(map<string|string[]> headers = {}) returns InlineResponseItems2002[]|error {
+    remote isolated function usersIdentity(map<string|string[]> headers = {}) returns InlineResponseItems2002[]|error {
         string resourcePath = string `/users.identity`;
         return self.clientEp->get(resourcePath, headers);
     }
@@ -1862,7 +1698,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get users\.info(map<string|string[]> headers = {}, *UsersInfoQueries queries) returns UsersInfoResponse|error {
+    remote isolated function usersInfo(map<string|string[]> headers = {}, *UsersInfoQueries queries) returns UsersInfoResponse|error {
         string resourcePath = string `/users.info`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1873,7 +1709,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get users\.list(map<string|string[]> headers = {}, *UsersListQueries queries) returns UsersListResponse|error {
+    remote isolated function usersList(map<string|string[]> headers = {}, *UsersListQueries queries) returns UsersListResponse|error {
         string resourcePath = string `/users.list`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1884,7 +1720,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get users\.lookupByEmail(map<string|string[]> headers = {}, *UsersLookupByEmailQueries queries) returns UsersLookupByEmailResponse|error {
+    remote isolated function usersLookupByEmail(map<string|string[]> headers = {}, *UsersLookupByEmailQueries queries) returns UsersLookupByEmailResponse|error {
         string resourcePath = string `/users.lookupByEmail`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1895,7 +1731,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response 
-    resource isolated function get users\.profile\.get(map<string|string[]> headers = {}, *UsersProfileGetQueries queries) returns UsersProfileGetResponse|error {
+    remote isolated function usersProfileGet(map<string|string[]> headers = {}, *UsersProfileGetQueries queries) returns UsersProfileGetResponse|error {
         string resourcePath = string `/users.profile.get`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1905,7 +1741,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post users\.profile\.set(UsersProfileSetBody payload, map<string|string[]> headers = {}) returns UsersProfileSetResponse|error {
+    remote isolated function usersProfileSet(UsersProfileSetBody payload, map<string|string[]> headers = {}) returns UsersProfileSetResponse|error {
         string resourcePath = string `/users.profile.set`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1913,21 +1749,11 @@ public isolated client class Client {
         return self.clientEp->post(resourcePath, request, headers);
     }
 
-    # Marked a user as active. Deprecated and non-functional.
-    #
-    # + headers - Headers to be sent with the request 
-    # + return - Typical success response 
-    resource isolated function post users\.setActive(map<string|string[]> headers = {}) returns UsersSetActiveResponse|error {
-        string resourcePath = string `/users.setActive`;
-        http:Request request = new;
-        return self.clientEp->post(resourcePath, request, headers);
-    }
-
     # Set the user profile photo
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post users\.setPhoto(UsersSetPhotoBody payload, map<string|string[]> headers = {}) returns UsersSetPhotoResponse|error {
+    remote isolated function usersSetPhoto(UsersSetPhotoBody payload, map<string|string[]> headers = {}) returns UsersSetPhotoResponse|error {
         string resourcePath = string `/users.setPhoto`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1939,7 +1765,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Typical success response 
-    resource isolated function post users\.setPresence(UsersSetPresenceBody payload, map<string|string[]> headers = {}) returns UsersSetPresenceResponse|error {
+    remote isolated function usersSetPresence(UsersSetPresenceBody payload, map<string|string[]> headers = {}) returns UsersSetPresenceResponse|error {
         string resourcePath = string `/users.setPresence`;
         http:Request request = new;
         string encodedRequestBody = createFormURLEncodedRequestBody(check jsondata:toJson(payload).ensureType());
@@ -1952,7 +1778,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response includes the opened view payload 
-    resource isolated function get views\.open(map<string|string[]> headers = {}, *ViewsOpenQueries queries) returns DefaultSuccessResponse66|error {
+    remote isolated function viewsOpen(map<string|string[]> headers = {}, *ViewsOpenQueries queries) returns DefaultSuccessResponse66|error {
         string resourcePath = string `/views.open`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1963,7 +1789,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response includes the published view payload 
-    resource isolated function get views\.publish(map<string|string[]> headers = {}, *ViewsPublishQueries queries) returns DefaultSuccessResponse67|error {
+    remote isolated function viewsPublish(map<string|string[]> headers = {}, *ViewsPublishQueries queries) returns DefaultSuccessResponse67|error {
         string resourcePath = string `/views.publish`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1974,7 +1800,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response includes the pushed view payload 
-    resource isolated function get views\.push(map<string|string[]> headers = {}, *ViewsPushQueries queries) returns DefaultSuccessResponse68|error {
+    remote isolated function viewsPush(map<string|string[]> headers = {}, *ViewsPushQueries queries) returns DefaultSuccessResponse68|error {
         string resourcePath = string `/views.push`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
@@ -1985,41 +1811,8 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Typical success response includes the updated view payload 
-    resource isolated function get views\.update(map<string|string[]> headers = {}, *ViewsUpdateQueries queries) returns DefaultSuccessResponse69|error {
+    remote isolated function viewsUpdate(map<string|string[]> headers = {}, *ViewsUpdateQueries queries) returns DefaultSuccessResponse69|error {
         string resourcePath = string `/views.update`;
-        resourcePath = resourcePath + check getPathForQueryParam(queries);
-        return self.clientEp->get(resourcePath, headers);
-    }
-
-    # Indicate that an app's step in a workflow completed execution.
-    #
-    # + headers - Headers to be sent with the request 
-    # + queries - Queries to be sent with the request 
-    # + return - Typical success response 
-    resource isolated function get workflows\.stepCompleted(map<string|string[]> headers = {}, *WorkflowsStepCompletedQueries queries) returns DefaultSuccessResponse70|error {
-        string resourcePath = string `/workflows.stepCompleted`;
-        resourcePath = resourcePath + check getPathForQueryParam(queries);
-        return self.clientEp->get(resourcePath, headers);
-    }
-
-    # Indicate that an app's step in a workflow failed to execute.
-    #
-    # + headers - Headers to be sent with the request 
-    # + queries - Queries to be sent with the request 
-    # + return - Typical success response 
-    resource isolated function get workflows\.stepFailed(map<string|string[]> headers = {}, *WorkflowsStepFailedQueries queries) returns DefaultSuccessResponse71|error {
-        string resourcePath = string `/workflows.stepFailed`;
-        resourcePath = resourcePath + check getPathForQueryParam(queries);
-        return self.clientEp->get(resourcePath, headers);
-    }
-
-    # Update the configuration for a workflow extension step.
-    #
-    # + headers - Headers to be sent with the request 
-    # + queries - Queries to be sent with the request 
-    # + return - Typical success response 
-    resource isolated function get workflows\.updateStep(map<string|string[]> headers = {}, *WorkflowsUpdateStepQueries queries) returns DefaultSuccessResponse72|error {
-        string resourcePath = string `/workflows.updateStep`;
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         return self.clientEp->get(resourcePath, headers);
     }

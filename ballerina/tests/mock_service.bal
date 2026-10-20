@@ -143,6 +143,74 @@ http:Service mockAPI = service object {
             email: "adib@wso2.com"
         }
     };
+
+    # Get Upload URL External
+    #
+    # + return - Upload URL pointing back to this mock server
+    resource isolated function post files\.getUploadURLExternal(@http:Payload http:Request request) returns json => {
+        "ok": true,
+        "upload_url": "http://localhost:9090/upload/v1/CwABAAAAXAoAAUnJbZW8O41d",
+        "file_id": "F0CA1SH190B"
+    };
+
+    # Receive Uploaded File Contents
+    #
+    # + id - Upload ID
+    # + return - Upload status
+    resource isolated function post upload/v1/[string id](@http:Payload http:Request request) returns http:Ok => {body: "OK - 20"};
+
+    # Complete Upload External
+    #
+    # + return - Completed file details
+    resource isolated function post files\.completeUploadExternal(@http:Payload http:Request request) returns json => {
+        "ok": true,
+        "files": [
+            {
+                "id": "F0CA1SH190B",
+                "created": 1792381427,
+                "timestamp": 1792381427,
+                "name": "test.txt",
+                "title": "Ballerina test file",
+                "mimetype": "text/plain",
+                "filetype": "text",
+                "pretty_type": "Plain text",
+                "user": "U0C3F40S9EG",
+                "user_team": "T0C39FE0MFG",
+                "editable": true,
+                "size": 20,
+                "mode": "snippet",
+                "is_external": false,
+                "external_type": "",
+                "is_public": false,
+                "public_url_shared": false,
+                "display_as_bot": false,
+                "username": "",
+                "is_modified_by_ai": false,
+                "url_private": "https://files.slack.com/files-pri/T0C39FE0MFG-F0CA1SH190B/test.txt",
+                "url_private_download": "https://files.slack.com/files-pri/T0C39FE0MFG-F0CA1SH190B/download/test.txt",
+                "permalink": "https://example.slack.com/files/U0C3F40S9EG/F0CA1SH190B/test.txt",
+                "permalink_public": "https://slack-files.com/T0C39FE0MFG-F0CA1SH190B-02dffd99dd",
+                "preview": "hello from ballerina",
+                "lines": 1,
+                "lines_more": 0,
+                "preview_is_truncated": false,
+                "comments_count": 0,
+                "is_starred": false,
+                "shares": {},
+                "channels": [],
+                "groups": [],
+                "ims": [],
+                "has_more_shares": false,
+                "has_rich_preview": false,
+                "file_access": "visible"
+            }
+        ]
+    };
+
+    # Delete File
+    #
+    # + return - Delete status
+    resource isolated function post files\.delete(@http:Payload http:Request request) returns json => {"ok": true};
 };
 
 function init() returns error? {

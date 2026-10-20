@@ -14,6 +14,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
+import ballerina/http;
 import ballerina/log;
 import ballerina/os;
 import ballerina/test;
@@ -45,7 +46,7 @@ function setup() returns error? {
     groups: ["live_tests", "mock_tests"]
 }
 function testGetPresence() returns error? {
-    APIMethodUsersGetPresence response = check slack->/users\.getPresence();
+    APIMethodUsersGetPresence response = check slack->usersGetPresence();
     test:assertTrue(response.ok, "The ok attribute was not equal to true");
 }
 
@@ -53,7 +54,7 @@ function testGetPresence() returns error? {
     groups: ["live_tests", "mock_tests"]
 }
 function testPostMessage() returns error? {
-    ChatPostMessageResponse response = check slack->/chat\.postMessage.post({channel: "general"});
+    ChatPostMessageResponse response = check slack->chatPostMessage({channel: "general"});
     test:assertTrue(response.ok, "The ok attribute should be true");
     test:assertEquals(response.message.text, "This is a Test", "The message text is not equal to the expected value");
 }
@@ -62,7 +63,7 @@ function testPostMessage() returns error? {
     groups: ["live_tests", "mock_tests"]
 }
 function testGetUsersList() returns error? {
-    UsersListResponse response = check slack->/users\.list();
+    UsersListResponse response = check slack->usersList();
     test:assertTrue(response.ok, "The ok attribute should be true");
 }
 
@@ -70,6 +71,33 @@ function testGetUsersList() returns error? {
     groups: ["live_tests", "mock_tests"]
 }
 function testGetUserProfiles() returns error? {
-    UsersProfileGetResponse response = check slack->/users\.profile\.get();
+    UsersProfileGetResponse response = check slack->usersProfileGet();
     test:assertTrue(response.ok, "The ok attribute should be true");
+}
+
+@test:Config {
+    groups: ["live_tests", "mock_tests"]
+}
+function testUploadFileExternal() returns error? {
+    string content = "hello from ballerina";
+    FilesGetUploadURLExternalResponse uploadUrl = check slack->filesGetUploadURLExternal({
+        filename: "test.txt",
+        length: content.toBytes().length()
+    });
+    test:assertTrue(uploadUrl.ok, "The ok attribute should be true");
+    test:assertTrue(uploadUrl.fileId.startsWith("F"), "The file id should start with F");
+
+    http:Client uploader = check new (uploadUrl.uploadUrl);
+    http:Response uploaded = check uploader->post("", content, mediaType = "text/plain");
+    test:assertEquals(uploaded.statusCode, 200, "The file contents should be accepted by the upload URL");
+
+    FilesCompleteUploadExternalResponse completed = check slack->filesCompleteUploadExternal({
+        files: [{"id": uploadUrl.fileId, "title": "Ballerina test file"}].toJsonString()
+    });
+    test:assertTrue(completed.ok, "The ok attribute should be true");
+    test:assertEquals(completed.files.length(), 1, "Exactly one file should be completed");
+    test:assertEquals(completed.files[0].id, uploadUrl.fileId, "The completed file id should match the requested one");
+
+    FilesDeleteResponse deleted = check slack->filesDelete({file: uploadUrl.fileId});
+    test:assertTrue(deleted.ok, "The ok attribute should be true");
 }

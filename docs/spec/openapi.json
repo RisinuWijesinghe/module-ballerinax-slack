@@ -4238,480 +4238,6 @@
         } ]
       }
     },
-    "/apps.permissions.info" : {
-      "get" : {
-        "tags" : [ "apps.permissions", "apps" ],
-        "description" : "Returns list of permissions this app has on a team.",
-        "externalDocs" : {
-          "description" : "API method documentation",
-          "url" : "https://api.slack.com/methods/apps.permissions.info"
-        },
-        "operationId" : "apps_permissions_info",
-        "responses" : {
-          "200" : {
-            "description" : "Standard success response when used with a user token",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/AppsPermissionsInfoResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "info" : {
-                        "app_home" : {
-                          "resources" : {
-                            "ids" : [ "D0C0NU1Q8", "D0BH95DLH" ]
-                          },
-                          "scopes" : [ "chat:write", "im:history", "im:read" ]
-                        },
-                        "channel" : {
-                          "resources" : {
-                            "excluded_ids" : [ ],
-                            "ids" : [ "C061FA5PB" ],
-                            "wildcard" : false
-                          },
-                          "scopes" : [ "channels:read" ]
-                        },
-                        "group" : {
-                          "resources" : {
-                            "ids" : [ ]
-                          },
-                          "scopes" : [ ]
-                        },
-                        "im" : {
-                          "resources" : {
-                            "ids" : [ ]
-                          },
-                          "scopes" : [ ]
-                        },
-                        "mpim" : {
-                          "resources" : {
-                            "ids" : [ ]
-                          },
-                          "scopes" : [ ]
-                        },
-                        "team" : {
-                          "resources" : {
-                            "ids" : [ ]
-                          },
-                          "scopes" : [ ]
-                        }
-                      },
-                      "ok" : true
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "Standard failure response when used with an invalid token",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/AppsPermissionsInfoErrorResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "error" : "invalid_auth",
-                      "ok" : false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "slackAuth" : [ "none" ]
-        } ]
-      }
-    },
-    "/apps.permissions.request" : {
-      "get" : {
-        "tags" : [ "apps.permissions", "apps" ],
-        "description" : "Allows an app to request additional scopes",
-        "externalDocs" : {
-          "description" : "API method documentation",
-          "url" : "https://api.slack.com/methods/apps.permissions.request"
-        },
-        "operationId" : "apps_permissions_request",
-        "parameters" : [ {
-          "name" : "scopes",
-          "in" : "query",
-          "description" : "A comma separated list of scopes to request for",
-          "required" : true,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "trigger_id",
-          "in" : "query",
-          "description" : "Token used to trigger the permissions API",
-          "required" : true,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          },
-          "x-ballerina-name" : "triggerId"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Standard success response when used with a user token",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/AppsPermissionsRequestResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "ok" : true
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "Standard failure response when trigger_id is invalid",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/AppsPermissionsRequestErrorResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "error" : "invalid_trigger_id",
-                      "ok" : false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "slackAuth" : [ "none" ]
-        } ]
-      }
-    },
-    "/apps.permissions.resources.list" : {
-      "get" : {
-        "tags" : [ "apps.permissions.resources", "apps" ],
-        "description" : "Returns list of resource grants this app has on a team.",
-        "externalDocs" : {
-          "description" : "API method documentation",
-          "url" : "https://api.slack.com/methods/apps.permissions.resources.list"
-        },
-        "operationId" : "apps_permissions_resources_list",
-        "parameters" : [ {
-          "name" : "cursor",
-          "in" : "query",
-          "description" : "Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first \"page\" of the collection. See [pagination](/docs/pagination) for more detail",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "limit",
-          "in" : "query",
-          "description" : "The maximum number of items to return",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "integer"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Typical successful paginated response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/AppsPermissionsResourcesListResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "ok" : true,
-                      "resources" : [ {
-                        "id" : "T0DES3UAN",
-                        "type" : "team"
-                      }, {
-                        "id" : "D024BFF1M",
-                        "type" : "app_home"
-                      }, {
-                        "id" : "C024BE91L",
-                        "type" : "channel"
-                      } ],
-                      "response_metadata" : {
-                        "next_cursor" : "dGVhbTpDMUg5UkVTR0w="
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "Typical error response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/AppsPermissionsResourcesListErrorResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "error" : "invalid_cursor",
-                      "ok" : false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "slackAuth" : [ "none" ]
-        } ]
-      }
-    },
-    "/apps.permissions.scopes.list" : {
-      "get" : {
-        "tags" : [ "apps.permissions.scopes", "apps" ],
-        "description" : "Returns list of scopes this app has on a team.",
-        "externalDocs" : {
-          "description" : "API method documentation",
-          "url" : "https://api.slack.com/methods/apps.permissions.scopes.list"
-        },
-        "operationId" : "apps_permissions_scopes_list",
-        "responses" : {
-          "200" : {
-            "description" : "Typical successful paginated response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ApiPermissionsScopesListResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "ok" : true,
-                      "scopes" : {
-                        "app_home" : [ "chat:write", "im:history", "im:read" ],
-                        "channel" : [ "channels:history", "chat:write" ],
-                        "group" : [ "chat:write" ],
-                        "im" : [ "chat:write" ],
-                        "mpim" : [ "chat:write" ],
-                        "team" : [ "users:read" ],
-                        "user" : [ ]
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "Typical error response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/AppsPermissionsScopesListErrorResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "error" : "invalid_auth",
-                      "ok" : false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "slackAuth" : [ "none" ]
-        } ]
-      }
-    },
-    "/apps.permissions.users.list" : {
-      "get" : {
-        "tags" : [ "apps.permissions.users", "apps" ],
-        "description" : "Returns list of user grants and corresponding scopes this app has on a team.",
-        "externalDocs" : {
-          "description" : "API method documentation",
-          "url" : "https://api.slack.com/methods/apps.permissions.users.list"
-        },
-        "operationId" : "apps_permissions_users_list",
-        "parameters" : [ {
-          "name" : "cursor",
-          "in" : "query",
-          "description" : "Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first \"page\" of the collection. See [pagination](/docs/pagination) for more detail",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "limit",
-          "in" : "query",
-          "description" : "The maximum number of items to return",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "integer"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Typical successful paginated response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/DefaultSuccessResponse45"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "ok" : true,
-                      "resources" : [ {
-                        "id" : "U0DES3UAN",
-                        "scopes" : [ "dnd:write:user", "reminders:write:user" ]
-                      }, {
-                        "id" : "U024BFF1M",
-                        "scopes" : [ "reminders:write:user" ]
-                      } ],
-                      "response_metadata" : {
-                        "next_cursor" : "dGVhbTdPMUg5UkFTT0w="
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "Typical error response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/DefaultErrorTemplate45"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "error" : "invalid_cursor",
-                      "ok" : false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "slackAuth" : [ "none" ]
-        } ]
-      }
-    },
-    "/apps.permissions.users.request" : {
-      "get" : {
-        "tags" : [ "apps.permissions.users", "apps" ],
-        "description" : "Enables an app to trigger a permissions modal to grant an app access to a user access scope.",
-        "externalDocs" : {
-          "description" : "API method documentation",
-          "url" : "https://api.slack.com/methods/apps.permissions.users.request"
-        },
-        "operationId" : "apps_permissions_users_request",
-        "parameters" : [ {
-          "name" : "scopes",
-          "in" : "query",
-          "description" : "A comma separated list of user scopes to request for",
-          "required" : true,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "trigger_id",
-          "in" : "query",
-          "description" : "Token used to trigger the request",
-          "required" : true,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          },
-          "x-ballerina-name" : "triggerId"
-        }, {
-          "name" : "user",
-          "in" : "query",
-          "description" : "The user this scope is being requested for",
-          "required" : true,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Standard success response when used with a user token",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/DefaultSuccessResponse46"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "ok" : true
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "Standard failure response when trigger_id is invalid",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/DefaultErrorTemplate46"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "error" : "invalid_trigger_id",
-                      "ok" : false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "slackAuth" : [ "none" ]
-        } ]
-      }
-    },
     "/apps.uninstall" : {
       "get" : {
         "tags" : [ "apps" ],
@@ -8061,36 +7587,41 @@
         } ]
       }
     },
-    "/files.comments.delete" : {
+    "/files.completeUploadExternal" : {
       "post" : {
-        "tags" : [ "files.comments", "files" ],
-        "description" : "Deletes an existing comment on a file.",
+        "tags" : [ "files" ],
+        "description" : "Finishes an upload started with files.getUploadURLExternal.",
         "externalDocs" : {
           "description" : "API method documentation",
-          "url" : "https://api.slack.com/methods/files.comments.delete"
+          "url" : "https://docs.slack.dev/reference/methods/files.completeUploadExternal"
         },
-        "operationId" : "files_comments_delete",
+        "operationId" : "files_completeUploadExternal",
         "requestBody" : {
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
-                "$ref" : "#/components/schemas/FilesCommentsDeleteBody"
+                "$ref" : "#/components/schemas/FilesCompleteUploadExternalBody"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Standard success response is very simple",
+            "description" : "Typical success response",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/FilesCommentsDeleteResponse"
+                  "$ref" : "#/components/schemas/FilesCompleteUploadExternalResponse"
                 },
                 "examples" : {
                   "response" : {
                     "value" : {
-                      "ok" : true
+                      "ok" : true,
+                      "files" : [ {
+                        "id" : "F123ABC456",
+                        "title" : "slack-test"
+                      } ]
                     }
                   }
                 }
@@ -8098,16 +7629,16 @@
             }
           },
           "default" : {
-            "description" : "Standard failure response when used with an invalid token",
+            "description" : "Typical error response",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/FilesCommentsDeleteErrorResponse"
+                  "$ref" : "#/components/schemas/FilesCompleteUploadExternalErrorResponse"
                 },
                 "examples" : {
                   "response" : {
                     "value" : {
-                      "error" : "file_not_found",
+                      "error" : "invalid_auth",
                       "ok" : false
                     }
                   }
@@ -8117,7 +7648,7 @@
           }
         },
         "security" : [ {
-          "slackAuth" : [ "files:write:user" ]
+          "slackAuth" : [ "files:write" ]
         } ]
       }
     },
@@ -8178,6 +7709,69 @@
         },
         "security" : [ {
           "slackAuth" : [ "files:write:user" ]
+        } ]
+      }
+    },
+    "/files.getUploadURLExternal" : {
+      "post" : {
+        "tags" : [ "files" ],
+        "description" : "Gets a URL for an edge external file upload.",
+        "externalDocs" : {
+          "description" : "API method documentation",
+          "url" : "https://docs.slack.dev/reference/methods/files.getUploadURLExternal"
+        },
+        "operationId" : "files_getUploadURLExternal",
+        "requestBody" : {
+          "content" : {
+            "application/x-www-form-urlencoded" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/FilesGetUploadURLExternalBody"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Typical success response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FilesGetUploadURLExternalResponse"
+                },
+                "examples" : {
+                  "response" : {
+                    "value" : {
+                      "ok" : true,
+                      "upload_url" : "https://files.slack.com/upload/v1/ABC123...",
+                      "file_id" : "F123ABC456"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Typical error response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FilesGetUploadURLExternalErrorResponse"
+                },
+                "examples" : {
+                  "response" : {
+                    "value" : {
+                      "error" : "invalid_auth",
+                      "ok" : false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "slackAuth" : [ "files:write" ]
         } ]
       }
     },
@@ -9119,118 +8713,6 @@
         } ]
       }
     },
-    "/files.upload" : {
-      "post" : {
-        "tags" : [ "files" ],
-        "description" : "Uploads or creates a file.",
-        "externalDocs" : {
-          "description" : "API method documentation",
-          "url" : "https://api.slack.com/methods/files.upload"
-        },
-        "operationId" : "files_upload",
-        "requestBody" : {
-          "content" : {
-            "application/x-www-form-urlencoded" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/FilesUploadBody"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "200" : {
-            "description" : "Success response after uploading a file to a channel with an initial message",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/FilesUploadResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "file" : {
-                        "channels" : [ ],
-                        "comments_count" : 0,
-                        "created" : 1532293501,
-                        "display_as_bot" : false,
-                        "editable" : false,
-                        "external_type" : "",
-                        "filetype" : "gif",
-                        "groups" : [ ],
-                        "has_rich_preview" : false,
-                        "id" : "F0TD00400",
-                        "image_exif_rotation" : 1,
-                        "ims" : [ "D0L4B9P0Q" ],
-                        "is_external" : false,
-                        "is_public" : false,
-                        "is_starred" : false,
-                        "mimetype" : "image/jpeg",
-                        "mode" : "hosted",
-                        "name" : "dramacat.gif",
-                        "original_h" : 366,
-                        "original_w" : 526,
-                        "permalink" : "https://.../dramacat.gif",
-                        "permalink_public" : "https://.../More-Path-Components",
-                        "pretty_type" : "JPEG",
-                        "public_url_shared" : false,
-                        "shares" : {
-                          "private" : {
-                            "D0L4B9P0Q" : [ {
-                              "reply_count" : 0,
-                              "reply_users" : [ ],
-                              "reply_users_count" : 0,
-                              "ts" : "1532293503.000001"
-                            } ]
-                          }
-                        },
-                        "size" : 43518,
-                        "thumb_160" : "https://.../dramacat_160.gif",
-                        "thumb_360" : "https://.../dramacat_360.gif",
-                        "thumb_360_h" : 250,
-                        "thumb_360_w" : 360,
-                        "thumb_480" : "https://.../dramacat_480.gif",
-                        "thumb_480_h" : 334,
-                        "thumb_480_w" : 480,
-                        "thumb_64" : "https://.../dramacat_64.gif",
-                        "thumb_80" : "https://.../dramacat_80.gif",
-                        "timestamp" : 1532293501,
-                        "title" : "dramacat",
-                        "url_private" : "https://.../dramacat.gif",
-                        "url_private_download" : "https://.../dramacat.gif",
-                        "user" : "U0L4B9NSU",
-                        "username" : ""
-                      },
-                      "ok" : true
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "Typical error response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/FilesUploadErrorResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "error" : "invalid_auth",
-                      "ok" : false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "slackAuth" : [ "files:write:user" ]
-        } ]
-      }
-    },
     "/migration.exchange" : {
       "get" : {
         "tags" : [ "migration" ],
@@ -9417,126 +8899,6 @@
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/DefaultErrorTemplate61"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "error" : "invalid_client_id",
-                      "ok" : false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "slackAuth" : [ "none" ]
-        } ]
-      }
-    },
-    "/oauth.token" : {
-      "get" : {
-        "tags" : [ "oauth" ],
-        "description" : "Exchanges a temporary OAuth verifier code for a workspace token.",
-        "externalDocs" : {
-          "description" : "API method documentation",
-          "url" : "https://api.slack.com/methods/oauth.token"
-        },
-        "operationId" : "oauth_token",
-        "parameters" : [ {
-          "name" : "client_id",
-          "in" : "query",
-          "description" : "Issued when you created your application",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          },
-          "x-ballerina-name" : "clientId"
-        }, {
-          "name" : "client_secret",
-          "in" : "query",
-          "description" : "Issued when you created your application",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          },
-          "x-ballerina-name" : "clientSecret"
-        }, {
-          "name" : "code",
-          "in" : "query",
-          "description" : "The `code` param returned via the OAuth callback",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "redirect_uri",
-          "in" : "query",
-          "description" : "This must match the originally submitted URI (if one was sent)",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          },
-          "x-ballerina-name" : "redirectUri"
-        }, {
-          "name" : "single_channel",
-          "in" : "query",
-          "description" : "Request the user to add your app only to a single channel",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "boolean"
-          },
-          "x-ballerina-name" : "singleChannel"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Success example using a workspace app produces a very different kind of response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/DefaultSuccessResponse62"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "access_token" : "xoxa-access-token-string",
-                      "app_id" : "A012345678",
-                      "app_user_id" : "U0AB12ABC",
-                      "authorizing_user_id" : "U0HTT3Q0G",
-                      "installer_user_id" : "U061F7AUR",
-                      "ok" : true,
-                      "permissions" : [ {
-                        "resource_id" : 0,
-                        "resource_type" : "channel",
-                        "scopes" : [ "channels:read", "chat:write:user" ]
-                      } ],
-                      "single_channel_id" : "C061EG9T2",
-                      "team_id" : "T061EG9Z9",
-                      "team_name" : "Subarachnoid Workspace",
-                      "token_type" : "app"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "Typical error response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/DefaultErrorTemplate62"
                 },
                 "examples" : {
                   "response" : {
@@ -10307,300 +9669,6 @@
         } ]
       }
     },
-    "/reminders.add" : {
-      "post" : {
-        "tags" : [ "reminders" ],
-        "description" : "Creates a reminder.",
-        "externalDocs" : {
-          "description" : "API method documentation",
-          "url" : "https://api.slack.com/methods/reminders.add"
-        },
-        "operationId" : "reminders_add",
-        "requestBody" : {
-          "content" : {
-            "application/x-www-form-urlencoded" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/RemindersAddBody"
-              }
-            }
-          },
-          "required" : true
-        },
-        "responses" : {
-          "200" : {
-            "description" : "Typical success response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/RemindersAddResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "ok" : true
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "Typical error response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/RemindersAddErrorResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "error" : "invalid_auth",
-                      "ok" : false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "slackAuth" : [ "reminders:write" ]
-        } ]
-      }
-    },
-    "/reminders.complete" : {
-      "post" : {
-        "tags" : [ "reminders" ],
-        "description" : "Marks a reminder as complete.",
-        "externalDocs" : {
-          "description" : "API method documentation",
-          "url" : "https://api.slack.com/methods/reminders.complete"
-        },
-        "operationId" : "reminders_complete",
-        "requestBody" : {
-          "content" : {
-            "application/x-www-form-urlencoded" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/RemindersCompleteBody"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "200" : {
-            "description" : "Typical success response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/RemindersCompleteResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "ok" : true
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "Typical error response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/RemindersCompleteErrorResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "error" : "invalid_auth",
-                      "ok" : false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "slackAuth" : [ "reminders:write" ]
-        } ]
-      }
-    },
-    "/reminders.delete" : {
-      "post" : {
-        "tags" : [ "reminders" ],
-        "description" : "Deletes a reminder.",
-        "externalDocs" : {
-          "description" : "API method documentation",
-          "url" : "https://api.slack.com/methods/reminders.delete"
-        },
-        "operationId" : "reminders_delete",
-        "requestBody" : {
-          "content" : {
-            "application/x-www-form-urlencoded" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/RemindersDeleteBody"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "200" : {
-            "description" : "Typical success response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/RemindersDeleteResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "ok" : true
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "Typical error response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/RemindersDeleteErrorResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "error" : "invalid_auth",
-                      "ok" : false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "slackAuth" : [ "reminders:write" ]
-        } ]
-      }
-    },
-    "/reminders.info" : {
-      "get" : {
-        "tags" : [ "reminders" ],
-        "description" : "Gets information about a reminder.",
-        "externalDocs" : {
-          "description" : "API method documentation",
-          "url" : "https://api.slack.com/methods/reminders.info"
-        },
-        "operationId" : "reminders_info",
-        "parameters" : [ {
-          "name" : "reminder",
-          "in" : "query",
-          "description" : "The ID of the reminder",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Typical success response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/RemindersInfoResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "ok" : true
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "Typical error response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/RemindersInfoErrorResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "error" : "invalid_auth",
-                      "ok" : false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "slackAuth" : [ "reminders:read" ]
-        } ]
-      }
-    },
-    "/reminders.list" : {
-      "get" : {
-        "tags" : [ "reminders" ],
-        "description" : "Lists all reminders created by or for a given user.",
-        "externalDocs" : {
-          "description" : "API method documentation",
-          "url" : "https://api.slack.com/methods/reminders.list"
-        },
-        "operationId" : "reminders_list",
-        "responses" : {
-          "200" : {
-            "description" : "Typical success response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/RemindersListResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "ok" : true
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "Typical error response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/RemindersListErrorResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "error" : "invalid_auth",
-                      "ok" : false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "slackAuth" : [ "reminders:read" ]
-        } ]
-      }
-    },
     "/rtm.connect" : {
       "get" : {
         "tags" : [ "rtm" ],
@@ -10853,216 +9921,6 @@
         },
         "security" : [ {
           "slackAuth" : [ "search:read" ]
-        } ]
-      }
-    },
-    "/stars.add" : {
-      "post" : {
-        "tags" : [ "stars" ],
-        "description" : "Adds a star to an item.",
-        "externalDocs" : {
-          "description" : "API method documentation",
-          "url" : "https://api.slack.com/methods/stars.add"
-        },
-        "operationId" : "stars_add",
-        "requestBody" : {
-          "content" : {
-            "application/x-www-form-urlencoded" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/StarsAddBody"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "200" : {
-            "description" : "Typical success response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/StarsAddResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "ok" : true
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "Typical error response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/StarsAddErrorResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "error" : "invalid_auth",
-                      "ok" : false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "slackAuth" : [ "stars:write" ]
-        } ]
-      }
-    },
-    "/stars.list" : {
-      "get" : {
-        "tags" : [ "stars" ],
-        "description" : "Lists stars for a user.",
-        "externalDocs" : {
-          "description" : "API method documentation",
-          "url" : "https://api.slack.com/methods/stars.list"
-        },
-        "operationId" : "stars_list",
-        "parameters" : [ {
-          "name" : "count",
-          "in" : "query",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "page",
-          "in" : "query",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "cursor",
-          "in" : "query",
-          "description" : "Parameter for pagination. Set `cursor` equal to the `next_cursor` attribute returned by the previous request's `response_metadata`. This parameter is optional, but pagination is mandatory: the default value simply fetches the first \"page\" of the collection. See [pagination](/docs/pagination) for more details",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "limit",
-          "in" : "query",
-          "description" : "The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "integer"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Typical success response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/StarsListResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "ok" : true
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "Typical error response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/StarsListErrorResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "error" : "invalid_auth",
-                      "ok" : false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "slackAuth" : [ "stars:read" ]
-        } ]
-      }
-    },
-    "/stars.remove" : {
-      "post" : {
-        "tags" : [ "stars" ],
-        "description" : "Removes a star from an item.",
-        "externalDocs" : {
-          "description" : "API method documentation",
-          "url" : "https://api.slack.com/methods/stars.remove"
-        },
-        "operationId" : "stars_remove",
-        "requestBody" : {
-          "content" : {
-            "application/x-www-form-urlencoded" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/StarsRemoveBody"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "200" : {
-            "description" : "Typical success response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/StarsRemoveResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "ok" : true
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "Typical error response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/StarsRemoveErrorResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "error" : "invalid_auth",
-                      "ok" : false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "slackAuth" : [ "stars:write" ]
         } ]
       }
     },
@@ -13017,57 +11875,6 @@
         } ]
       }
     },
-    "/users.setActive" : {
-      "post" : {
-        "tags" : [ "users" ],
-        "description" : "Marked a user as active. Deprecated and non-functional.",
-        "externalDocs" : {
-          "description" : "API method documentation",
-          "url" : "https://api.slack.com/methods/users.setActive"
-        },
-        "operationId" : "users_setActive",
-        "responses" : {
-          "200" : {
-            "description" : "Typical success response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/UsersSetActiveResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "ok" : true
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "Typical error response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/UsersSetActiveErrorResponse"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "error" : "invalid_auth",
-                      "ok" : false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "slackAuth" : [ "users:write" ]
-        } ]
-      }
-    },
     "/users.setPhoto" : {
       "post" : {
         "tags" : [ "users" ],
@@ -13680,257 +12487,6 @@
           "slackAuth" : [ "none" ]
         } ]
       }
-    },
-    "/workflows.stepCompleted" : {
-      "get" : {
-        "tags" : [ "workflows" ],
-        "description" : "Indicate that an app's step in a workflow completed execution.",
-        "externalDocs" : {
-          "description" : "API method documentation",
-          "url" : "https://api.slack.com/methods/workflows.stepCompleted"
-        },
-        "operationId" : "workflows_stepCompleted",
-        "parameters" : [ {
-          "name" : "workflow_step_execute_id",
-          "in" : "query",
-          "description" : "Context identifier that maps to the correct workflow step execution",
-          "required" : true,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          },
-          "x-ballerina-name" : "workflowStepExecuteId"
-        }, {
-          "name" : "outputs",
-          "in" : "query",
-          "description" : "Key-value object of outputs from your step. Keys of this object reflect the configured `key` properties of your [`outputs`](/reference/workflows/workflow_step#output) array from your `workflow_step` object",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Typical success response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/DefaultSuccessResponse70"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "ok" : true
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "Typical error response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/DefaultErrorTemplate70"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "error" : "invalid_auth",
-                      "ok" : false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "slackAuth" : [ "workflow.steps:execute" ]
-        } ]
-      }
-    },
-    "/workflows.stepFailed" : {
-      "get" : {
-        "tags" : [ "workflows" ],
-        "description" : "Indicate that an app's step in a workflow failed to execute.",
-        "externalDocs" : {
-          "description" : "API method documentation",
-          "url" : "https://api.slack.com/methods/workflows.stepFailed"
-        },
-        "operationId" : "workflows_stepFailed",
-        "parameters" : [ {
-          "name" : "workflow_step_execute_id",
-          "in" : "query",
-          "description" : "Context identifier that maps to the correct workflow step execution",
-          "required" : true,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          },
-          "x-ballerina-name" : "workflowStepExecuteId"
-        }, {
-          "name" : "error",
-          "in" : "query",
-          "description" : "A JSON-based object with a `message` property that should contain a human readable error message",
-          "required" : true,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Typical success response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/DefaultSuccessResponse71"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "ok" : true
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "Typical error response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/DefaultErrorTemplate71"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "error" : "invalid_auth",
-                      "ok" : false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "slackAuth" : [ "workflow.steps:execute" ]
-        } ]
-      }
-    },
-    "/workflows.updateStep" : {
-      "get" : {
-        "tags" : [ "workflows" ],
-        "description" : "Update the configuration for a workflow extension step.",
-        "externalDocs" : {
-          "description" : "API method documentation",
-          "url" : "https://api.slack.com/methods/workflows.updateStep"
-        },
-        "operationId" : "workflows_updateStep",
-        "parameters" : [ {
-          "name" : "workflow_step_edit_id",
-          "in" : "query",
-          "description" : "A context identifier provided with `view_submission` payloads used to call back to `workflows.updateStep`",
-          "required" : true,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          },
-          "x-ballerina-name" : "workflowStepEditId"
-        }, {
-          "name" : "inputs",
-          "in" : "query",
-          "description" : "A JSON key-value map of inputs required from a user during configuration. This is the data your app expects to receive when the workflow step starts. **Please note**: the embedded variable format is set and replaced by the workflow system. You cannot create custom variables that will be replaced at runtime. [Read more about variables in workflow steps here](/workflows/steps#variables)",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "outputs",
-          "in" : "query",
-          "description" : "An JSON array of output objects used during step execution. This is the data your app agrees to provide when your workflow step was executed",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "step_name",
-          "in" : "query",
-          "description" : "An optional field that can be used to override the step name that is shown in the Workflow Builder",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          },
-          "x-ballerina-name" : "stepName"
-        }, {
-          "name" : "step_image_url",
-          "in" : "query",
-          "description" : "An optional field that can be used to override app image that is shown in the Workflow Builder",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          },
-          "x-ballerina-name" : "stepImageUrl"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Typical success response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/DefaultSuccessResponse72"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "ok" : true
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "Typical error response",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/DefaultErrorTemplate72"
-                },
-                "examples" : {
-                  "response" : {
-                    "value" : {
-                      "error" : "invalid_auth",
-                      "ok" : false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "slackAuth" : [ "workflow.steps:execute" ]
-        } ]
-      }
     }
   },
   "components" : {
@@ -14224,17 +12780,6 @@
         },
         "additionalProperties" : false,
         "description" : "Schema for error response from files.list method"
-      },
-      "AppsPermissionsInfoResponseInfoChannel" : {
-        "type" : "object",
-        "properties" : {
-          "resources" : {
-            "$ref" : "#/components/schemas/ResourcesObj"
-          },
-          "scopes" : {
-            "$ref" : "#/components/schemas/ScopesObj"
-          }
-        }
       },
       "DefaultErrorTemplate31" : {
         "title" : "DefaultErrorTemplate",
@@ -14814,50 +13359,6 @@
         },
         "additionalProperties" : true,
         "description" : "This method either only returns a brief _not OK_ response or a verbose schema is not available for this method"
-      },
-      "DefaultErrorTemplate46" : {
-        "title" : "DefaultErrorTemplate",
-        "required" : [ "ok" ],
-        "type" : "object",
-        "properties" : {
-          "ok" : {
-            "$ref" : "#/components/schemas/OkFalseDef"
-          }
-        },
-        "additionalProperties" : true,
-        "description" : "This method either only returns a brief _not OK_ response or a verbose schema is not available for this method"
-      },
-      "DefaultErrorTemplate45" : {
-        "title" : "DefaultErrorTemplate",
-        "required" : [ "ok" ],
-        "type" : "object",
-        "properties" : {
-          "ok" : {
-            "$ref" : "#/components/schemas/OkFalseDef"
-          }
-        },
-        "additionalProperties" : true,
-        "description" : "This method either only returns a brief _not OK_ response or a verbose schema is not available for this method"
-      },
-      "AppsPermissionsInfoErrorResponse" : {
-        "title" : "AppsPermissionsInfoErrorResponse",
-        "required" : [ "error", "ok" ],
-        "type" : "object",
-        "properties" : {
-          "callstack" : {
-            "type" : "string",
-            "description" : "Note: PHP callstack is only visible in dev/qa"
-          },
-          "error" : {
-            "type" : "string",
-            "enum" : [ "not_authed", "invalid_auth", "account_inactive", "token_revoked", "no_permission", "org_login_required", "user_is_bot", "invalid_arg_name", "invalid_array_arg", "invalid_charset", "invalid_form_data", "invalid_post_type", "missing_post_type", "team_added_to_org", "invalid_json", "json_not_object", "request_timeout", "upgrade_required", "fatal_error" ]
-          },
-          "ok" : {
-            "$ref" : "#/components/schemas/OkFalseDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for error response from apps.permissions.info method"
       },
       "DefaultErrorTemplate48" : {
         "title" : "DefaultErrorTemplate",
@@ -15447,18 +13948,6 @@
         },
         "additionalProperties" : false
       },
-      "AppsPermissionsResourcesListResponseResponseMetadata" : {
-        "required" : [ "next_cursor" ],
-        "type" : "object",
-        "properties" : {
-          "next_cursor" : {
-            "type" : "string",
-            "x-examples" : [ "dGVhbTpDMUg5UkVTR0w=" ],
-            "x-ballerina-name" : "nextCursor"
-          }
-        },
-        "additionalProperties" : false
-      },
       "ParentConversationAnyOf22" : {
         "nullable" : true
       },
@@ -15502,18 +13991,6 @@
         },
         "additionalProperties" : false,
         "description" : "Schema for error response from conversations.rename method"
-      },
-      "DefaultErrorTemplate62" : {
-        "title" : "DefaultErrorTemplate",
-        "required" : [ "ok" ],
-        "type" : "object",
-        "properties" : {
-          "ok" : {
-            "$ref" : "#/components/schemas/OkFalseDef"
-          }
-        },
-        "additionalProperties" : true,
-        "description" : "This method either only returns a brief _not OK_ response or a verbose schema is not available for this method"
       },
       "UsersProfileSetErrorResponse" : {
         "title" : "UsersProfileSetErrorResponse",
@@ -16070,26 +14547,6 @@
           }
         }
       },
-      "RemindersAddErrorResponse" : {
-        "title" : "RemindersAddErrorResponse",
-        "required" : [ "error", "ok" ],
-        "type" : "object",
-        "properties" : {
-          "callstack" : {
-            "type" : "string",
-            "description" : "Note: PHP callstack is only visible in dev/qa"
-          },
-          "error" : {
-            "type" : "string",
-            "enum" : [ "cannot_parse", "user_not_found", "cannot_add_bot", "cannot_add_slackbot", "cannot_add_others", "cannot_add_others_recurring", "not_authed", "invalid_auth", "account_inactive", "token_revoked", "no_permission", "org_login_required", "user_is_bot", "invalid_arg_name", "invalid_array_arg", "invalid_charset", "invalid_form_data", "invalid_post_type", "missing_post_type", "team_added_to_org", "invalid_json", "json_not_object", "request_timeout", "upgrade_required", "fatal_error" ]
-          },
-          "ok" : {
-            "$ref" : "#/components/schemas/OkFalseDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for error response from reminders.add method"
-      },
       "ConversationsSetPurposeBody" : {
         "type" : "object",
         "properties" : {
@@ -16322,42 +14779,6 @@
           "$ref" : "#/components/schemas/ParentConversationAnyOf21"
         } ]
       },
-      "DefaultErrorTemplate71" : {
-        "title" : "DefaultErrorTemplate",
-        "required" : [ "ok" ],
-        "type" : "object",
-        "properties" : {
-          "ok" : {
-            "$ref" : "#/components/schemas/OkFalseDef"
-          }
-        },
-        "additionalProperties" : true,
-        "description" : "This method either only returns a brief _not OK_ response or a verbose schema is not available for this method"
-      },
-      "DefaultErrorTemplate70" : {
-        "title" : "DefaultErrorTemplate",
-        "required" : [ "ok" ],
-        "type" : "object",
-        "properties" : {
-          "ok" : {
-            "$ref" : "#/components/schemas/OkFalseDef"
-          }
-        },
-        "additionalProperties" : true,
-        "description" : "This method either only returns a brief _not OK_ response or a verbose schema is not available for this method"
-      },
-      "DefaultErrorTemplate72" : {
-        "title" : "DefaultErrorTemplate",
-        "required" : [ "ok" ],
-        "type" : "object",
-        "properties" : {
-          "ok" : {
-            "$ref" : "#/components/schemas/OkFalseDef"
-          }
-        },
-        "additionalProperties" : true,
-        "description" : "This method either only returns a brief _not OK_ response or a verbose schema is not available for this method"
-      },
       "DialogOpenErrorResponse" : {
         "title" : "DialogOpenErrorResponse",
         "required" : [ "error", "ok" ],
@@ -16474,48 +14895,6 @@
         "additionalProperties" : false,
         "description" : "Schema for error response from users.deletePhoto method"
       },
-      "ApiPermissionsScopesListResponse" : {
-        "title" : "ApiPermissionsScopesListResponse",
-        "required" : [ "ok", "scopes" ],
-        "type" : "object",
-        "properties" : {
-          "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
-          },
-          "scopes" : {
-            "$ref" : "#/components/schemas/ApiPermissionsScopesListResponseScopes"
-          }
-        },
-        "additionalProperties" : true,
-        "description" : "Schema for successful response api.permissions.scopes.list method"
-      },
-      "AppsPermissionsInfoResponseInfo" : {
-        "required" : [ "app_home", "channel", "group", "im", "mpim", "team" ],
-        "type" : "object",
-        "properties" : {
-          "im" : {
-            "$ref" : "#/components/schemas/AppsPermissionsInfoResponseInfoIm"
-          },
-          "mpim" : {
-            "$ref" : "#/components/schemas/AppsPermissionsInfoResponseInfoMpim"
-          },
-          "channel" : {
-            "$ref" : "#/components/schemas/AppsPermissionsInfoResponseInfoChannel"
-          },
-          "app_home" : {
-            "allOf" : [ {
-              "$ref" : "#/components/schemas/AppsPermissionsInfoResponseInfoAppHome"
-            } ],
-            "x-ballerina-name" : "appHome"
-          },
-          "team" : {
-            "$ref" : "#/components/schemas/AppsPermissionsInfoResponseInfoTeam"
-          },
-          "group" : {
-            "$ref" : "#/components/schemas/AppsPermissionsInfoResponseInfoGroup"
-          }
-        }
-      },
       "UsergroupsCreateErrorResponse" : {
         "title" : "UsergroupsCreateErrorResponse",
         "required" : [ "error", "ok" ],
@@ -16599,26 +14978,6 @@
           }
         },
         "additionalProperties" : false
-      },
-      "RemindersInfoErrorResponse" : {
-        "title" : "RemindersInfoErrorResponse",
-        "required" : [ "error", "ok" ],
-        "type" : "object",
-        "properties" : {
-          "callstack" : {
-            "type" : "string",
-            "description" : "Note: PHP callstack is only visible in dev/qa"
-          },
-          "error" : {
-            "type" : "string",
-            "enum" : [ "not_found", "not_authed", "invalid_auth", "account_inactive", "token_revoked", "no_permission", "org_login_required", "user_is_bot", "invalid_arg_name", "invalid_array_arg", "invalid_charset", "invalid_form_data", "invalid_post_type", "missing_post_type", "team_added_to_org", "invalid_json", "json_not_object", "request_timeout", "upgrade_required", "fatal_error" ]
-          },
-          "ok" : {
-            "$ref" : "#/components/schemas/OkFalseDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for error response from reminders.info method"
       },
       "200User1" : {
         "required" : [ "email", "id", "name" ],
@@ -16872,26 +15231,6 @@
         "additionalProperties" : false,
         "description" : "Schema for error response from admin.conversations.convertToPrivate"
       },
-      "FilesCommentsDeleteErrorResponse" : {
-        "title" : "FilesCommentsDeleteErrorResponse",
-        "required" : [ "error", "ok" ],
-        "type" : "object",
-        "properties" : {
-          "callstack" : {
-            "type" : "string",
-            "description" : "Note: PHP callstack is only visible in dev/qa"
-          },
-          "error" : {
-            "type" : "string",
-            "enum" : [ "cant_delete", "comment_not_found", "not_authed", "invalid_auth", "account_inactive", "no_permission", "invalid_arg_name", "invalid_array_arg", "invalid_charset", "invalid_form_data", "invalid_post_type", "missing_post_type", "invalid_json", "json_not_object", "request_timeout", "upgrade_required" ]
-          },
-          "ok" : {
-            "$ref" : "#/components/schemas/OkFalseDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for error response files.comments.delete method"
-      },
       "ConversationsRenameBody" : {
         "type" : "object",
         "properties" : {
@@ -16966,33 +15305,6 @@
         "additionalProperties" : false,
         "description" : "Schema for successful response from chat.deleteScheduledMessage method"
       },
-      "ApiPermissionsScopesListResponseScopes" : {
-        "type" : "object",
-        "properties" : {
-          "app_home" : {
-            "$ref" : "#/components/schemas/ScopesObj"
-          },
-          "channel" : {
-            "$ref" : "#/components/schemas/ScopesObj"
-          },
-          "group" : {
-            "$ref" : "#/components/schemas/ScopesObj"
-          },
-          "im" : {
-            "$ref" : "#/components/schemas/ScopesObj"
-          },
-          "mpim" : {
-            "$ref" : "#/components/schemas/ScopesObj"
-          },
-          "team" : {
-            "$ref" : "#/components/schemas/ScopesObj"
-          },
-          "user" : {
-            "$ref" : "#/components/schemas/ScopesObj"
-          }
-        },
-        "additionalProperties" : true
-      },
       "ConversationsJoinResponse" : {
         "title" : "ConversationsJoinResponse",
         "required" : [ "channel", "ok" ],
@@ -17016,132 +15328,6 @@
         },
         "additionalProperties" : false,
         "description" : "Schema for successful response from conversations.join method"
-      },
-      "StarsListResponse" : {
-        "title" : "StarsListResponse",
-        "required" : [ "items", "ok" ],
-        "type" : "object",
-        "properties" : {
-          "paging" : {
-            "$ref" : "#/components/schemas/PagingObj"
-          },
-          "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
-          },
-          "items" : {
-            "type" : "array",
-            "items" : {
-              "type" : "array",
-              "items" : {
-                "anyOf" : [ {
-                  "required" : [ "channel", "date_create", "message", "type" ],
-                  "type" : "object",
-                  "properties" : {
-                    "channel" : {
-                      "$ref" : "#/components/schemas/ChannelDef"
-                    },
-                    "date_create" : {
-                      "type" : "integer"
-                    },
-                    "message" : {
-                      "$ref" : "#/components/schemas/MessageObj"
-                    },
-                    "type" : {
-                      "type" : "string",
-                      "enum" : [ "message" ]
-                    }
-                  },
-                  "additionalProperties" : false
-                }, {
-                  "required" : [ "date_create", "file", "type" ],
-                  "type" : "object",
-                  "properties" : {
-                    "date_create" : {
-                      "type" : "integer"
-                    },
-                    "file" : {
-                      "$ref" : "#/components/schemas/FileObj"
-                    },
-                    "type" : {
-                      "type" : "string",
-                      "enum" : [ "file" ]
-                    }
-                  },
-                  "additionalProperties" : false
-                }, {
-                  "required" : [ "comment", "date_create", "file", "type" ],
-                  "type" : "object",
-                  "properties" : {
-                    "comment" : {
-                      "$ref" : "#/components/schemas/CommentObj"
-                    },
-                    "date_create" : {
-                      "type" : "integer"
-                    },
-                    "file" : {
-                      "$ref" : "#/components/schemas/FileObj"
-                    },
-                    "type" : {
-                      "type" : "string",
-                      "enum" : [ "file_comment" ]
-                    }
-                  },
-                  "additionalProperties" : false
-                }, {
-                  "required" : [ "channel", "date_create", "type" ],
-                  "type" : "object",
-                  "properties" : {
-                    "channel" : {
-                      "$ref" : "#/components/schemas/ChannelDef"
-                    },
-                    "date_create" : {
-                      "type" : "integer"
-                    },
-                    "type" : {
-                      "type" : "string",
-                      "enum" : [ "channel" ]
-                    }
-                  },
-                  "additionalProperties" : false
-                }, {
-                  "required" : [ "channel", "date_create", "type" ],
-                  "type" : "object",
-                  "properties" : {
-                    "channel" : {
-                      "$ref" : "#/components/schemas/DmIdDef"
-                    },
-                    "date_create" : {
-                      "type" : "integer"
-                    },
-                    "type" : {
-                      "type" : "string",
-                      "enum" : [ "im" ]
-                    }
-                  },
-                  "additionalProperties" : false
-                }, {
-                  "required" : [ "channel", "date_create", "type" ],
-                  "type" : "object",
-                  "properties" : {
-                    "channel" : {
-                      "$ref" : "#/components/schemas/GroupIdDef"
-                    },
-                    "date_create" : {
-                      "type" : "integer"
-                    },
-                    "type" : {
-                      "type" : "string",
-                      "enum" : [ "group" ]
-                    }
-                  },
-                  "additionalProperties" : false
-                } ]
-              }
-            }
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for successful response from stars.list method"
       },
       "ConversationsMembersResponse" : {
         "title" : "ConversationsMembersResponse",
@@ -17217,26 +15403,6 @@
           }
         },
         "additionalProperties" : false
-      },
-      "RemindersCompleteErrorResponse" : {
-        "title" : "RemindersCompleteErrorResponse",
-        "required" : [ "error", "ok" ],
-        "type" : "object",
-        "properties" : {
-          "callstack" : {
-            "type" : "string",
-            "description" : "Note: PHP callstack is only visible in dev/qa"
-          },
-          "error" : {
-            "type" : "string",
-            "enum" : [ "not_found", "cannot_complete_recurring", "cannot_complete_others", "not_authed", "invalid_auth", "account_inactive", "token_revoked", "no_permission", "org_login_required", "user_is_bot", "invalid_arg_name", "invalid_array_arg", "invalid_charset", "invalid_form_data", "invalid_post_type", "missing_post_type", "team_added_to_org", "invalid_json", "json_not_object", "request_timeout", "upgrade_required", "fatal_error" ]
-          },
-          "ok" : {
-            "$ref" : "#/components/schemas/OkFalseDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for error response from reminders.complete method"
       },
       "ConversationsUnarchiveBody" : {
         "type" : "object",
@@ -17357,28 +15523,6 @@
         },
         "additionalProperties" : false
       },
-      "StarsRemoveBody" : {
-        "type" : "object",
-        "properties" : {
-          "file" : {
-            "type" : "string",
-            "description" : "File to remove star from"
-          },
-          "channel" : {
-            "type" : "string",
-            "description" : "Channel to remove star from, or channel where the message to remove star from was posted (used with `timestamp`)"
-          },
-          "file_comment" : {
-            "type" : "string",
-            "description" : "File comment to remove star from",
-            "x-ballerina-name" : "fileComment"
-          },
-          "timestamp" : {
-            "type" : "string",
-            "description" : "Timestamp of the message to remove star from"
-          }
-        }
-      },
       "PinsListErrorResponse" : {
         "title" : "PinsListErrorResponse",
         "required" : [ "error", "ok" ],
@@ -17398,35 +15542,6 @@
         },
         "additionalProperties" : false,
         "description" : "Schema for error response from pins.list method"
-      },
-      "ReminderObj" : {
-        "required" : [ "creator", "id", "recurring", "text", "user" ],
-        "type" : "object",
-        "properties" : {
-          "creator" : {
-            "$ref" : "#/components/schemas/UserIdDef"
-          },
-          "recurring" : {
-            "type" : "boolean"
-          },
-          "complete_ts" : {
-            "type" : "integer",
-            "x-ballerina-name" : "completeTs"
-          },
-          "id" : {
-            "$ref" : "#/components/schemas/ReminderIdDef"
-          },
-          "text" : {
-            "type" : "string"
-          },
-          "time" : {
-            "type" : "integer"
-          },
-          "user" : {
-            "$ref" : "#/components/schemas/UserIdDef"
-          }
-        },
-        "additionalProperties" : false
       },
       "AdminUsersSetExpirationBody" : {
         "required" : [ "expiration_ts", "team_id", "user_id" ],
@@ -17473,18 +15588,6 @@
             "description" : "ID of conversation to join"
           }
         }
-      },
-      "RemindersDeleteResponse" : {
-        "title" : "RemindersDeleteResponse",
-        "required" : [ "ok" ],
-        "type" : "object",
-        "properties" : {
-          "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for successful response from reminders.delete method"
       },
       "200200200200AnyOf12234" : {
         "required" : [ "ok", "team", "user" ],
@@ -17601,21 +15704,6 @@
         },
         "additionalProperties" : false,
         "description" : "Schema for successful response from chat.unfurl method"
-      },
-      "RemindersInfoResponse" : {
-        "title" : "RemindersInfoResponse",
-        "required" : [ "ok", "reminder" ],
-        "type" : "object",
-        "properties" : {
-          "reminder" : {
-            "$ref" : "#/components/schemas/ReminderObj"
-          },
-          "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for successful response from reminders.info method"
       },
       "TeamAccessLogsResponseLogins" : {
         "required" : [ "count", "country", "date_first", "date_last", "ip", "isp", "region", "user_agent", "user_id", "username" ],
@@ -17947,14 +16035,6 @@
       "OptionsAnyOf1" : {
         "nullable" : true
       },
-      "ScopesObj" : {
-        "type" : "array",
-        "items" : {
-          "title" : "Named OAuth scopes",
-          "type" : "string",
-          "x-examples" : [ "chat:write", "im:history", "im:read" ]
-        }
-      },
       "BotProfileObjIcons" : {
         "required" : [ "image_36", "image_48", "image_72" ],
         "type" : "object",
@@ -18038,26 +16118,6 @@
           }
         }
       },
-      "AppsPermissionsScopesListErrorResponse" : {
-        "title" : "AppsPermissionsScopesListErrorResponse",
-        "required" : [ "error", "ok" ],
-        "type" : "object",
-        "properties" : {
-          "callstack" : {
-            "type" : "string",
-            "description" : "Note: PHP callstack is only visible in dev/qa"
-          },
-          "error" : {
-            "type" : "string",
-            "enum" : [ "not_authed", "invalid_auth", "account_inactive", "token_revoked", "no_permission", "org_login_required", "user_is_bot", "invalid_arg_name", "invalid_array_arg", "invalid_charset", "invalid_form_data", "invalid_post_type", "missing_post_type", "team_added_to_org", "invalid_json", "json_not_object", "request_timeout", "upgrade_required", "fatal_error" ]
-          },
-          "ok" : {
-            "$ref" : "#/components/schemas/OkFalseDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for error response from apps.permissions.scopes.list method"
-      },
       "ConversationsInfoResponse" : {
         "title" : "ConversationsInfoResponse",
         "required" : [ "channel", "ok" ],
@@ -18072,15 +16132,6 @@
         },
         "additionalProperties" : false,
         "description" : "Schema for successful response conversations.info"
-      },
-      "RemindersDeleteBody" : {
-        "type" : "object",
-        "properties" : {
-          "reminder" : {
-            "type" : "string",
-            "description" : "The ID of the reminder"
-          }
-        }
       },
       "BotsInfoResponse" : {
         "title" : "BotsInfoResponse",
@@ -18468,18 +16519,6 @@
         },
         "additionalProperties" : false,
         "description" : "Schema for successful response from dnd.endSnooze method"
-      },
-      "FilesCommentsDeleteResponse" : {
-        "title" : "FilesCommentsDeleteResponse",
-        "required" : [ "ok" ],
-        "type" : "object",
-        "properties" : {
-          "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for successful response files.comments.delete method"
       },
       "MessageObjIcons" : {
         "type" : "object",
@@ -18970,49 +17009,6 @@
         },
         "additionalProperties" : false
       },
-      "FilesUploadBody" : {
-        "type" : "object",
-        "properties" : {
-          "filetype" : {
-            "type" : "string",
-            "description" : "A [file type](/types/file#file_types) identifier"
-          },
-          "file" : {
-            "type" : "string",
-            "description" : "File contents via `multipart/form-data`. If omitting this parameter, you must submit `content`"
-          },
-          "filename" : {
-            "type" : "string",
-            "description" : "Filename of file"
-          },
-          "channels" : {
-            "type" : "string",
-            "description" : "Comma-separated list of channel names or IDs where the file will be shared"
-          },
-          "thread_ts" : {
-            "type" : "number",
-            "description" : "Provide another message's `ts` value to upload this file as a reply. Never use a reply's `ts` value; use its parent instead",
-            "x-ballerina-name" : "threadTs"
-          },
-          "initial_comment" : {
-            "type" : "string",
-            "description" : "The message text introducing the file in specified `channels`",
-            "x-ballerina-name" : "initialComment"
-          },
-          "title" : {
-            "type" : "string",
-            "description" : "Title of file"
-          },
-          "content" : {
-            "type" : "string",
-            "description" : "File contents via a POST variable. If omitting this parameter, you must provide a `file`"
-          },
-          "token" : {
-            "type" : "string",
-            "description" : "Authentication token. Requires scope: `files:write:user`"
-          }
-        }
-      },
       "AdminConversationsRenameResponse1" : {
         "title" : "AdminConversationsRenameResponse",
         "required" : [ "ok" ],
@@ -19024,18 +17020,6 @@
         },
         "additionalProperties" : false,
         "description" : "Schema for successful response of admin.conversations.rename"
-      },
-      "StarsRemoveResponse" : {
-        "title" : "StarsRemoveResponse",
-        "required" : [ "ok" ],
-        "type" : "object",
-        "properties" : {
-          "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for successful response from stars.remove method"
       },
       "UsergroupsDisableResponse" : {
         "title" : "UsergroupsDisableResponse",
@@ -19123,26 +17107,6 @@
           }
         },
         "additionalProperties" : false
-      },
-      "StarsRemoveErrorResponse" : {
-        "title" : "StarsRemoveErrorResponse",
-        "required" : [ "error", "ok" ],
-        "type" : "object",
-        "properties" : {
-          "callstack" : {
-            "type" : "string",
-            "description" : "Note: PHP callstack is only visible in dev/qa"
-          },
-          "error" : {
-            "type" : "string",
-            "enum" : [ "bad_timestamp", "message_not_found", "file_not_found", "file_comment_not_found", "channel_not_found", "no_item_specified", "not_starred", "not_authed", "invalid_auth", "account_inactive", "token_revoked", "no_permission", "org_login_required", "invalid_arg_name", "invalid_array_arg", "invalid_charset", "invalid_form_data", "invalid_post_type", "missing_post_type", "team_added_to_org", "invalid_json", "json_not_object", "request_timeout", "upgrade_required", "fatal_error" ]
-          },
-          "ok" : {
-            "$ref" : "#/components/schemas/OkFalseDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for error response from stars.remove method"
       },
       "UsergroupsUsersUpdateBody" : {
         "required" : [ "usergroup", "users" ],
@@ -19245,24 +17209,6 @@
         },
         "additionalProperties" : true,
         "description" : "This method either only returns a brief _OK_ response or a verbose schema is not available for this method"
-      },
-      "RemindersListResponse" : {
-        "title" : "RemindersListResponse",
-        "required" : [ "ok", "reminders" ],
-        "type" : "object",
-        "properties" : {
-          "reminders" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/ReminderObj"
-            }
-          },
-          "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for successful response from reminders.list method"
       },
       "ConversationIMChannelObjectFromConversationsMethods" : {
         "title" : "Conversation IM Channel Object from conversations methods",
@@ -19453,17 +17399,6 @@
         },
         "additionalProperties" : false
       },
-      "AppsPermissionsInfoResponseInfoMpim" : {
-        "type" : "object",
-        "properties" : {
-          "resources" : {
-            "$ref" : "#/components/schemas/ResourcesObj"
-          },
-          "scopes" : {
-            "$ref" : "#/components/schemas/ScopesObj"
-          }
-        }
-      },
       "UsersProfileGetErrorResponse" : {
         "title" : "UsersProfileGetErrorResponse",
         "required" : [ "error", "ok" ],
@@ -19549,17 +17484,6 @@
           }
         }
       },
-      "AppsPermissionsInfoResponseInfoGroup" : {
-        "type" : "object",
-        "properties" : {
-          "resources" : {
-            "$ref" : "#/components/schemas/ResourcesObj"
-          },
-          "scopes" : {
-            "$ref" : "#/components/schemas/ScopesObj"
-          }
-        }
-      },
       "ConversationsRepliesErrorResponse" : {
         "title" : "ConversationsRepliesErrorResponse",
         "required" : [ "error", "ok" ],
@@ -19622,47 +17546,6 @@
         },
         "additionalProperties" : false
       },
-      "AppsPermissionsRequestErrorResponse" : {
-        "title" : "AppsPermissionsRequestErrorResponse",
-        "required" : [ "error", "ok" ],
-        "type" : "object",
-        "properties" : {
-          "callstack" : {
-            "type" : "string",
-            "description" : "Note: PHP callstack is only visible in dev/qa"
-          },
-          "error" : {
-            "type" : "string",
-            "enum" : [ "invalid_trigger", "trigger_exchanged", "invalid_scope", "invalid_user", "not_authed", "invalid_auth", "account_inactive", "token_revoked", "no_permission", "org_login_required", "user_is_bot", "invalid_arg_name", "invalid_array_arg", "invalid_charset", "invalid_form_data", "invalid_post_type", "missing_post_type", "team_added_to_org", "invalid_json", "json_not_object", "request_timeout", "upgrade_required", "fatal_error" ]
-          },
-          "ok" : {
-            "$ref" : "#/components/schemas/OkFalseDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for error response from apps.permissions.request method"
-      },
-      "AppsPermissionsResourcesListResponse" : {
-        "title" : "AppsPermissionsResourcesListResponse",
-        "required" : [ "ok", "resources" ],
-        "type" : "object",
-        "properties" : {
-          "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
-          },
-          "resources" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/AppsPermissionsResourcesListResponseResources"
-            }
-          },
-          "response_metadata" : {
-            "$ref" : "#/components/schemas/AppsPermissionsResourcesListResponseResponseMetadata"
-          }
-        },
-        "additionalProperties" : true,
-        "description" : "Schema for successful response apps.permissions.resources.list method"
-      },
       "ChatMeMessageErrorResponse" : {
         "title" : "ChatMeMessageErrorResponse",
         "required" : [ "error", "ok" ],
@@ -19722,26 +17605,6 @@
         "additionalProperties" : true,
         "description" : "Schema for error response from admin.conversations.invite"
       },
-      "AppsPermissionsResourcesListErrorResponse" : {
-        "title" : "AppsPermissionsResourcesListErrorResponse",
-        "required" : [ "error", "ok" ],
-        "type" : "object",
-        "properties" : {
-          "callstack" : {
-            "type" : "string",
-            "description" : "Note: PHP callstack is only visible in dev/qa"
-          },
-          "error" : {
-            "type" : "string",
-            "enum" : [ "invalid_cursor", "not_authed", "invalid_auth", "account_inactive", "token_revoked", "no_permission", "org_login_required", "user_is_bot", "invalid_arg_name", "invalid_array_arg", "invalid_charset", "invalid_form_data", "invalid_post_type", "missing_post_type", "team_added_to_org", "invalid_json", "json_not_object", "request_timeout", "upgrade_required", "fatal_error" ]
-          },
-          "ok" : {
-            "$ref" : "#/components/schemas/OkFalseDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for error response from apps.permissions.resources.list method"
-      },
       "ConversationsMarkResponse" : {
         "title" : "ConversationsMarkResponse",
         "required" : [ "ok" ],
@@ -19753,26 +17616,6 @@
         },
         "additionalProperties" : false,
         "description" : "Schema for successful response conversations.mark method"
-      },
-      "StarsListErrorResponse" : {
-        "title" : "StarsListErrorResponse",
-        "required" : [ "error", "ok" ],
-        "type" : "object",
-        "properties" : {
-          "callstack" : {
-            "type" : "string",
-            "description" : "Note: PHP callstack is only visible in dev/qa"
-          },
-          "error" : {
-            "type" : "string",
-            "enum" : [ "not_authed", "invalid_auth", "account_inactive", "token_revoked", "no_permission", "org_login_required", "user_is_bot", "invalid_arg_name", "invalid_array_arg", "invalid_charset", "invalid_form_data", "invalid_post_type", "missing_post_type", "team_added_to_org", "invalid_json", "json_not_object", "request_timeout", "upgrade_required", "fatal_error" ]
-          },
-          "ok" : {
-            "$ref" : "#/components/schemas/OkFalseDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for error response from stars.list method"
       },
       "FileObj" : {
         "title" : "file object",
@@ -20171,11 +18014,6 @@
       "TopicPurposeCreatorDef" : {
         "title" : "User ID or empty string, used for topic and purpose creation",
         "pattern" : "^[UW][A-Z0-9]{8,}$|^$",
-        "type" : "string"
-      },
-      "ReminderIdDef" : {
-        "title" : "Reminder ID",
-        "pattern" : "^Rm[A-Z0-9]{8,}$",
         "type" : "string"
       },
       "AdminConversationsGetTeamsErrorResponse" : {
@@ -21031,44 +18869,6 @@
         "additionalProperties" : false,
         "description" : "Schema for error response from chat.postEphemeral method"
       },
-      "ResourcesObj" : {
-        "title" : "resources in info from apps.permissions.info",
-        "required" : [ "ids" ],
-        "type" : "object",
-        "properties" : {
-          "ids" : {
-            "type" : "array",
-            "items" : {
-              "type" : "array",
-              "items" : {
-                "anyOf" : [ {
-                  "$ref" : "#/components/schemas/ChannelDef"
-                }, {
-                  "$ref" : "#/components/schemas/TeamDef"
-                } ]
-              }
-            }
-          },
-          "excluded_ids" : {
-            "type" : "array",
-            "items" : {
-              "type" : "array",
-              "items" : {
-                "anyOf" : [ {
-                  "$ref" : "#/components/schemas/ChannelDef"
-                }, {
-                  "$ref" : "#/components/schemas/TeamDef"
-                } ]
-              }
-            },
-            "x-ballerina-name" : "excludedIds"
-          },
-          "wildcard" : {
-            "type" : "boolean"
-          }
-        },
-        "additionalProperties" : false
-      },
       "FilesRevokePublicURLResponse" : {
         "title" : "FilesRevokePublicURLResponse",
         "required" : [ "file", "ok" ],
@@ -21240,18 +19040,6 @@
         "additionalProperties" : false,
         "description" : "Schema for successful response from users.setPhoto method"
       },
-      "AppsPermissionsInfoResponseInfoTeam" : {
-        "required" : [ "resources", "scopes" ],
-        "type" : "object",
-        "properties" : {
-          "resources" : {
-            "$ref" : "#/components/schemas/ResourcesObj"
-          },
-          "scopes" : {
-            "$ref" : "#/components/schemas/ScopesObj"
-          }
-        }
-      },
       "TeamProfileGetErrorResponse" : {
         "title" : "TeamProfileGetErrorResponse",
         "required" : [ "error", "ok" ],
@@ -21271,18 +19059,6 @@
         },
         "additionalProperties" : false,
         "description" : "Schema for error response from team.profile.get method"
-      },
-      "UsersSetActiveResponse" : {
-        "title" : "UsersSetActiveResponse",
-        "required" : [ "ok" ],
-        "type" : "object",
-        "properties" : {
-          "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for successful response from users.setActive method"
       },
       "ConversationsRenameResponse" : {
         "title" : "ConversationsRenameResponse",
@@ -21395,15 +19171,6 @@
             "items" : {
               "type" : "string"
             }
-          }
-        }
-      },
-      "RemindersCompleteBody" : {
-        "type" : "object",
-        "properties" : {
-          "reminder" : {
-            "type" : "string",
-            "description" : "The ID of the reminder to be marked as complete"
           }
         }
       },
@@ -21540,26 +19307,6 @@
             "description" : "ID of file to delete"
           }
         }
-      },
-      "UsersSetActiveErrorResponse" : {
-        "title" : "UsersSetActiveErrorResponse",
-        "required" : [ "error", "ok" ],
-        "type" : "object",
-        "properties" : {
-          "callstack" : {
-            "type" : "string",
-            "description" : "Note: PHP callstack is only visible in dev/qa"
-          },
-          "error" : {
-            "type" : "string",
-            "enum" : [ "not_authed", "invalid_auth", "account_inactive", "token_revoked", "no_permission", "org_login_required", "ekm_access_denied", "missing_scope", "invalid_arguments", "invalid_arg_name", "invalid_charset", "invalid_form_data", "invalid_post_type", "missing_post_type", "team_added_to_org", "request_timeout", "fatal_error", "internal_error" ]
-          },
-          "ok" : {
-            "$ref" : "#/components/schemas/OkFalseDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for error response from users.setActive method"
       },
       "ChannelObjLatest" : {
         "anyOf" : [ {
@@ -21924,42 +19671,6 @@
           }
         }
       },
-      "DefaultSuccessResponse72" : {
-        "title" : "DefaultSuccessResponse",
-        "required" : [ "ok" ],
-        "type" : "object",
-        "properties" : {
-          "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
-          }
-        },
-        "additionalProperties" : true,
-        "description" : "This method either only returns a brief _OK_ response or a verbose schema is not available for this method"
-      },
-      "DefaultSuccessResponse71" : {
-        "title" : "DefaultSuccessResponse",
-        "required" : [ "ok" ],
-        "type" : "object",
-        "properties" : {
-          "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
-          }
-        },
-        "additionalProperties" : true,
-        "description" : "This method either only returns a brief _OK_ response or a verbose schema is not available for this method"
-      },
-      "DefaultSuccessResponse70" : {
-        "title" : "DefaultSuccessResponse",
-        "required" : [ "ok" ],
-        "type" : "object",
-        "properties" : {
-          "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
-          }
-        },
-        "additionalProperties" : true,
-        "description" : "This method either only returns a brief _OK_ response or a verbose schema is not available for this method"
-      },
       "AdminConversationsSetConversationPrefsBody" : {
         "required" : [ "channel_id", "prefs" ],
         "type" : "object",
@@ -22121,26 +19832,6 @@
         },
         "additionalProperties" : true,
         "description" : "This method either only returns a brief _OK_ response or a verbose schema is not available for this method"
-      },
-      "RemindersListErrorResponse" : {
-        "title" : "RemindersListErrorResponse",
-        "required" : [ "error", "ok" ],
-        "type" : "object",
-        "properties" : {
-          "callstack" : {
-            "type" : "string",
-            "description" : "Note: PHP callstack is only visible in dev/qa"
-          },
-          "error" : {
-            "type" : "string",
-            "enum" : [ "not_authed", "invalid_auth", "account_inactive", "token_revoked", "no_permission", "org_login_required", "user_is_bot", "invalid_arg_name", "invalid_array_arg", "invalid_charset", "invalid_form_data", "invalid_post_type", "missing_post_type", "team_added_to_org", "invalid_json", "json_not_object", "request_timeout", "upgrade_required", "fatal_error" ]
-          },
-          "ok" : {
-            "$ref" : "#/components/schemas/OkFalseDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for error response from reminders.list method"
       },
       "AdminEmojiAddAliasBody" : {
         "required" : [ "alias_for", "name", "token" ],
@@ -22537,18 +20228,6 @@
         "additionalProperties" : false,
         "description" : "Schema for error response from dnd.endSnooze method"
       },
-      "AppsPermissionsRequestResponse" : {
-        "title" : "AppsPermissionsRequestResponse",
-        "required" : [ "ok" ],
-        "type" : "object",
-        "properties" : {
-          "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for successful response from apps.permissions.request method"
-      },
       "DefaultSuccessResponse51" : {
         "title" : "DefaultSuccessResponse",
         "required" : [ "ok" ],
@@ -22572,41 +20251,6 @@
         },
         "additionalProperties" : true,
         "description" : "This method either only returns a brief _OK_ response or a verbose schema is not available for this method"
-      },
-      "FilesCommentsDeleteBody" : {
-        "type" : "object",
-        "properties" : {
-          "file" : {
-            "type" : "string",
-            "description" : "File to delete a comment from"
-          },
-          "id" : {
-            "type" : "string",
-            "description" : "The comment to delete"
-          }
-        }
-      },
-      "StarsAddBody" : {
-        "type" : "object",
-        "properties" : {
-          "file" : {
-            "type" : "string",
-            "description" : "File to add star to"
-          },
-          "channel" : {
-            "type" : "string",
-            "description" : "Channel to add star to, or channel where the message to add star to was posted (used with `timestamp`)"
-          },
-          "file_comment" : {
-            "type" : "string",
-            "description" : "File comment to add star to",
-            "x-ballerina-name" : "fileComment"
-          },
-          "timestamp" : {
-            "type" : "string",
-            "description" : "Timestamp of the message to add star to"
-          }
-        }
       },
       "TeamObjSsoProvider" : {
         "type" : "object",
@@ -22706,30 +20350,6 @@
         "additionalProperties" : true,
         "description" : "This method either only returns a brief _OK_ response or a verbose schema is not available for this method"
       },
-      "DefaultSuccessResponse46" : {
-        "title" : "DefaultSuccessResponse",
-        "required" : [ "ok" ],
-        "type" : "object",
-        "properties" : {
-          "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
-          }
-        },
-        "additionalProperties" : true,
-        "description" : "This method either only returns a brief _OK_ response or a verbose schema is not available for this method"
-      },
-      "DefaultSuccessResponse45" : {
-        "title" : "DefaultSuccessResponse",
-        "required" : [ "ok" ],
-        "type" : "object",
-        "properties" : {
-          "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
-          }
-        },
-        "additionalProperties" : true,
-        "description" : "This method either only returns a brief _OK_ response or a verbose schema is not available for this method"
-      },
       "DefaultSuccessResponse44" : {
         "title" : "DefaultSuccessResponse",
         "required" : [ "ok" ],
@@ -22741,17 +20361,6 @@
         },
         "additionalProperties" : true,
         "description" : "This method either only returns a brief _OK_ response or a verbose schema is not available for this method"
-      },
-      "AppsPermissionsInfoResponseInfoAppHome" : {
-        "type" : "object",
-        "properties" : {
-          "resources" : {
-            "$ref" : "#/components/schemas/ResourcesObj"
-          },
-          "scopes" : {
-            "$ref" : "#/components/schemas/ScopesObj"
-          }
-        }
       },
       "DefaultSuccessResponse43" : {
         "title" : "DefaultSuccessResponse",
@@ -23183,18 +20792,6 @@
             "x-ballerina-name" : "channelId"
           }
         }
-      },
-      "DefaultSuccessResponse62" : {
-        "title" : "DefaultSuccessResponse",
-        "required" : [ "ok" ],
-        "type" : "object",
-        "properties" : {
-          "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
-          }
-        },
-        "additionalProperties" : true,
-        "description" : "This method either only returns a brief _OK_ response or a verbose schema is not available for this method"
       },
       "ReactionsAddResponse" : {
         "title" : "ReactionsAddResponse",
@@ -23663,18 +21260,6 @@
         },
         "additionalProperties" : false,
         "description" : "Schema for successful response from conversations.replies method"
-      },
-      "RemindersCompleteResponse" : {
-        "title" : "RemindersCompleteResponse",
-        "required" : [ "ok" ],
-        "type" : "object",
-        "properties" : {
-          "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for successful response from reminders.complete method"
       },
       "ChatPostMessageBody" : {
         "required" : [ "channel" ],
@@ -24248,26 +21833,6 @@
         },
         "additionalProperties" : false
       },
-      "FilesUploadErrorResponse" : {
-        "title" : "FilesUploadErrorResponse",
-        "required" : [ "error", "ok" ],
-        "type" : "object",
-        "properties" : {
-          "callstack" : {
-            "type" : "string",
-            "description" : "Note: PHP callstack is only visible in dev/qa"
-          },
-          "error" : {
-            "type" : "string",
-            "enum" : [ "posting_to_general_channel_denied", "invalid_channel", "file_uploads_disabled", "file_uploads_except_images_disabled", "storage_limit_reached", "not_authed", "invalid_auth", "account_inactive", "no_permission", "invalid_arg_name", "invalid_array_arg", "invalid_charset", "invalid_form_data", "invalid_post_type", "missing_post_type", "team_added_to_org", "invalid_json", "json_not_object", "request_timeout", "upgrade_required" ]
-          },
-          "ok" : {
-            "$ref" : "#/components/schemas/OkFalseDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for error response files.upload method"
-      },
       "AdminConversationsDisconnectSharedErrorResponse" : {
         "title" : "AdminConversationsDisconnectSharedErrorResponse",
         "required" : [ "error", "ok" ],
@@ -24353,17 +21918,6 @@
         },
         "additionalProperties" : true,
         "description" : "This method either only returns a brief _OK_ response or a verbose schema is not available for this method"
-      },
-      "AppsPermissionsInfoResponseInfoIm" : {
-        "type" : "object",
-        "properties" : {
-          "resources" : {
-            "$ref" : "#/components/schemas/ResourcesObj"
-          },
-          "scopes" : {
-            "$ref" : "#/components/schemas/ScopesObj"
-          }
-        }
       },
       "DefaultSuccessResponse36" : {
         "title" : "DefaultSuccessResponse",
@@ -24649,26 +22203,6 @@
         "pattern" : "^(A[A-Z0-9]{1,})?$",
         "type" : "string"
       },
-      "RemindersDeleteErrorResponse" : {
-        "title" : "RemindersDeleteErrorResponse",
-        "required" : [ "error", "ok" ],
-        "type" : "object",
-        "properties" : {
-          "callstack" : {
-            "type" : "string",
-            "description" : "Note: PHP callstack is only visible in dev/qa"
-          },
-          "error" : {
-            "type" : "string",
-            "enum" : [ "not_found", "not_authed", "invalid_auth", "account_inactive", "token_revoked", "no_permission", "org_login_required", "user_is_bot", "invalid_arg_name", "invalid_array_arg", "invalid_charset", "invalid_form_data", "invalid_post_type", "missing_post_type", "team_added_to_org", "invalid_json", "json_not_object", "request_timeout", "upgrade_required", "fatal_error" ]
-          },
-          "ok" : {
-            "$ref" : "#/components/schemas/OkFalseDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for error response from reminders.delete method"
-      },
       "ConversationsLeaveBody" : {
         "type" : "object",
         "properties" : {
@@ -24691,21 +22225,6 @@
           "type" : "object"
         },
         "description" : "Schema for successful response api.test method"
-      },
-      "AppsPermissionsResourcesListResponseResources" : {
-        "type" : "object",
-        "properties" : {
-          "id" : {
-            "title" : "An ID for a resource",
-            "type" : "string",
-            "x-examples" : [ "T0DES3UAN", "C0ABC1ABC" ]
-          },
-          "type" : {
-            "title" : "The type of resource the `id` corresponds to",
-            "type" : "string",
-            "x-examples" : [ "team", "channel", "mpim" ]
-          }
-        }
       },
       "MigrationExchangeResponse" : {
         "title" : "MigrationExchangeResponse",
@@ -25139,21 +22658,6 @@
           }
         }
       },
-      "AppsPermissionsInfoResponse" : {
-        "title" : "AppsPermissionsInfoResponse",
-        "required" : [ "info", "ok" ],
-        "type" : "object",
-        "properties" : {
-          "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
-          },
-          "info" : {
-            "$ref" : "#/components/schemas/AppsPermissionsInfoResponseInfo"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for successful response from apps.permissions.info method"
-      },
       "GroupIdDef" : {
         "title" : "Private Channel ID",
         "pattern" : "^[G][A-Z0-9]{8,}$",
@@ -25205,21 +22709,6 @@
         }, {
           "$ref" : "#/components/schemas/DiscoverableDiscoverableAnyOf12"
         } ]
-      },
-      "RemindersAddResponse" : {
-        "title" : "RemindersAddResponse",
-        "required" : [ "ok", "reminder" ],
-        "type" : "object",
-        "properties" : {
-          "reminder" : {
-            "$ref" : "#/components/schemas/ReminderObj"
-          },
-          "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for successful response from reminders.add method"
       },
       "AdminConversationsGetTeamsResponse" : {
         "title" : "AdminConversationsGetTeamsResponse",
@@ -25304,26 +22793,6 @@
         },
         "additionalProperties" : true,
         "description" : "This method either only returns a brief _not OK_ response or a verbose schema is not available for this method"
-      },
-      "StarsAddErrorResponse" : {
-        "title" : "StarsAddErrorResponse",
-        "required" : [ "error", "ok" ],
-        "type" : "object",
-        "properties" : {
-          "callstack" : {
-            "type" : "string",
-            "description" : "Note: PHP callstack is only visible in dev/qa"
-          },
-          "error" : {
-            "type" : "string",
-            "enum" : [ "bad_timestamp", "message_not_found", "file_not_found", "file_comment_not_found", "channel_not_found", "no_item_specified", "already_starred", "not_authed", "invalid_auth", "account_inactive", "token_revoked", "no_permission", "org_login_required", "invalid_arg_name", "invalid_array_arg", "invalid_charset", "invalid_form_data", "invalid_post_type", "missing_post_type", "team_added_to_org", "invalid_json", "json_not_object", "request_timeout", "upgrade_required", "fatal_error" ]
-          },
-          "ok" : {
-            "$ref" : "#/components/schemas/OkFalseDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for error response from stars.add method"
       },
       "DefaultErrorTemplate10" : {
         "title" : "DefaultErrorTemplate",
@@ -25705,36 +23174,6 @@
         "additionalProperties" : false,
         "description" : "Schema for error response from files.info method"
       },
-      "RemindersAddBody" : {
-        "required" : [ "text", "time" ],
-        "type" : "object",
-        "properties" : {
-          "text" : {
-            "type" : "string",
-            "description" : "The content of the reminder"
-          },
-          "time" : {
-            "type" : "string",
-            "description" : "When this reminder should happen: the Unix timestamp (up to five years from now), the number of seconds until the reminder (if within 24 hours), or a natural language description (Ex. \"in 15 minutes,\" or \"every Thursday\")"
-          },
-          "user" : {
-            "type" : "string",
-            "description" : "The user who will receive the reminder. If no user is specified, the reminder will go to user who created it"
-          }
-        }
-      },
-      "StarsAddResponse" : {
-        "title" : "StarsAddResponse",
-        "required" : [ "ok" ],
-        "type" : "object",
-        "properties" : {
-          "ok" : {
-            "$ref" : "#/components/schemas/OkTrueDef"
-          }
-        },
-        "additionalProperties" : false,
-        "description" : "Schema for successful response from stars.add method"
-      },
       "ConversationsOpenBody" : {
         "type" : "object",
         "properties" : {
@@ -25780,20 +23219,144 @@
         "additionalProperties" : false,
         "description" : "Schema for successful response from files.sharedPublicURL method"
       },
-      "FilesUploadResponse" : {
-        "title" : "FilesUploadResponse",
-        "required" : [ "file", "ok" ],
+      "FilesGetUploadURLExternalBody" : {
+        "required" : [ "filename", "length" ],
         "type" : "object",
         "properties" : {
-          "file" : {
-            "$ref" : "#/components/schemas/FileObj"
+          "filename" : {
+            "type" : "string",
+            "description" : "Name of the file being uploaded."
           },
+          "length" : {
+            "type" : "integer",
+            "description" : "Size in bytes of the file being uploaded."
+          },
+          "snippet_type" : {
+            "type" : "string",
+            "description" : "Syntax type of the snippet being uploaded.",
+            "x-ballerina-name" : "snippetType"
+          },
+          "alt_txt" : {
+            "type" : "string",
+            "description" : "Description of image for screen-reader.",
+            "x-ballerina-name" : "altTxt"
+          }
+        }
+      },
+      "FilesGetUploadURLExternalResponse" : {
+        "title" : "FilesGetUploadURLExternalResponse",
+        "required" : [ "file_id", "ok", "upload_url" ],
+        "type" : "object",
+        "properties" : {
           "ok" : {
             "$ref" : "#/components/schemas/OkTrueDef"
+          },
+          "upload_url" : {
+            "type" : "string",
+            "description" : "URL to send the file contents to with an HTTP POST",
+            "x-ballerina-name" : "uploadUrl"
+          },
+          "file_id" : {
+            "type" : "string",
+            "description" : "ID of the file being uploaded",
+            "x-ballerina-name" : "fileId"
           }
         },
-        "additionalProperties" : false,
-        "description" : "Schema for successful response files.upload method"
+        "description" : "Schema for successful response of files.getUploadURLExternal method",
+        "additionalProperties" : false
+      },
+      "FilesCompleteUploadExternalBody" : {
+        "required" : [ "files" ],
+        "type" : "object",
+        "properties" : {
+          "files" : {
+            "type" : "string",
+            "description" : "A JSON-based array of file IDs and their corresponding (optional) titles, e.g. `[{\"id\":\"F123ABC456\",\"title\":\"slack-test\"}]`, presented as a URL-encoded string."
+          },
+          "channel_id" : {
+            "type" : "string",
+            "description" : "Channel ID where the file will be shared. If not specified the file will be private.",
+            "x-ballerina-name" : "channelId"
+          },
+          "channels" : {
+            "type" : "string",
+            "description" : "Comma-separated string of channel IDs or user IDs where the file will be shared."
+          },
+          "thread_ts" : {
+            "type" : "string",
+            "description" : "Provide another message's `ts` value to upload this file as a reply. Never use a reply's `ts` value; use its parent instead. Also make sure to provide only one channel when using `thread_ts`.",
+            "x-ballerina-name" : "threadTs"
+          },
+          "initial_comment" : {
+            "type" : "string",
+            "description" : "The message text introducing the file in specified channels.",
+            "x-ballerina-name" : "initialComment"
+          },
+          "blocks" : {
+            "type" : "string",
+            "description" : "A JSON-based array of structured rich text blocks, presented as a URL-encoded string. If the `initial_comment` field is provided, the `blocks` field is ignored."
+          },
+          "username" : {
+            "type" : "string",
+            "description" : "Set your bot's user name for the file share message. Requires the `chat:write.customize` scope."
+          },
+          "icon_url" : {
+            "type" : "string",
+            "description" : "URL to an image to use as the icon for the file share message. Requires the `chat:write.customize` scope.",
+            "x-ballerina-name" : "iconUrl"
+          },
+          "icon_emoji" : {
+            "type" : "string",
+            "description" : "Emoji to use as the icon for the file share message. Overrides `icon_url`. Requires the `chat:write.customize` scope.",
+            "x-ballerina-name" : "iconEmoji"
+          }
+        }
+      },
+      "FilesCompleteUploadExternalResponse" : {
+        "title" : "FilesCompleteUploadExternalResponse",
+        "required" : [ "files", "ok" ],
+        "type" : "object",
+        "properties" : {
+          "ok" : {
+            "$ref" : "#/components/schemas/OkTrueDef"
+          },
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/FileObj"
+            }
+          }
+        },
+        "description" : "Schema for successful response of files.completeUploadExternal method",
+        "additionalProperties" : false
+      },
+      "FilesGetUploadURLExternalErrorResponse" : {
+        "title" : "FilesGetUploadURLExternalErrorResponse",
+        "required" : [ "error", "ok" ],
+        "type" : "object",
+        "properties" : {
+          "error" : {
+            "type" : "string"
+          },
+          "ok" : {
+            "$ref" : "#/components/schemas/OkFalseDef"
+          }
+        },
+        "additionalProperties" : false
+      },
+      "FilesCompleteUploadExternalErrorResponse" : {
+        "title" : "FilesCompleteUploadExternalErrorResponse",
+        "required" : [ "error", "ok" ],
+        "type" : "object",
+        "properties" : {
+          "error" : {
+            "type" : "string"
+          },
+          "ok" : {
+            "$ref" : "#/components/schemas/OkFalseDef"
+          }
+        },
+        "additionalProperties" : false
       }
     },
     "requestBodies" : {

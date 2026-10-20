@@ -30,7 +30,7 @@ final slack:Client slack = check new Client({
 
 public function main() returns error? {
     // Fetch the list of channels.
-    slack:ConversationsListResponse channelResponse = check slack->/conversations\.list();
+    slack:ConversationsListResponse channelResponse = check slack->conversationsList();
 
     // Array to store the latest text messages from each channel.
     string[] latestText;
@@ -38,7 +38,7 @@ public function main() returns error? {
     // Iterate through each channel to get the latest message.
     foreach slack:ConversationObj channel in channelResponse.channels {
         // Fetch the conversation history for the current channel.
-        slack:ConversationsHistoryResponse historyResponse = check slack->/conversations\.history({channel: channel.toString()});
+        slack:ConversationsHistoryResponse historyResponse = check slack->conversationsHistory(channel = channel.toString());
 
         // Get the latest text message from the conversation history.
         slack:MessageObj[] messages = historyResponse.messages;
@@ -52,7 +52,7 @@ public function main() returns error? {
     }`;
 
     // Post the stand-up report message to the "general" channel.
-    slack:ChatPostMessageResponse|error postMessageResult = slack->/chat\.postMessage.post({channel: "general", text: textMessage});
+    slack:ChatPostMessageResponse|error postMessageResult = slack->chatPostMessage({channel: "general", text: textMessage});
 
     if postMessageResult is error {
         log:printError("Failed to post message to Slack", postMessageResult);
