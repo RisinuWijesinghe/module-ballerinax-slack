@@ -17211,7 +17211,10 @@
             }
           },
           "blocks" : {
-            "type" : "object"
+            "type" : "array",
+            "items" : {
+              "type" : "object"
+            }
           },
           "text" : {
             "type" : "string"
@@ -23400,9 +23403,60 @@
             "type" : "array",
             "items" : {
               "anyOf" : [ {
-                "required" : [ "text", "ts", "type", "user" ],
+                "required" : [ "parent_user_id", "text", "thread_ts", "ts", "type" ],
                 "type" : "object",
                 "properties" : {
+                  "bot_id" : {
+                    "$ref" : "#/components/schemas/BotIdDef"
+                  },
+                  "is_starred" : {
+                    "type" : "boolean"
+                  },
+                  "parent_user_id" : {
+                    "$ref" : "#/components/schemas/UserIdDef"
+                  },
+                  "source_team" : {
+                    "$ref" : "#/components/schemas/TeamDef"
+                  },
+                  "subtype" : {
+                    "type" : "string"
+                  },
+                  "team" : {
+                    "$ref" : "#/components/schemas/TeamDef"
+                  },
+                  "text" : {
+                    "type" : "string"
+                  },
+                  "thread_ts" : {
+                    "$ref" : "#/components/schemas/TsDef"
+                  },
+                  "ts" : {
+                    "$ref" : "#/components/schemas/TsDef"
+                  },
+                  "type" : {
+                    "type" : "string"
+                  },
+                  "user" : {
+                    "$ref" : "#/components/schemas/UserIdDef"
+                  },
+                  "user_profile" : {
+                    "$ref" : "#/components/schemas/UserProfileShortObj"
+                  },
+                  "user_team" : {
+                    "$ref" : "#/components/schemas/TeamDef"
+                  },
+                  "username" : {
+                    "type" : "string"
+                  }
+                },
+                "additionalProperties" : false
+              }, {
+                "required" : [ "text", "ts", "type" ],
+                "type" : "object",
+                "properties" : {
+                  "bot_id" : {
+                    "$ref" : "#/components/schemas/BotIdDef"
+                  },
                   "last_read" : {
                     "$ref" : "#/components/schemas/TsDef"
                   },
@@ -23427,6 +23481,9 @@
                   },
                   "subscribed" : {
                     "type" : "boolean"
+                  },
+                  "subtype" : {
+                    "type" : "string"
                   },
                   "team" : {
                     "$ref" : "#/components/schemas/TeamDef"
@@ -23454,45 +23511,9 @@
                   },
                   "user_team" : {
                     "$ref" : "#/components/schemas/TeamDef"
-                  }
-                },
-                "additionalProperties" : false
-              }, {
-                "required" : [ "parent_user_id", "text", "thread_ts", "ts", "type", "user" ],
-                "type" : "object",
-                "properties" : {
-                  "is_starred" : {
-                    "type" : "boolean"
                   },
-                  "parent_user_id" : {
-                    "$ref" : "#/components/schemas/UserIdDef"
-                  },
-                  "source_team" : {
-                    "$ref" : "#/components/schemas/TeamDef"
-                  },
-                  "team" : {
-                    "$ref" : "#/components/schemas/TeamDef"
-                  },
-                  "text" : {
+                  "username" : {
                     "type" : "string"
-                  },
-                  "thread_ts" : {
-                    "$ref" : "#/components/schemas/TsDef"
-                  },
-                  "ts" : {
-                    "$ref" : "#/components/schemas/TsDef"
-                  },
-                  "type" : {
-                    "type" : "string"
-                  },
-                  "user" : {
-                    "$ref" : "#/components/schemas/UserIdDef"
-                  },
-                  "user_profile" : {
-                    "$ref" : "#/components/schemas/UserProfileShortObj"
-                  },
-                  "user_team" : {
-                    "$ref" : "#/components/schemas/TeamDef"
                   }
                 },
                 "additionalProperties" : false

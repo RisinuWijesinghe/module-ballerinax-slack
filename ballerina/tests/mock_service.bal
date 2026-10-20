@@ -226,22 +226,132 @@ http:Service mockAPI = service object {
 
     # Get Conversation Replies
     #
-    # + return - A message that has no replies, which Slack returns without thread fields
-    resource isolated function get conversations\.replies() returns json => {
+    # + ts - Timestamp of the parent message, which selects the recorded thread to return
+    # + return - A message without replies, a thread started by a user, or a thread posted by an incoming webhook
+    resource isolated function get conversations\.replies(string ts) returns json {
+        if ts == "1792466505.885929" {
+            return {
+                "ok": true,
+                "messages": [
+                    {
+                        "user": "U0C3F40S9EG",
+                        "type": "message",
+                        "ts": "1792466505.885929",
+                        "bot_id": "B0C6NHTEXFY",
+                        "text": "user thread parent",
+                        "team": "T0C39FE0MFG",
+                        "thread_ts": "1792466505.885929",
+                        "reply_count": 1,
+                        "reply_users_count": 1,
+                        "latest_reply": "1792466506.732069",
+                        "reply_users": ["U0C3F40S9EG"],
+                        "is_locked": false,
+                        "subscribed": true,
+                        "last_read": "1792466506.732069"
+                    },
+                    {
+                        "user": "U0C3F40S9EG",
+                        "type": "message",
+                        "ts": "1792466506.732069",
+                        "bot_id": "B0C6NHTEXFY",
+                        "text": "user thread reply",
+                        "team": "T0C39FE0MFG",
+                        "thread_ts": "1792466505.885929",
+                        "parent_user_id": "U0C3F40S9EG"
+                    }
+                ],
+                "has_more": false
+            };
+        }
+        if ts == "1792466432.867219" {
+            return {
+                "ok": true,
+                "messages": [
+                    {
+                        "subtype": "bot_message",
+                        "text": "webhook thread parent",
+                        "type": "message",
+                        "ts": "1792466432.867219",
+                        "bot_id": "B0CA360244X",
+                        "thread_ts": "1792466432.867219",
+                        "reply_count": 1,
+                        "reply_users_count": 1,
+                        "latest_reply": "1792466473.227499",
+                        "reply_users": ["B0CA360244X"],
+                        "is_locked": false,
+                        "subscribed": false
+                    },
+                    {
+                        "subtype": "bot_message",
+                        "text": "webhook thread reply",
+                        "type": "message",
+                        "ts": "1792466473.227499",
+                        "bot_id": "B0CA360244X",
+                        "thread_ts": "1792466432.867219"
+                    }
+                ],
+                "has_more": false
+            };
+        }
+        return {
+            "ok": true,
+            "messages": [
+                {
+                    "user": "U0C3F40S9EG",
+                    "type": "message",
+                    "ts": "1792462400.691309",
+                    "bot_id": "B0C6NHTEXFY",
+                    "app_id": "A0C7HPSETU0",
+                    "text": "A message without replies",
+                    "team": "T0C39FE0MFG",
+                    "blocks": []
+                }
+            ],
+            "has_more": false
+        };
+    }
+
+    # Update Message
+    #
+    # + return - The updated message, with its blocks as an array
+    resource isolated function post chat\.update(@http:Payload http:Request request) returns json => {
         "ok": true,
-        "messages": [
-            {
+        "channel": "D0C3BBBA890",
+        "ts": "1792465147.962269",
+        "text": "Edited by the Ballerina connector test <https://ballerina.io>",
+        "message": {
+            "user": "U0C3F40S9EG",
+            "type": "message",
+            "edited": {
                 "user": "U0C3F40S9EG",
-                "type": "message",
-                "ts": "1792462400.691309",
-                "bot_id": "B0C6NHTEXFY",
-                "app_id": "A0C7HPSETU0",
-                "text": "A message without replies",
-                "team": "T0C39FE0MFG",
-                "blocks": []
-            }
-        ],
-        "has_more": false
+                "ts": "1792465148.000000"
+            },
+            "bot_id": "B0C6NHTEXFY",
+            "app_id": "A0C7HPSETU0",
+            "text": "Edited by the Ballerina connector test <https://ballerina.io>",
+            "team": "T0C39FE0MFG",
+            "blocks": [
+                {
+                    "type": "rich_text",
+                    "block_id": "pCX7",
+                    "elements": [
+                        {
+                            "type": "rich_text_section",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "Edited by the Ballerina connector test "
+                                },
+                                {
+                                    "type": "link",
+                                    "url": "https://ballerina.io"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
     };
 };
 
